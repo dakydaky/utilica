@@ -25,7 +25,7 @@ $topnav-background-color: #222;
             background: $topnav-background-color;
             border: 0;
             border-radius: 0;
-            color: #999;
+            color: #fff;
             text-decoration: none;
             .fa {
                 margin-right: 10px;
@@ -36,7 +36,7 @@ $topnav-background-color: #222;
             color: #fff;
         }
         a.router-link-active {
-            background: darken($topnav-background-color, 5%);
+            //background: darken($topnav-background-color, 5%);
             color: #fff;
         }
     }

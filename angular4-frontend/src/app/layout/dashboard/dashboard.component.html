@@ -1,6 +1,7 @@
 <div [@routerTransition]>
-    <h2 class="text-muted">Dashboard <small>Statistics Overview</small></h2>
+    <h2 class="text-muted">Utilica Dashboard</h2>
     <div class="row">
+        <!--
         <div class="col-md-12">
             <ngb-carousel>
                 <ng-template ngbSlide *ngFor="let slider of sliders">
@@ -12,39 +13,41 @@
                 </ng-template>
             </ngb-carousel>
         </div>
+    -->
     </div>
-    <hr>
-    <div class="row">
-        <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'card-primary'" [icon]="'fa-comments'" [count]="26" [label]="'New Comments!'" ></app-stat>
-        </div>
-        <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'card-info'" [icon]="'fa-tasks'" [count]="12" [label]="'New task!'" ></app-stat>
-        </div>
-        <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'card-success'" [icon]="'fa-shopping-cart'" [count]="124" [label]="'New Orders!'" ></app-stat>
-        </div>
-        <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'card-danger'" [icon]="'fa-support'" [count]="13" [label]="'New Tickets!'"></app-stat>
-        </div>
-    </div>
+    <!--
     <hr />
     <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
+    -->
     <hr />
     <div class="row">
-        <div class="col-lg-8">
-            <div class="card card-default">
-                <div class="card-header">
-                    <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
-                </div>
-                <!-- /.card-header -->
-                <app-timeline></app-timeline>
-                <!-- /.card-body -->
+        <div class="col-lg-7">
+            <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                            <app-stat [bgClass]="'card-primary'" [icon]="'fa-comments'" [count]="26" [label]="'New Comments!'" ></app-stat>
+                        </div>
             </div>
-            <!-- /.card -->
+            <hr />
+            <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                            <app-stat [bgClass]="'card-info'" [icon]="'fa-tasks'" [count]="12" [label]="'New task!'" ></app-stat>
+                        </div>
+            </div>
+            <hr />
+            <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                            <app-stat [bgClass]="'card-success'" [icon]="'fa-shopping-cart'" [count]="124" [label]="'New Orders!'" ></app-stat>
+                        </div>
+            </div>
+            <hr />
+            <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                            <app-stat [bgClass]="'card-danger'" [icon]="'fa-support'" [count]="13" [label]="'New Tickets!'"></app-stat>
+                        </div>
+            </div>
         </div>
         <!-- /.col-lg-8 -->
-        <div class="col-lg-4">
+        <div class="col-lg-5">
             <div class="card card-default">
                 <div class="card-header">
                     <i class="fa fa-bell fa-fw"></i> Notifications card
@@ -54,8 +57,9 @@
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->
-
+            <!--
             <app-chat></app-chat>
+            -->
             <!-- /.card .chat-card -->
         </div>
         <!-- /.col-lg-4 -->
