@@ -1,44 +1,39 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { Http, HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {TestService} from './test/testService/test.service';
-import {HttpModule} from '@angular/http';
-import { TestComponent } from './test/testService/test/test.component';
-import { HeaderComponent } from './header/header.component';
-
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {FormsModule} from '@angular/forms';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { TenantComponent } from './tenant/tenant.component';
-import { LandlordComponent } from './landlord/landlord.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-
+import { AuthGuard } from './shared';
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: Http) {
+    // for development
+    // return new TranslateHttpLoader(http, '/start-angular/SB-Admin-BS4-Angular-4/master/dist/assets/i18n/', '.json');
+    return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
+}
 @NgModule({
-  declarations: [
-    AppComponent,
-    TestComponent,
-    HeaderComponent,
-    SidebarComponent,
-    TenantComponent,
-    LandlordComponent,
-    WelcomeComponent,
-    LoginComponent,
-    RegisterComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpModule,
-    NgbModule.forRoot(),
-    FormsModule
-  ],
-  providers: [
-    TestService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpModule,
+        AppRoutingModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [Http]
+            }
+        })
+    ],
+    providers: [AuthGuard],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

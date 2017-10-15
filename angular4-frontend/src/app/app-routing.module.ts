@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {WelcomeComponent} from './welcome/welcome.component';
-import {LandlordComponent} from './landlord/landlord.component';
-import {TenantComponent} from './tenant/tenant.component';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
+import { AuthGuard } from './shared';
 
 const routes: Routes = [
-  { path: '', component: WelcomeComponent},
-  { path: 'landlord', component: LandlordComponent},
-  { path: 'tenant', component: TenantComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent}
-
+    {
+        path: '',
+        loadChildren: './layout/layout.module#LayoutModule',
+        canActivate: [AuthGuard]
+    },
+    { path: 'login', loadChildren: './login/login.module#LoginModule' },
+    { path: 'signup', loadChildren: './signup/signup.module#SignupModule' },
+    { path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule' },
+    { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }
