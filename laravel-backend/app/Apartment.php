@@ -11,6 +11,11 @@ class Apartment extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function building()
+    {
+        return $this->belongsTo('App\Apartment');
+    }
+
 
 
 }

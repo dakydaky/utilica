@@ -33,6 +33,11 @@ class Building extends Model
      return $this->hasMany('App\Broadcast');
     }
 
+    public function apartment()
+    {
+        return $this->hasMany('App\Apartment');
+    }
+
 
 
 }

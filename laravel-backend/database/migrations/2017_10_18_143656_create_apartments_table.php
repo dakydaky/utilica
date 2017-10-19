@@ -17,6 +17,9 @@ class CreateApartmentsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('user_id');
+            $table->integer('building_id');
+            $table->string('apartmentName');
+            $table->string('passKey',16)->unique();
             $table->timestamps();
         });
     }

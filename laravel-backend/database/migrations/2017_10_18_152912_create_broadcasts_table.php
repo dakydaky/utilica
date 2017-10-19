@@ -16,6 +16,8 @@ class CreateBroadcastsTable extends Migration
         Schema::create('broadcasts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('building_id');
+            $table->longText('text');
+            $table->string('title');
             $table->timestamps();
         });
     }

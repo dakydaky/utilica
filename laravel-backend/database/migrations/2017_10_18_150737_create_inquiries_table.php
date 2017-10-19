@@ -17,6 +17,7 @@ class CreateInquiriesTable extends Migration
             $table->increments('id');
             $table->integer('user_id'); // tenet
             $table->integer('building_id');
+            $table->longText('text');
             $table->timestamps();
         });
     }
