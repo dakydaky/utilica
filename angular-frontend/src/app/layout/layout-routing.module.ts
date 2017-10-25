@@ -15,6 +15,7 @@ const routes: Routes = [
             { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
             { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
             { path: 'building', loadChildren: './building/building.module#BuildingModule' },
+            { path: 'building-info', loadChildren: './building-info/building-info.module#BuildingInfoModule' },
             { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
             { path: 'help', loadChildren: './help/help.module#HelpModule' },
 

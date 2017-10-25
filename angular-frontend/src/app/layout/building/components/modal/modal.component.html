@@ -1,25 +1,39 @@
-<div class="row">
-    <div class="col-sm-12">
-        <div class="card mb-3">
-            <div class="card-header">Modal</div>
-            <!-- Large modal -->
-            <div class="card-block">
-                <button class="btn btn-primary" (click)="open(content)">Large modal</button>
+
+		<button type="button" (click)="open(content)" class = "btn btn-primary pull-right btn-success navbar-btn" data-toggle="modal" data-target="#addBuilding"><i class="fa fa-plus"></i>&nbsp;Add Building</button>
                 <ng-template #content let-c="close" let-d="dismiss">
                     <div class="modal-header">
-                        <h4 class="modal-title">Modal title</h4>
+                        <h4 class="modal-title">Add Building</h4>
                         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+					<form role="form" #f="ngForm" (ngSubmit)="registar(f.value)" >
                     <div class="modal-body">
-                        <p>One fine body&hellip;</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="form-inline">
+                                    Building Name: &nbsp; <input type="text" name="username" ngModel class="form-control input-underline input-lg" id="" >
+                                </div>
+							</li>
+                            <li class="list-group-item">
+                                <div class="form-inline">
+                                        <div class="input-group number-spinner col-md-7">
+                                            <span class="input-group-btn">
+                                                <a class="btn btn-danger" data-dir="dwn"><span class="glyphicon glyphicon-minus"></span></a>
+                                            </span>
+                                            <input type="text" disabled name="adult" id="adult" class="form-control text-center" value="1" max=9 min=1>
+                                                <span class="input-group-btn">
+                                            <a class="btn btn-info" data-dir="up"><span class="glyphicon glyphicon-plus"></span></a>
+                                        </span>
+                                    </div>
+                                </div>
+							</li>
+                        </ul>
+					
                     </div>
                     <div class="modal-footer">
+					    <button type="submit" class="btn btn-success rounded-btn"> Confirm </button>
                         <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
                     </div>
+					</form>
                 </ng-template>
-            </div>
-        </div>
-    </div>
-</div>

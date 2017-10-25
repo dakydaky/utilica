@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { BuildingComponent } from './building.component';
+
+import {
+    ModalComponent
+} from './components';
 
 describe('BuildingComponent', () => {
   let component: BuildingComponent;
@@ -8,7 +14,13 @@ describe('BuildingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BuildingComponent ]
+	  imports: [
+	    FormsModule,
+        ReactiveFormsModule,
+        NgbModule.forRoot()
+		],
+      declarations: [ BuildingComponent, ModalComponent
+	  ]
     })
     .compileComponents();
   }));
