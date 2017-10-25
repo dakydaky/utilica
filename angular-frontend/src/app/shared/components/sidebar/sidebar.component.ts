@@ -5,9 +5,12 @@ import { Component } from '@angular/core';
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.scss']
 })
+
 export class SidebarComponent {
+	test = 1;
     isActive = false;
     showMenu = '';
+	
     eventCalled() {
         this.isActive = !this.isActive;
     }
@@ -18,4 +21,8 @@ export class SidebarComponent {
             this.showMenu = element;
         }
     }
+	
+	changeTest(view) {
+		this.test=view;
+	}
 }
