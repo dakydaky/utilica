@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
+import {CommonService} from '../commonService/common.service';
 
 @Component({
     selector: 'app-login',
@@ -10,14 +11,22 @@ import { routerTransition } from '../router.animations';
 })
 export class LoginComponent implements OnInit {
 
-    constructor(public router: Router) {
+    constructor(public router: Router, private service: CommonService) {
     }
 
     ngOnInit() {
     }
 
-    onLoggedin() {
-        localStorage.setItem('isLoggedin', 'true');
+    onLoggedin(data) {
+        this.service.post('login', data).then(resp => {
+            if (resp.email != null) {
+                localStorage.setItem('isLoggedin', 'true');
+                localStorage.setItem('user', JSON.stringify(resp));
+                this.router.navigateByUrl('');
+            } else {
+                alert('Error. You put wrong email or password.');
+            }
+        })
     }
 
 }

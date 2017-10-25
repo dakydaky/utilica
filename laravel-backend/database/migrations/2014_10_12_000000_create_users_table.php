@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('firstName');
             $table->string('lastName');
             $table->string('personalNumber');
+            $table->string('jwt', 60)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

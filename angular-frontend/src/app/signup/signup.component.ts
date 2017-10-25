@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../router.animations';
+import {CommonService} from '../commonService/common.service';
+import { Router} from '@angular/router';
 
 @Component({
     selector: 'app-signup',
@@ -9,7 +11,33 @@ import { routerTransition } from '../router.animations';
 })
 export class SignupComponent implements OnInit {
 
-    constructor() { }
+    constructor(private service: CommonService, private router: Router) { }
 
     ngOnInit() { }
+
+    registar(data) {
+
+        if ( data.password === data.repassword ){
+            if ( data.firstName === '' || data.lastName === '' || data.email === '' ||
+                data.password === '' || data.username === '' ||
+                data.type === '' || data.personalNumber === '') {
+                alert('Some of inputted data is empty.');
+                return;
+            }
+
+            this.service.post('register', data).then( resp => {
+
+                if (resp.message === 'OK') {
+                    this.router.navigateByUrl('/login');
+                    return;
+                }
+
+                alert("You didn't input all data right");
+
+            });
+        }else {
+            alert('Password and repassword are not same.');
+        }
+
+    }
 }

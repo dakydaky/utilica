@@ -2,25 +2,45 @@
     <div class="row">
         <div class="col-md-4 push-md-4">
             <img class="user-avatar" src="assets/images/logo.png" width="150px" />
-            <h1>SB Admin BS4 Angular4</h1>
-            <form role="form">
+            <h1>Register</h1>
+            <form role="form" #f="ngForm" (ngSubmit)="registar(f.value)" >
                 <div class="form-content">
+
                     <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Full Name">
+                        <input type="text" name="username" ngModel class="form-control input-underline input-lg" id="" placeholder="username">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
+                        <input type="text" name="email" ngModel class="form-control input-underline input-lg" id="" placeholder="Email">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+                        <input type="password" name="password" ngModel class="form-control input-underline input-lg" id="" placeholder="Password">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+                        <input type="password" name="repassword" ngModel class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" ngModel name="firstName" class="form-control input-underline input-lg" id="" placeholder="firstname">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" ngModel name="lastName" class="form-control input-underline input-lg" id="" placeholder="lastname">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" ngModel name="personalNumber" class="form-control input-underline input-lg" id="" placeholder="personal number">
+                    </div>
+
+                    <div class="form-group">
+                        <select name="type" ngModel id="">
+                            <option value="tenet">Tenet</option>
+                            <option value="landlord">Landlord</option>
+                        </select>
                     </div>
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/dashboard']"> Register </a>&nbsp;
+                <button type="submit" class="btn rounded-btn"> Register </button>
                 <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
             </form>
         </div>

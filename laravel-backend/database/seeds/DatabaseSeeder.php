@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
-//        $u = new App\User();
+        $u = new App\User();
 //        $u['username']= 'kizz';
 //        $u->save();
 //
