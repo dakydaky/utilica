@@ -2,58 +2,29 @@
         <strong>Buildings</strong>
 		<app-modal></app-modal>
     </div>
-	
-	
+
+
 	<div class="row">
-        <div class="col-sm-4 text-xs-center">
+
+        <div class="col-sm-4 text-xs-center" *ngFor="let building of buildings">
             <div class="card card-default">
-			<img class="img-responsive center-block card-img-top" src="http://clipartix.com/wp-content/uploads/2016/06/Building-clip-art-images-free-clipart-images.png" width="20%" alt="Card image cap">
+                <img class="img-responsive center-block card-img-top" src="http://clipartix.com/wp-content/uploads/2016/06/Building-clip-art-images-free-clipart-images.png" width="20%" alt="Card image cap">
                 <div class="card-block">
-                    <h4 class="text-center card-title">Building 1</h4>
+                    <h4 class="text-center card-title">{{ building.buildingName }}</h4>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Apartments: </li>
                     <li class="list-group-item">Notifications: </li>
                 </ul>
-			    <div class="card-block">
-                    <a href="#" class="btn btn-primary">View</a>
-                    <a href="#" class="btn btn-info">Modify</a>
-                    <a href="#" class="btn pull-right btn-danger">Delete</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 text-xs-center">
-            <div class="card card-default">
-			<img class="img-responsive center-block card-img-top" src="http://clipartix.com/wp-content/uploads/2016/06/Building-clip-art-images-free-clipart-images.png" width="20%" alt="Card image cap">
                 <div class="card-block">
-                    <h4 class="text-center card-title">Building 2</h4>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Apartments: </li>
-                    <li class="list-group-item">Notifications: </li>
-                </ul>
-			    <div class="card-block">
                     <a href="#" class="btn btn-primary">View</a>
                     <a href="#" class="btn btn-info">Modify</a>
                     <a href="#" class="btn pull-right btn-danger">Delete</a>
                 </div>
             </div>
+
         </div>
-        <div class="col-sm-4 text-xs-center">
-            <div class="card card-default">
-			<img class="img-responsive center-block card-img-top" src="http://clipartix.com/wp-content/uploads/2016/06/Building-clip-art-images-free-clipart-images.png" width="20%" alt="Card image cap">
-                <div class="card-block">
-                    <h4 class="text-center card-title">Building 3</h4>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Apartments: </li>
-                    <li class="list-group-item">Notifications: </li>
-                </ul>
-			    <div class="card-block">
-                    <a href="#" class="btn btn-primary">View</a>
-                    <a href="#" class="btn btn-info">Modify</a>
-                    <a href="#" class="btn pull-right btn-danger">Delete</a>
-                </div>
-            </div>
-        </div>
-        </div>
+
+
+
+    </div>
