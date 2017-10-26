@@ -1,4 +1,4 @@
-
+        <i class="mdi mdi-map-marker-plus"></i>
 		<button type="button" (click)="open(content)" class = "btn btn-primary pull-right btn-success navbar-btn" data-toggle="modal" data-target="#addBuilding"><i class="fa fa-plus"></i>&nbsp;Add Building</button>
                 <ng-template #content let-c="close" let-d="dismiss">
                     <div class="modal-header">
@@ -8,30 +8,35 @@
                         </button>
                     </div>
 					<form role="form" #f="ngForm" (ngSubmit)="registar(f.value)" >
-                    <div class="modal-body">
+                    <div class="modal-body form-content">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                                <div class="form-inline">
-                                    Building Name: &nbsp; <input type="text" name="username" ngModel class="form-control input-underline input-lg" id="" >
+                                <div class="row form-inline">
+								<div class = "row">
+                                    <div class="col-sm-5">Building Name: &nbsp;</div> <input type="text" name="buildingName" ngModel class=" form-control input-underline input-lg" id="" >
                                 </div>
-							</li>
-                            <li class="list-group-item">
-                                <div class="form-inline">
-                                        <div class="input-group number-spinner col-md-7">
-								    Apartments: &nbsp;&nbsp;&nbsp;
-                                            <span class="input-group-btn">
-                                                <a class="btn btn-danger" data-dir="dwn"><i class="fa fa-minus"></i></a>
-                                            </span>
-                                            <input type="text" disabled name="adult" id="adult" class="form-control text-center" value="1" max=9 min=1>
-                                            <span class="input-group-btn">
-                                                <a class="btn btn-info" data-dir="up"><i class="fa fa-plus"></i></a>
-                                            </span>
-											
-                                    </div>
-                                </div>
+								</div>
 							</li>
 							<li class="list-group-item">
-							
+                                <div class="row form-inline">  
+                                <div class = "row">								
+                                    <div class="col-sm-5"> Address: &nbsp;</div> <input type="text" name="address" ngModel class=" form-control input-underline input-lg text-center" id="">									
+                               </div>
+							   </div>							     
+							</li>
+							<li class="list-group-item">
+                                <div class="row form-inline">
+                                <div class="row">								
+                                     <div class="col-xl-4"> City: &nbsp;</div><input type="text" name="city" ngModel class="form-control input-underline input-lg text-center" id="">									
+                                </div>
+								</div>							     
+							</li>
+                            <li class="list-group-item">
+                                <div class="row form-inline">
+								<div class = "row">
+                                    <div class="col-sm-5"> Apartments: &nbsp;</div><input type="text" name="numApp" ngModel class="col-sm-3 form-control input-underline input-lg text-center" value="1">									
+                                </div>
+							    </div>
 							</li>
                         </ul>
 					
