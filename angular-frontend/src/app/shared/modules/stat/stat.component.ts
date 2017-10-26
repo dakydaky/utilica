@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-stat',
@@ -6,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
     styleUrls: ['./stat.component.scss']
 })
 export class StatComponent implements OnInit {
+    constructor(public router: Router) { }
     @Input() bgClass: string;
     @Input() icon: string;
     @Input() count: number;
@@ -15,6 +17,11 @@ export class StatComponent implements OnInit {
     @Output() event: EventEmitter<any> = new EventEmitter();
 
     ngOnInit() {
-        console.log(this.routerLink);
+    }
+
+    redirect() {
+        if(this.routerLink === '/broadcast'){
+            this.router.navigate(['/broadcast']);
+        }
     }
 }

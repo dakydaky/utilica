@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
     }
 
     onLoggedin(data) {
+        console.log(data);
         //debugger;
         this.service.post('login', data).then(resp => {
            // debugger;

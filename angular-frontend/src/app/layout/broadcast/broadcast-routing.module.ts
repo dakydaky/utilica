@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { BroadcastComponent } from './broadcast.component';
 
 const routes: Routes = [
-    { path: '/broadcast', component: BroadcastComponent }
+    { path: '', component: BroadcastComponent }
 ];
 
 @NgModule({

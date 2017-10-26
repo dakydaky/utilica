@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CommonService} from '../../commonService/common.service';
 
 @Component({
   selector: 'app-building-info',
@@ -6,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./building-info.component.scss']
 })
 export class BuildingInfoComponent implements OnInit {
-  constructor() {
+  data;
+  constructor(private service: CommonService) {
   }
   ngOnInit() {
-  }
+    //const data = (JSON.parse(localStorage.getItem('user')));
+    //const userType = data.type;
+}
 
 }
