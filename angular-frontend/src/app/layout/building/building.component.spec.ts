@@ -5,7 +5,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BuildingComponent } from './building.component';
 
 import {
-    ModalComponent
+    ModalComponent,
+	ModalEditComponent,
+	ModalDeleteComponent
 } from './components';
 
 describe('BuildingComponent', () => {
@@ -19,7 +21,7 @@ describe('BuildingComponent', () => {
         ReactiveFormsModule,
         NgbModule.forRoot()
 		],
-      declarations: [ BuildingComponent, ModalComponent
+      declarations: [ BuildingComponent, ModalComponent, ModalEditComponent, ModalDeleteComponent
 	  ]
     })
     .compileComponents();
