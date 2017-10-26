@@ -1,23 +1,73 @@
+<!--<div class="login-page" [@routerTransition]>-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-4 push-md-4">-->
+            <!--<img src="assets/images/logo.png" width="150px" class="user-avatar" />-->
+            <!--<h1>SB Admin BS4 Angular4</h1>-->
+
+            <!--<form #f="ngForm" (ngSubmit)="onLoggedin(f.value)">-->
+                <!--<div class="form-content">-->
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" id="email" name="email" ngModel class="form-control input-underline input-lg" placeholder="Email">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="password" id="password" ngModel name="password" class="form-control input-underline input-lg" placeholder="Password">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<button type="submit" class="btn rounded-btn"> Log in </button>-->
+                <!--&nbsp;-->
+                <!--<a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
+
 <div class="login-page" [@routerTransition]>
-    <div class="row">
-        <div class="col-md-4 push-md-4">
-            <img src="assets/images/logo.png" width="150px" class="user-avatar" />
-            <h1>SB Admin BS4 Angular4</h1>
+    <div class="da1 row background">
+        <div class="tabL col-sm-8">
+            <div class ="container-fluid">
+                <div class="pull-left">
+                    <img src="assets/images/logo.png" width="170px" class="user-avatar" />
+                    <h1>Welcome to Utilica</h1>
 
-            <form #f="ngForm" (ngSubmit)="onLoggedin(f.value)">
-                <div class="form-content">
-                    <div class="form-group">
-                        <input type="text" id="email" name="email" ngModel class="form-control input-underline input-lg" placeholder="Email">
-                    </div>
+                    <form #f="ngForm" (ngSubmit)="onLoggedin(f.value)">
+                        <div class="form-content">
+                            <div class="form-group">
+                                <input type="text" id="email" name="email" ngModel class="form-control input-underline input-lg" placeholder="Email">
+                            </div>
 
-                    <div class="form-group">
-                        <input type="password" id="password" ngModel name="password" class="form-control input-underline input-lg" placeholder="Password">
-                    </div>
+                            <div class="form-group">
+                                <input type="password" id="password" ngModel name="password" class="form-control input-underline input-lg" placeholder="Password">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn rounded-btn"> Log in </button>
+                        &nbsp;
+                        <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
+                    </form>
                 </div>
-                <button type="submit" class="btn rounded-btn"> Log in </button>
-                &nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
-            </form>
+            </div>
         </div>
+
+
+        <div class="tabR col-sm-4">
+            <!-- <div class="con">
+            <button type="button" class="btn btn-default">ABOUT</button>
+            </div> -->
+
+
+            <div class="contentBox">About</div>
+
+
+            <div class="pull-right">
+                2017.
+            </div>
+        </div>
+
     </div>
+
+
+
 </div>
