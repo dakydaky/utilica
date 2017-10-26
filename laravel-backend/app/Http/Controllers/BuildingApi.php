@@ -13,16 +13,24 @@ class BuildingApi extends Controller
         $u = App\User::where('jwt', $jwt)->first();
         if($u != null) {
             $b = $u->buildings;
-//            for( $i = 0; $i < count($b); $i++)
-//            {
-//                $b['noOfApartmants'] = count($b[$i]->apartment);
-//            }
+
+            foreach ( $b as $el)
+            {
+                $el->no = count($el->apartment);
+            }
             return json_encode($b);
         }
         else
         {
             return [ 'message' => 'error'];
         }
+    }
+
+
+    public function numberOfApartemnts(Request $r)
+    {
+        $b = App\Building::find(1);
+        return json_encode(count($b->apartment));
     }
 
     public function createBuilding(Request $r)

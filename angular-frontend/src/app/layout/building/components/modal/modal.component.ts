@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import {CommonService} from '../../../../commonService/common.service';
 
 @Component({
     selector: 'app-modal',
@@ -8,7 +9,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModalComponent {
     closeResult: string;
-    constructor(private modalService: NgbModal) { }
+    constructor(private modalService: NgbModal, private service: CommonService) { }
 
     open(content) {
         this.modalService.open(content).result.then((result) => {
@@ -26,5 +27,12 @@ export class ModalComponent {
         } else {
             return  `with: ${reason}`;
         }
+    }
+
+
+    registar(data) {
+
+        // return this.service.post()
+
     }
 }
