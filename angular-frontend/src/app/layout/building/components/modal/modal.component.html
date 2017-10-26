@@ -1,5 +1,5 @@
         <i class="mdi mdi-map-marker-plus"></i>
-		<button type="button" (click)="open(content)" class = "btn btn-primary pull-right btn-success navbar-btn" data-toggle="modal" data-target="#addBuilding"><i class="fa fa-plus"></i>&nbsp;Add Building</button>
+		<button type="button" (click)="open(content)" class = "btn pull-right btn-success" data-toggle="modal" data-target="#addBuilding"><i class="fa fa-plus"></i>&nbsp;Add Building</button>
                 <ng-template #content let-c="close" let-d="dismiss">
                     <div class="modal-header">
                         <h4 class="modal-title">Add Building</h4>
@@ -13,28 +13,28 @@
                             <li class="list-group-item">
                                 <div class="row form-inline">
 								<div class = "row">
-                                    <div class="col-sm-5">Building Name: &nbsp;</div> <input type="text" name="buildingName" ngModel class=" form-control input-underline input-lg" id="" >
+                                    <div class="col-sm">Building Name: &nbsp;</div> <input type="text" name="buildingName" ngModel class=" form-control input-underline input-lg" id="" >
                                 </div>
 								</div>
 							</li>
 							<li class="list-group-item">
                                 <div class="row form-inline">  
                                 <div class = "row">								
-                                    <div class="col-sm-5"> Address: &nbsp;</div> <input type="text" name="address" ngModel class=" form-control input-underline input-lg text-center" id="">									
+                                    <div class="col-sm"> Address: &nbsp;</div><input type="text" name="address" ngModel class=" form-control input-underline input-lg text-center" id="">							
                                </div>
 							   </div>							     
 							</li>
 							<li class="list-group-item">
                                 <div class="row form-inline">
                                 <div class="row">								
-                                     <div class="col-xl-4"> City: &nbsp;</div><input type="text" name="city" ngModel class="form-control input-underline input-lg text-center" id="">									
+                                     <div class="col-sm"> City: &nbsp;</div><input type="text" name="city" ngModel class="form-control input-underline input-lg text-center" id="">									
                                 </div>
 								</div>							     
 							</li>
                             <li class="list-group-item">
                                 <div class="row form-inline">
 								<div class = "row">
-                                    <div class="col-sm-5"> Apartments: &nbsp;</div><input type="text" name="numApp" ngModel class="col-sm-3 form-control input-underline input-lg text-center" value="1">									
+                                    <div class="col-sm"> Apartments: &nbsp;</div><input type="text" name="numApp" ngModel class=" col-sm-4 form-control input-underline input-lg text-center" value="1">									
                                 </div>
 							    </div>
 							</li>
@@ -42,118 +42,8 @@
 					
                     </div>
                     <div class="modal-footer">
-					    <button type="submit" class="btn btn-success rounded-btn"> Confirm </button>
+					    <button type="submit" class="btn btn-success rounded-btn" (click)="c('Close click')"> Confirm </button>
                         <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
                     </div>
 					</form>
                 </ng-template>
-
-				<script>
-				$(function () { 
-    var $popover = $('.popover-markup>.trigger').popover({
-      html: true,
-      placement: 'bottom',
-      // title: '<?= lang("Select passengers");?><a class="close demise");">×</a>',
-      content: function () {
-          return $(this).parent().find('.content').html();
-      }
-    });
-
-    // open popover & inital value in form
-    var passengers = [1,0,0];
-    $('.popover-markup>.trigger').click(function (e) {
-        e.stopPropagation();
-        $(".popover-content input").each(function(i) {
-            $(this).val(passengers[i]);
-        });
-    });
-    // close popover
-    $(document).click($(function () { 
-    var $popover = $('.popover-markup>.trigger').popover({
-      html: true,
-      placement: 'bottom',
-      // title: '<?= lang("Select passengers");?><a class="close demise");">×</a>',
-      content: function () {
-          return $(this).parent().find('.content').html();
-      }
-    });
-
-    // open popover & inital value in form
-    var passengers = [1,0,0];
-    $('.popover-markup>.trigger').click(function (e) {
-        e.stopPropagation();
-        $(".popover-content input").each(function(i) {
-            $(this).val(passengers[i]);
-        });
-    });
-    // close popover
-    $(document).click(function (e) {
-        if ($(e.target).is('.demise')) {        
-            $('.popover-markup>.trigger').popover('hide');
-        }
-    });
-// store form value when popover closed
- $popover.on('hide.bs.popover', function () {
-    $(".popover-content input").each(function(i) {
-        passengers[i] = $(this).val();
-    });
-  });
-    // spinner(+-btn to change value) & total to parent input 
-    $(document).on('click', '.number-spinner a', function () {
-        var btn = $(this),
-        input = btn.closest('.number-spinner').find('input'),
-        total = $('#passengers').val(),
-        oldValue = input.val().trim();
-
-    if (btn.attr('data-dir') == 'up') {
-      if(oldValue < input.attr('max')){
-        oldValue++;
-        total++;
-      }
-    } else {
-      if (oldValue > input.attr('min')) {
-        oldValue--;
-        total--;
-      }
-    }
-    $('#passengers').val(total);
-    input.val(oldValue);
-  });
-  $(".popover-markup>.trigger").popover('show');
-});function (e) {
-        if ($(e.target).is('.demise')) {        
-            $('.popover-markup>.trigger').popover('hide');
-        }
-    });
-// store form value when popover closed
- $popover.on('hide.bs.popover', function () {
-    $(".popover-content input").each(function(i) {
-        passengers[i] = $(this).val();
-    });
-  });
-    // spinner(+-btn to change value) & total to parent input 
-    $(document).on('click', '.number-spinner a', function () {
-        var btn = $(this),
-        input = btn.closest('.number-spinner').find('input'),
-        total = $('#passengers').val(),
-        oldValue = input.val().trim();
-
-    if (btn.attr('data-dir') == 'up') {
-      if(oldValue < input.attr('max')){
-        oldValue++;
-        total++;
-      }
-    } else {
-      if (oldValue > input.attr('min')) {
-        oldValue--;
-        total--;
-      }
-    }
-    $('#passengers').val(total);
-    input.val(oldValue);
-  });
-  $(".popover-markup>.trigger").popover('show');
-});
-				
-				
-				</script>
