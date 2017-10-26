@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App;
+use function MongoDB\BSON\toJSON;
 
 class UserApi extends Controller
 {
@@ -14,16 +16,13 @@ class UserApi extends Controller
             $user = new App\User();
             $user->firstname = $r->get('firstName');
             $user->lastname = $r->get('lastName');
-            $user->password = bcrypt($r->get('password'));
+            $user->password = Hash::make($r->post('password'));
             $user->username = $r->get('username');
             $user->type = $r->get('type');
             $user->email = $r->get('email');
             $user->personalNumber = $r->get('personalNumber');
 
             $user->save();
-            // $r->getContent()
-//            $a = [];
-//            array_add($a,'message', 'OK');
 
             return [ 'message' => 'OK'];
         }
@@ -40,21 +39,41 @@ class UserApi extends Controller
 
     public function loginUser(Request $r)
     {
-        $email = $r->post('email');
-        $password = bcrypt($r->post('password'));
-        // bcript for password
+        $e = $r->post('email');
+        $u = App\User::where('email', $e)->first();
+        if($u != null)
+        {
+            $pass = $u->password;
 
-        $u = App\User::where('email', $email)->first();
-
-        if(isset($u->password)) {
+            if(Hash::check($r->post('password'), $pass)) {
             $u->jwt = bcrypt($u->randomString(6));
             $u->save();
             unset($u->id);
             unset($u->password);
             return json_encode($u);
+            }
+
+        }else
+        {
+            $u = App\User::where('username', $e)->first();
+
+            if( $u != null) {
+
+                $pass = $u->password;
+
+                if (Hash::check($r->post('password'), $pass)) {
+                    $u->jwt = bcrypt($u->randomString(6));
+                    $u->save();
+                    unset($u->id);
+                    unset($u->password);
+                    return json_encode($u);
+                }
+            }
         }
 
-        return json_encode("error");
+
+
+        return 'NULL';
 
 
     }
