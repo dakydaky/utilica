@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
     }
 
     onLoggedin(data) {
+        console.log(data);
         this.service.post('login', data).then(resp => {
             if (resp.email != null) {
                 localStorage.setItem('isLoggedin', 'true');
