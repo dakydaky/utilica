@@ -53,7 +53,7 @@ class UserApi extends Controller
             return json_encode($u);
             }
 
-        }else
+        } else
         {
             $u = App\User::where('username', $e)->first();
 
@@ -71,9 +71,7 @@ class UserApi extends Controller
             }
         }
 
-
-
-        return 'NULL';
+        return [ 'message' => 'error'];
 
 
     }

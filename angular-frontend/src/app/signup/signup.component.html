@@ -1,48 +1,120 @@
+<!--<div class="login-page" [@routerTransition]>-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-4 push-md-4">-->
+            <!--<img class="user-avatar" src="assets/images/logo.png" width="150px" />-->
+            <!--<h1>Register</h1>-->
+            <!--<form role="form" #f="ngForm" (ngSubmit)="registar(f.value)" >-->
+                <!--<div class="form-content">-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" name="username" ngModel class="form-control input-underline input-lg" id="" placeholder="username">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" name="email" ngModel class="form-control input-underline input-lg" id="" placeholder="Email">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="password" name="password" ngModel class="form-control input-underline input-lg" id="" placeholder="Password">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<input type="password" name="repassword" ngModel class="form-control input-underline input-lg" id="" placeholder="Repeat Password">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" ngModel name="firstName" class="form-control input-underline input-lg" id="" placeholder="firstname">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" ngModel name="lastName" class="form-control input-underline input-lg" id="" placeholder="lastname">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" ngModel name="personalNumber" class="form-control input-underline input-lg" id="" placeholder="personal number">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<select name="type" ngModel id="">-->
+                            <!--<option value="tenet">Tenet</option>-->
+                            <!--<option value="landlord">Landlord</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<button type="submit" class="btn rounded-btn"> Register </button>-->
+                <!--<a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
 <div class="login-page" [@routerTransition]>
-    <div class="row">
-        <div class="col-md-4 push-md-4">
-            <img class="user-avatar" src="assets/images/logo.png" width="150px" />
-            <h1>Register</h1>
-            <form role="form" #f="ngForm" (ngSubmit)="registar(f.value)" >
-                <div class="form-content">
 
-                    <div class="form-group">
-                        <input type="text" name="username" ngModel class="form-control input-underline input-lg" id="" placeholder="username">
-                    </div>
 
-                    <div class="form-group">
-                        <input type="text" name="email" ngModel class="form-control input-underline input-lg" id="" placeholder="Email">
-                    </div>
+    <div class="da1 row background">
+        <div class="tabL col-sm-8">
+            <div class ="container-fluid">
+                <div class="pull-left">
+                    <img class="user-avatar" src="assets/images/logo.png" width="140px" />
+                    <h1>Create a new account</h1>
 
-                    <div class="form-group">
-                        <input type="password" name="password" ngModel class="form-control input-underline input-lg" id="" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="repassword" ngModel class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
-                    </div>
+                    <form role="form" #f="ngForm" (ngSubmit)="registar(f.value)" >
+                        <div class="form-content">
 
-                    <div class="form-group">
-                        <input type="text" ngModel name="firstName" class="form-control input-underline input-lg" id="" placeholder="firstname">
-                    </div>
+                            <div class="form-group">
+                                <input type="text" name="username" ngModel class="form-control input-underline input-lg" id="" placeholder="username">
+                            </div>
 
-                    <div class="form-group">
-                        <input type="text" ngModel name="lastName" class="form-control input-underline input-lg" id="" placeholder="lastname">
-                    </div>
+                            <div class="form-group">
+                                <input type="text" name="email" ngModel class="form-control input-underline input-lg" id="" placeholder="Email">
+                            </div>
 
-                    <div class="form-group">
-                        <input type="text" ngModel name="personalNumber" class="form-control input-underline input-lg" id="" placeholder="personal number">
-                    </div>
+                            <div class="form-group">
+                                <input type="password" name="password" ngModel class="form-control input-underline input-lg" id="" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="repassword" ngModel class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+                            </div>
 
-                    <div class="form-group">
-                        <select name="type" ngModel id="">
-                            <option value="tenet">Tenet</option>
-                            <option value="landlord">Landlord</option>
-                        </select>
-                    </div>
+                            <div class="form-group">
+                                <input type="text" ngModel name="firstName" class="form-control input-underline input-lg" id="" placeholder="firstname">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" ngModel name="lastName" class="form-control input-underline input-lg" id="" placeholder="lastname">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" ngModel name="personalNumber" class="form-control input-underline input-lg" id="" placeholder="personal number">
+                            </div>
+
+                            <div class="form-group">
+                                <select name="type" ngModel id="">
+                                    <option value="tenet">Tenet</option>
+                                    <option value="landlord">Landlord</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn rounded-btn"> Register </button>
+                        <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
+                    </form>
                 </div>
-                <button type="submit" class="btn rounded-btn"> Register </button>
-                <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
-            </form>
+            </div>
+        </div>
+
+
+        <div class="tabR col-sm-4">
+
+            <div class="contentBox">
+                About
+            </div>
+
+            <div class="pull-right">
+                2017.
+
+            </div>
+
         </div>
     </div>
 </div>

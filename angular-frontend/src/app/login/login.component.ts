@@ -23,10 +23,10 @@ export class LoginComponent implements OnInit {
            // debugger;
             if (resp.email != null) {
                 localStorage.setItem('isLoggedin', 'true');
-                localStorage.setItem('user', JSON.stringify(resp));
+                localStorage.setItem('user', resp);
                 this.router.navigateByUrl('');
             } else {
-                alert('Error. You put wrong email or password.');
+                alert(resp.message);
             }
         })
     }

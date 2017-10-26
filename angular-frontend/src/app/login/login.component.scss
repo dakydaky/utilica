@@ -2,17 +2,34 @@ $topnav-background-color: #222;
 :host {
     display: block;
 }
-.login-page {
+
+.da1 {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+
+
+
+.tabL {
+    padding: 2em;
+}
+
+.login-page  {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     overflow: auto;
-    background: $topnav-background-color;
+    background-size:cover;
+    background: url("../../assets/images/login-image.jpg");
+    background-size: 100% auto;
     text-align: center;
     color: #fff;
-    padding: 3em;
+
+
     .col-lg-4{
         padding :0;
     }
@@ -37,25 +54,29 @@ $topnav-background-color: #222;
     }
     .rounded-btn{
         -webkit-border-radius: 50px;
-                border-radius: 50px;
+        border-radius: 50px;
         color: rgba(255,255,255,0.8);
         background: $topnav-background-color;
         border: 2px solid rgba(255,255,255,0.8);
-        font-size: 18px;
+        font-size: 20px;
         line-height: 40px;
         padding: 0 25px;
+
     }
     .rounded-btn:hover,.rounded-btn:focus,.rounded-btn:active,.rounded-btn:visited{
-        color: rgba(255,255,255,1);
+        color: rgba(255,255,255,3);
         border: 2px solid rgba(255,255,255,1);
+        box-shadow: 0px 0px 8px rgba(255,255,255,0.8);
         outline: none;
     }
 
     h1 {
+
+
         font-weight: 300;
-        margin-top: 20px;
+        margin-top: 45px;
         margin-bottom: 10px;
-        font-size: 36px;
+        font-size: 35px;
         small {
             color: rgba(255,255,255,0.7);
         }
@@ -64,27 +85,58 @@ $topnav-background-color: #222;
     .form-group {
         padding: 8px 0;
         input::-webkit-input-placeholder {
-        color: rgba(255,255,255,0.6) !important;
+            color: rgba(255,255,255,0.6) !important;
         }
 
         input:-moz-placeholder { /* Firefox 18- */
-        color: rgba(255,255,255,0.6) !important;
+            color: rgba(255,255,255,0.6) !important;
         }
 
         input::-moz-placeholder {  /* Firefox 19+ */
-        color: rgba(255,255,255,0.6) !important;
+            color: rgba(255,255,255,0.6) !important;
         }
 
         input:-ms-input-placeholder {
-        color: rgba(255,255,255,0.6) !important;
+            color: rgba(255,255,255,0.6) !important;
         }
     }
     .form-content {
-        padding: 40px 0;
+        padding: 50px 0;
     }
     .user-avatar {
+
+
         -webkit-border-radius: 50%;
-                border-radius: 50%;
-        border: 2px solid #FFF;
+        border-radius: 50%;
+        border: 2px solid rgba(255,255,255, 0.7);
+
+    }
+    .vbottom  {
+        position: relative;
+        display: inline-block;
+        top: 100%;
+        color: black;
+        border-left:  1px solid gray;
+        border-right:  1px solid gray;
+        padding-left: 20px;
+        padding-right: 20px;
+
+
+
+
+
+    }
+    .contentBox  {
+        background-color: rgba(255,255,255, 0.6);
+        color: $topnav-background-color;
+        font-size: 30px;
+        border: 1px solid rgba(0,0,0, 0.3);
+
+    }
+
+    .tabR {
+        background-color: rgba(255,255,255, 0.9);
+        padding: 1em;
+        width: 100%;
     }
 }

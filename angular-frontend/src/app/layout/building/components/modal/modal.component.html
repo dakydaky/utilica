@@ -18,31 +18,40 @@
 								</div>
 							</li>
 							<li class="list-group-item">
-                                <div class="row form-inline">  
-                                <div class = "row">								
-                                    <div class="col-sm"> Address: &nbsp;</div><input type="text" name="address" ngModel class=" form-control input-underline input-lg text-center" id="">							
-                               </div>
-							   </div>							     
-							</li>
-							<li class="list-group-item">
                                 <div class="row form-inline">
-                                <div class="row">								
-                                     <div class="col-sm"> City: &nbsp;</div><input type="text" name="city" ngModel class="form-control input-underline input-lg text-center" id="">									
-                                </div>
-								</div>							     
+                                <div class = "row">
+                                    <div class="col-sm"> Street: &nbsp;</div><input type="text" name="street" ngModel class=" form-control input-underline input-lg text-center" id="">
+                               </div>
+							   </div>
 							</li>
                             <li class="list-group-item">
                                 <div class="row form-inline">
+                                    <div class = "row">
+                                        <div class="col-sm"> Street number: &nbsp;</div><input type="text" name="streetNo" ngModel class=" form-control input-underline input-lg text-center" id="">
+                                    </div>
+                                </div>
+                            </li>
+
+							<li class="list-group-item">
+                                <div class="row form-inline">
+                                <div class="row">
+                                     <div class="col-sm"> City: &nbsp;</div><input type="text" name="city" ngModel class="form-control input-underline input-lg text-center" id="">
+                                </div>
+								</div>
+							</li>
+
+                            <li class="list-group-item">
+                                <div class="row form-inline">
 								<div class = "row">
-                                    <div class="col-sm"> Apartments: &nbsp;</div><input type="text" name="numApp" ngModel class=" col-sm-4 form-control input-underline input-lg text-center" value="1">									
+                                    <div class="col-sm"> Apartments: &nbsp;</div><input type="text" name="numApp" ngModel class=" col-sm-4 form-control input-underline input-lg text-center" value="1">
                                 </div>
 							    </div>
 							</li>
                         </ul>
-					
+
                     </div>
                     <div class="modal-footer">
-					    <button type="submit" class="btn btn-success rounded-btn" (click)="c('Close click')"> Confirm </button>
+					    <button type="submit" class="btn btn-success rounded-btn"> Confirm </button>
                         <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
                     </div>
 					</form>

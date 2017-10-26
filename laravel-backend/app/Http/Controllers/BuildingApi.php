@@ -12,6 +12,7 @@ class BuildingApi extends Controller
         $jwt = $r->get('jwt');
         $u = App\User::where('jwt', $jwt)->first();
         if($u != null) {
+
             $b = $u->buildings;
 
             foreach ( $b as $el)
@@ -30,19 +31,24 @@ class BuildingApi extends Controller
     public function createBuilding(Request $r)
     {
 
-        $jwt = $r->get('jwt');
+        $jwt = $r->post('jwt');
         $u = App\User::where('jwt', $jwt)->first();
         if($u != null) {
+
+            $d =  $r->post('building');
+
             $b = new App\Building();
-            $b->buildingName = $r->get('buidlingName');
-            $b->city = $r->get('city');
-            $b->street = $r->get('street');
-            $b->streetNo = $r->get('streetNo');
+            $b->buildingName = $d['buildingName'];
+            $b->city = $d['city'];
+            $b->street = $d['street'];
+            $b->streetNo = $d['streetNo'];
             $b->user_id = $u->id;
+
+            //return json_encode($b);
 
             $b->save();
 
-            $a = $r->get('numberOfApartments');
+            $a = $d['numApp'];
 
             for( $i = 0; $i < $a; $i++) {
                 $apartment = new App\Apartment();
@@ -52,8 +58,9 @@ class BuildingApi extends Controller
                 $apartment->save();
             }
 
-            return [ 'message' => 'New building and' . $a
-                . ' apartments are successfully added to database.'];
+            return [ 'message' => 'New building and ' . $a
+                . ' apartments are successfully added to database.',
+                'building' => json_encode($b)];
         }
         else
         {
