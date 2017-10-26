@@ -16,9 +16,9 @@ const routes: Routes = [
             { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
             { path: 'building', loadChildren: './building/building.module#BuildingModule' },
             { path: 'building-info', loadChildren: './building-info/building-info.module#BuildingInfoModule' },
+            { path: 'broadcast', loadChildren: './broadcast/broadcast.module#BroadcastModule' },
             { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
-            { path: 'help', loadChildren: './help/help.module#HelpModule' },
-
+            { path: 'help', loadChildren: './help/help.module#HelpModule' }
         ]
     }
 ];

@@ -21,6 +21,7 @@
             "prefix": "app",
             "styles": [
                 "../node_modules/font-awesome/css/font-awesome.css",
+                "../node_modules/mdi/css/materialdesignicons.css",
                 "styles/app.scss"
             ],
             "scripts": [

@@ -16,6 +16,9 @@ import {
         NgbModule.forRoot(),
     BuildingRoutingModule
   ],
-  declarations: [BuildingComponent, ModalComponent]
+  declarations: [
+    BuildingComponent,
+    ModalComponent
+  ]
 })
 export class BuildingModule { }
