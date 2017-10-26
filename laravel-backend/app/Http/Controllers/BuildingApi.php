@@ -27,12 +27,6 @@ class BuildingApi extends Controller
     }
 
 
-    public function numberOfApartemnts(Request $r)
-    {
-        $b = App\Building::find(1);
-        return json_encode(count($b->apartment));
-    }
-
     public function createBuilding(Request $r)
     {
 
@@ -58,18 +52,13 @@ class BuildingApi extends Controller
                 $apartment->save();
             }
 
-            return [ 'message' => 'Creatin building and apartments is finished.'];
-
-
-
+            return [ 'message' => 'New building and' . $a
+                . ' apartments are successfully added to database.'];
         }
         else
         {
             return [ 'message' => 'error'];
         }
-
-
-
     }
 
 
