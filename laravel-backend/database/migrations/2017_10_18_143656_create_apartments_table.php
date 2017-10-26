@@ -15,11 +15,10 @@ class CreateApartmentsTable extends Migration
     {
         Schema::create('apartments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->integer('building_id');
             $table->string('apartmentName');
-            $table->string('passKey',16)->unique();
+            $table->string('passKey',16)->unique()->nullable();
             $table->timestamps();
         });
     }

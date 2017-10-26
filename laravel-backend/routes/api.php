@@ -34,7 +34,7 @@ Route::delete('updateUser', [ 'uses' => 'UserApi@updateUser']);
 //building
 
 
-Route::get('/getListOfBuilding', [ 'uses' => 'BuildingApi@listOfBuildings']);
+Route::post('/getListOfBuilding', [ 'uses' => 'BuildingApi@listOfBuildings']);
 
 
 Route::post('/createBuilding', [ 'uses' => 'BuildingApi@cerateBuilding']);

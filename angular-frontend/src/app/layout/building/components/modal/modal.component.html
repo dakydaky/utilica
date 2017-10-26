@@ -1,5 +1,5 @@
-
-		<button type="button" (click)="open(content)" class = "btn btn-primary pull-right btn-success navbar-btn" data-toggle="modal" data-target="#addBuilding"><i class="fa fa-plus"></i>&nbsp;Add Building</button>
+        <i class="mdi mdi-map-marker-plus"></i>
+		<button type="button" (click)="open(content)" class = "btn pull-right btn-success" data-toggle="modal" data-target="#addBuilding"><i class="fa fa-plus"></i>&nbsp;Add Building</button>
                 <ng-template #content let-c="close" let-d="dismiss">
                     <div class="modal-header">
                         <h4 class="modal-title">Add Building</h4>
@@ -8,147 +8,42 @@
                         </button>
                     </div>
 					<form role="form" #f="ngForm" (ngSubmit)="registar(f.value)" >
-                    <div class="modal-body">
+                    <div class="modal-body form-content">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                                <div class="form-inline">
-                                    Building Name: &nbsp; <input type="text" name="username" ngModel class="form-control input-underline input-lg" id="" >
+                                <div class="row form-inline">
+								<div class = "row">
+                                    <div class="col-sm">Building Name: &nbsp;</div> <input type="text" name="buildingName" ngModel class=" form-control input-underline input-lg" id="" >
                                 </div>
-							</li>
-                            <li class="list-group-item">
-                                <div class="form-inline">
-                                        <div class="input-group number-spinner col-md-7">
-								    Apartments: &nbsp;&nbsp;&nbsp;
-                                            <span class="input-group-btn">
-                                                <a class="btn btn-danger" data-dir="dwn"><i class="fa fa-minus"></i></a>
-                                            </span>
-                                            <input type="text" disabled name="adult" id="adult" class="form-control text-center" value="1" max=9 min=1>
-                                            <span class="input-group-btn">
-                                                <a class="btn btn-info" data-dir="up"><i class="fa fa-plus"></i></a>
-                                            </span>
-											
-                                    </div>
-                                </div>
+								</div>
 							</li>
 							<li class="list-group-item">
-							
+                                <div class="row form-inline">  
+                                <div class = "row">								
+                                    <div class="col-sm"> Address: &nbsp;</div><input type="text" name="address" ngModel class=" form-control input-underline input-lg text-center" id="">							
+                               </div>
+							   </div>							     
+							</li>
+							<li class="list-group-item">
+                                <div class="row form-inline">
+                                <div class="row">								
+                                     <div class="col-sm"> City: &nbsp;</div><input type="text" name="city" ngModel class="form-control input-underline input-lg text-center" id="">									
+                                </div>
+								</div>							     
+							</li>
+                            <li class="list-group-item">
+                                <div class="row form-inline">
+								<div class = "row">
+                                    <div class="col-sm"> Apartments: &nbsp;</div><input type="text" name="numApp" ngModel class=" col-sm-4 form-control input-underline input-lg text-center" value="1">									
+                                </div>
+							    </div>
 							</li>
                         </ul>
 					
                     </div>
                     <div class="modal-footer">
-					    <button type="submit" class="btn btn-success rounded-btn"> Confirm </button>
+					    <button type="submit" class="btn btn-success rounded-btn" (click)="c('Close click')"> Confirm </button>
                         <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
                     </div>
 					</form>
                 </ng-template>
-
-				<script>
-				$(function () { 
-    var $popover = $('.popover-markup>.trigger').popover({
-      html: true,
-      placement: 'bottom',
-      // title: '<?= lang("Select passengers");?><a class="close demise");">×</a>',
-      content: function () {
-          return $(this).parent().find('.content').html();
-      }
-    });
-
-    // open popover & inital value in form
-    var passengers = [1,0,0];
-    $('.popover-markup>.trigger').click(function (e) {
-        e.stopPropagation();
-        $(".popover-content input").each(function(i) {
-            $(this).val(passengers[i]);
-        });
-    });
-    // close popover
-    $(document).click($(function () { 
-    var $popover = $('.popover-markup>.trigger').popover({
-      html: true,
-      placement: 'bottom',
-      // title: '<?= lang("Select passengers");?><a class="close demise");">×</a>',
-      content: function () {
-          return $(this).parent().find('.content').html();
-      }
-    });
-
-    // open popover & inital value in form
-    var passengers = [1,0,0];
-    $('.popover-markup>.trigger').click(function (e) {
-        e.stopPropagation();
-        $(".popover-content input").each(function(i) {
-            $(this).val(passengers[i]);
-        });
-    });
-    // close popover
-    $(document).click(function (e) {
-        if ($(e.target).is('.demise')) {        
-            $('.popover-markup>.trigger').popover('hide');
-        }
-    });
-// store form value when popover closed
- $popover.on('hide.bs.popover', function () {
-    $(".popover-content input").each(function(i) {
-        passengers[i] = $(this).val();
-    });
-  });
-    // spinner(+-btn to change value) & total to parent input 
-    $(document).on('click', '.number-spinner a', function () {
-        var btn = $(this),
-        input = btn.closest('.number-spinner').find('input'),
-        total = $('#passengers').val(),
-        oldValue = input.val().trim();
-
-    if (btn.attr('data-dir') == 'up') {
-      if(oldValue < input.attr('max')){
-        oldValue++;
-        total++;
-      }
-    } else {
-      if (oldValue > input.attr('min')) {
-        oldValue--;
-        total--;
-      }
-    }
-    $('#passengers').val(total);
-    input.val(oldValue);
-  });
-  $(".popover-markup>.trigger").popover('show');
-});function (e) {
-        if ($(e.target).is('.demise')) {        
-            $('.popover-markup>.trigger').popover('hide');
-        }
-    });
-// store form value when popover closed
- $popover.on('hide.bs.popover', function () {
-    $(".popover-content input").each(function(i) {
-        passengers[i] = $(this).val();
-    });
-  });
-    // spinner(+-btn to change value) & total to parent input 
-    $(document).on('click', '.number-spinner a', function () {
-        var btn = $(this),
-        input = btn.closest('.number-spinner').find('input'),
-        total = $('#passengers').val(),
-        oldValue = input.val().trim();
-
-    if (btn.attr('data-dir') == 'up') {
-      if(oldValue < input.attr('max')){
-        oldValue++;
-        total++;
-      }
-    } else {
-      if (oldValue > input.attr('min')) {
-        oldValue--;
-        total--;
-      }
-    }
-    $('#passengers').val(total);
-    input.val(oldValue);
-  });
-  $(".popover-markup>.trigger").popover('show');
-});
-				
-				
-				</script>
