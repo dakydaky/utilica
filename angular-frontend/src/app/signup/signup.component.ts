@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
                     return;
                 }
 
-                alert("You didn't input all data right");
+                alert('You did not input all data right');
 
             });
         }else {
