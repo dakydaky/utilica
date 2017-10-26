@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {CommonService} from "../../commonService/common.service";
+import { routerTransition } from '../../router.animations';
 
 export class NgbdModalContent {
 
@@ -13,7 +14,8 @@ export class NgbdModalContent {
 @Component({
     selector: 'app-building',
     templateUrl: './building.component.html',
-    styleUrls: ['./building.component.scss']
+    styleUrls: ['./building.component.scss'],
+	animations: [routerTransition()]
 })
 
 export class BuildingComponent implements OnInit {
