@@ -3,13 +3,7 @@ import { NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {CommonService} from "../../commonService/common.service";
 import { routerTransition } from '../../router.animations';
 
-export class NgbdModalContent {
 
-  constructor(private modalService: NgbModal) {}
-  open(content) {
-    this.modalService.open(content, { windowClass: 'dark-modal' });
-  }
-}
 
 @Component({
     selector: 'app-building',
@@ -26,7 +20,7 @@ export class BuildingComponent implements OnInit {
         const data = { 'jwt' : JSON.parse(localStorage.getItem('user')).jwt  };
         this.service.post('getListOfBuilding', data)
             .then( resp => {
-                debugger;
+                
                 this.buildings = resp;
             }); // error in console : Uncaught TypeError: Cannot read property 'buildings' of undefined
                 // at eval (eval at <anonymous>

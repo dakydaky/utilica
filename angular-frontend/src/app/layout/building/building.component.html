@@ -1,8 +1,16 @@
 	<div [@routerTransition]>
 	<div class="alert alert-info">
-	<i class="mdi mdi-map-marker-plus"></i>
-        <strong>Buildings</strong>
+	<div class="container">
+	<div class ="row">
+	<div class ="col-xs-10">
+		<span class="title1"><i class="mdi mdi-map-marker-plus"></i>
+        <strong>Buildings</strong></span>
+	</div>
+	<div class ="ml-auto col-xs-2">
 		<app-modal></app-modal>
+	</div>
+	</div>
+    </div>
     </div>
 
 
@@ -20,8 +28,8 @@
                 </ul>
                 <div class="card-block">
                     <a href="#" class="btn btn-primary">View</a>
-                    <a href="#" class="btn btn-info">Modify</a>
-                    <a href="#" class="btn pull-right btn-danger">Delete</a>
+                    <app-modal-edit></app-modal-edit>
+                    <app-modal-delete></app-modal-delete>
                 </div>
             </div>
 
