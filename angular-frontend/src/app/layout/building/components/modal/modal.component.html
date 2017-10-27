@@ -1,8 +1,7 @@
-        <i class="mdi mdi-map-marker-plus"></i>
-		<button type="button" (click)="open(content)" class = "btn pull-right btn-success" data-toggle="modal" data-target="#addBuilding"><i class="fa fa-plus"></i>&nbsp;Add Building</button>
+        &nbsp; <button type="button" (click)="open(content)" class = " btn btn-success"><i class="mdi mdi-plus"></i>Add Building</button>
                 <ng-template #content let-c="close" let-d="dismiss">
                     <div class="modal-header">
-                        <h4 class="modal-title">Add Building</h4>
+                        <h4 class="modal-title"><i class="mdi mdi-map-marker-plus"></i>&nbsp; Add Building</h4>
                         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -11,18 +10,22 @@
                     <div class="modal-body form-content">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                                <div class="row form-inline">
-								<div class = "row">
-                                    <div class="col-sm">Building Name: &nbsp;</div> <input type="text" name="buildingName" ngModel class=" form-control input-underline input-lg" id="" >
-                                </div>
+                                <div class="container form-inline">								
+                                    <div class="col-xs-2">Building Name: &nbsp;</div> <input type="text" name="buildingName" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="">                             
 								</div>
 							</li>
 							<li class="list-group-item">
+<<<<<<< HEAD
                                 <div class="row form-inline">
                                 <div class = "row">
                                     <div class="col-sm"> Street: &nbsp;</div><input type="text" name="street" ngModel class=" form-control input-underline input-lg text-center" id="">
                                </div>
 							   </div>
+=======
+                                <div class="container form-inline">  							
+                                    <div class="col-xs-2"> Address: &nbsp;</div><input type="text" name="address" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="">							
+							   </div>							     
+>>>>>>> origin/dario-wip-frontend
 							</li>
                             <li class="list-group-item">
                                 <div class="row form-inline">
@@ -33,18 +36,29 @@
                             </li>
 
 							<li class="list-group-item">
+<<<<<<< HEAD
                                 <div class="row form-inline">
                                 <div class="row">
                                      <div class="col-sm"> City: &nbsp;</div><input type="text" name="city" ngModel class="form-control input-underline input-lg text-center" id="">
                                 </div>
 								</div>
+=======
+                                <div class="container form-inline">					
+                                     <div class="col-xs-2"> City: &nbsp;</div><input type="text" name="city" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="">									
+								</div>							     
+>>>>>>> origin/dario-wip-frontend
 							</li>
 
                             <li class="list-group-item">
+<<<<<<< HEAD
                                 <div class="row form-inline">
 								<div class = "row">
                                     <div class="col-sm"> Apartments: &nbsp;</div><input type="text" name="numApp" ngModel class=" col-sm-4 form-control input-underline input-lg text-center" value="1">
                                 </div>
+=======
+                                <div class="container form-inline">
+                                    <div class="row"><div class="col-xs-10"> Number of apartments: &nbsp;</div><input type="text" name="numApp" ngModel class="ml-auto mlC form-control input-underline input-lg text-center" value="1"></div>									
+>>>>>>> origin/dario-wip-frontend
 							    </div>
 							</li>
                         </ul>

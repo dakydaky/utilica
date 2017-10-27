@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BuildingRoutingModule } from './building-routing.module';
 import { BuildingComponent } from './building.component';
 import { ModalComponent } from './components';
+import { ModalEditComponent } from './components';
+import { ModalDeleteComponent } from './components';
 
 @NgModule({
   imports: [
@@ -16,7 +18,9 @@ import { ModalComponent } from './components';
   ],
   declarations: [
     BuildingComponent,
-    ModalComponent
+    ModalComponent,
+	ModalEditComponent,
+	ModalDeleteComponent
   ]
 })
 export class BuildingModule { }
