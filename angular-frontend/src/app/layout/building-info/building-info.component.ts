@@ -10,9 +10,12 @@ export class BuildingInfoComponent implements OnInit {
   data;
   constructor(private service: CommonService) {
   }
+
   ngOnInit() {
     //const data = (JSON.parse(localStorage.getItem('user')));
     //const userType = data.type;
-}
+  }
+
+  
 
 }
