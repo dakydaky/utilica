@@ -17,10 +17,9 @@ export class BuildingComponent implements OnInit {
     constructor(private service: CommonService) {}
 
     ngOnInit() {
-        const data = { 'jwt' : localStorage.getItem('user')  };
+        const data = { 'jwt' : JSON.parse(localStorage.getItem('user')).jwt  };
         this.service.post('getListOfBuilding', data)
             .then( resp => {
-                
                 this.buildings = resp;
                 localStorage.setItem('buildings', JSON.stringify(this.buildings));
             }); // error in console : Uncaught TypeError: Cannot read property 'buildings' of undefined
