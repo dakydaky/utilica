@@ -10,8 +10,8 @@ export class ChatComponent implements OnInit {
     constructor() {
      }
     ngOnInit() { 
-        const data = (JSON.parse(localStorage.getItem('user')));
-        this.userType = data.type;
+        const data = localStorage.getItem('user');
+        this.userType = data;
         console.log(this.userType);
     }
 }

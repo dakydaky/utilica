@@ -17,7 +17,7 @@ export class BuildingComponent implements OnInit {
     constructor(private service: CommonService) {}
 
     ngOnInit() {
-        const data = { 'jwt' : JSON.parse(localStorage.getItem('user')).jwt  };
+        const data = { 'jwt' : localStorage.getItem('user')  };
         this.service.post('getListOfBuilding', data)
             .then( resp => {
                 
