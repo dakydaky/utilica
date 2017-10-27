@@ -1,26 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {CommonService} from "../../commonService/common.service";
-import { routerTransition } from '../../router.animations';
-import {Router} from "@angular/router";
-
+import {Component, OnInit} from '@angular/core';
+import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {CommonService} from '../../commonService/common.service';
+import {routerTransition} from '../../router.animations';
+import {Router} from '@angular/router';
 
 
 @Component({
     selector: 'app-building',
     templateUrl: './building.component.html',
     styleUrls: ['./building.component.scss'],
-	animations: [routerTransition()]
+    animations: [routerTransition()]
 })
 
 export class BuildingComponent implements OnInit {
     buildings: JSON;
-    constructor(private service: CommonService, private router: Router) {}
+
+    constructor(private service: CommonService, private router: Router) {
+    }
 
     ngOnInit() {
-        const data = { 'jwt' : JSON.parse(localStorage.getItem('user')).jwt  };
+        this.getBuildings();
+    }
+
+    getBuildings() {
+        const data = {'jwt': JSON.parse(localStorage.getItem('user')).jwt};
         this.service.post('getListOfBuilding', data)
-            .then( resp => {
+            .then(resp => {
                 this.buildings = resp;
                 localStorage.setItem('buildings', JSON.stringify(this.buildings));
             }); // error in console : Uncaught TypeError: Cannot read property 'buildings' of undefined
@@ -29,7 +34,7 @@ export class BuildingComponent implements OnInit {
     }
 
     goToBuldingInfo(value) {
-        localStorage.setItem('building_id', value );
+        localStorage.setItem('building_id', value);
         this.router.navigate(['/building-info'])
     }
 }

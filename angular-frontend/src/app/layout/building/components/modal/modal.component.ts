@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import {CommonService} from "../../../../commonService/common.service";
-import {arraysAreEqual} from "tslint/lib/utils";
-import {Router} from "@angular/router";
+import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {CommonService} from '../../../../commonService/common.service';
+
 
 @Component({
     selector: 'app-modal',
@@ -11,7 +10,13 @@ import {Router} from "@angular/router";
 })
 export class ModalComponent {
     closeResult: string;
-    constructor(private modalService: NgbModal, private service: CommonService, private router: Router) { }
+    @Output() change: EventEmitter<any> = new EventEmitter();
+    // @ViewChild('content') public modal: ModalDirective;
+
+
+    constructor(private modalService: NgbModal, private service: CommonService) {
+    }
+
 
     open(content) {
         this.modalService.open(content).result.then((result) => {
@@ -27,15 +32,22 @@ export class ModalComponent {
         } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
             return 'by clicking on a backdrop';
         } else {
-            return  `with: ${reason}`;
+            return `with: ${reason}`;
         }
     }
 
     registar(data) {
-        const send = { 'building' : data, 'jwt' : localStorage.getItem('user') }
-        this.service.post('createBuilding', send).then( resp => {
-            alert(resp.message);
-            this.router.navigate(['/building']);
-        });
+        // debugger;
+        alert('clock')
+        // this.content.hide();
+        alert('desilo se')
+        return;
+        // const send = {'building': data, 'jwt': JSON.parse(localStorage.getItem('user')).jwt}
+        // this.service.post('createBuilding', send).then(resp => {
+        //     alert(resp.message);
+        //     this.change.emit(
+        //         'refresh'
+        //     );
+        // });
     }
 }

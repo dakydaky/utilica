@@ -31,7 +31,7 @@ class BuildingApi extends Controller
         $jwt = $r->get('jwt');
         $u = App\User::where('jwt', $jwt)->first();
         if( $u != null) {
-            $b = App\Building::where('id',$r->post('building_id'))->first();
+            $b = App\Building::where('id', $r->post('building_id'))->first();
 
             $a = $b->apartment;
 
