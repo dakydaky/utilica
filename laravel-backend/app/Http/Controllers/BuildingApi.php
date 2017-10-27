@@ -27,6 +27,33 @@ class BuildingApi extends Controller
         }
     }
 
+    public function getBuilding(Request $r) {
+        $jwt = $r->get('jwt');
+        $u = App\User::where('jwt', $jwt)->first();
+        if( $u != null) {
+            $b = App\Building::where('id',$r->post('building_id'))->first();
+
+            $a = $b->apartment;
+
+            unset($b->apartment);
+
+            foreach ($a as $item) {
+                if($item->user_id != null) {
+                    unset($item->user);
+                    unset($item->user->password);
+                    unset($item->user->username);
+                    unset($item->user->email);
+                    unset($item->user->id);
+                }
+            }
+            return [ 'building' => json_encode($b),
+            'apartments' => json_encode($a)];
+        }
+        else {
+            return [ 'message' => 'Error.'];
+        }
+    }
+
 
     public function createBuilding(Request $r)
     {

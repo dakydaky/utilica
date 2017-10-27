@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {CommonService} from "../../commonService/common.service";
 import { routerTransition } from '../../router.animations';
+import {Router} from "@angular/router";
 
 
 
@@ -14,7 +15,7 @@ import { routerTransition } from '../../router.animations';
 
 export class BuildingComponent implements OnInit {
     buildings: JSON;
-    constructor(private service: CommonService) {}
+    constructor(private service: CommonService, private router: Router) {}
 
     ngOnInit() {
         const data = { 'jwt' : JSON.parse(localStorage.getItem('user')).jwt  };
@@ -25,5 +26,10 @@ export class BuildingComponent implements OnInit {
             }); // error in console : Uncaught TypeError: Cannot read property 'buildings' of undefined
                 // at eval (eval at <anonymous>
 
+    }
+
+    goToBuldingInfo(value) {
+        localStorage.setItem('building_id', value );
+        this.router.navigate(['/building-info'])
     }
 }
