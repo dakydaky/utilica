@@ -15,7 +15,8 @@ class BroadcastApi extends Controller
 
             $broadcast = $b->broadcast;
 
-            return [ 'broadcast' => $broadcast, 'user' => $b->user->username];
+            return [ 'broadcast' => $broadcast,
+                'user' => $b->user->username];
         }
         else
             return [ 'message' => 'Some error.'];
@@ -29,7 +30,7 @@ class BroadcastApi extends Controller
             $b = App\Building::where('id', $r->post('building_id'))->first();
             $broadcast = new App\Broadcast();
             $broadcast->text = $r->post('text');
-            $broadcast->title = 'Something';
+            $broadcast->title = $r->post('title');
             $broadcast->building_id = $b->id;
             $broadcast->save();
 

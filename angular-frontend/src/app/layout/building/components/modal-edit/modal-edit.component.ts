@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import {CommonService} from '../../../../commonService/common.service';
 @Component({
@@ -6,13 +6,17 @@ import {CommonService} from '../../../../commonService/common.service';
     templateUrl: './modal-edit.component.html',
     styleUrls: ['./modal-edit.component.scss']
 })
-export class ModalEditComponent {
+export class ModalEditComponent implements OnInit {
     closeResult: string;
-    @Input() building;
+    @Input() b;
     @Output() change: EventEmitter<any> = new EventEmitter();
     reqIsSent = false;
-    constructor(private modalService: NgbModal, private service: CommonService) { }
+    constructor(private modalService: NgbModal, private service: CommonService) {
+    }
 
+    ngOnInit() {
+        debugger;
+    }
     open(content) {
         this.modalService.open(content).result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
@@ -33,7 +37,7 @@ export class ModalEditComponent {
 
     registar(data, c) {
         console.log(data);
-        const d = { 'building': data, 'building_id': JSON.stringify(this.building.id),
+        const d = { 'building': data, 'building_id': JSON.stringify(this.b.id),
             'jwt': JSON.parse(localStorage.getItem('user')).jwt };
         console.log(d);
         this.reqIsSent = true;

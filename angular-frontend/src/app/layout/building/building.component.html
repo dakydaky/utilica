@@ -29,7 +29,7 @@
                 </ul>
                 <div class="card-block">
                     <a class="btn btn-primary" (click)="goToBuldingInfo(building.id)" style="color:white">View</a>
-                    <app-modal-edit [building]="building" (change)="getBuildings()"></app-modal-edit>
+                    <app-modal-edit [b]="building" (change)="getBuildings()"></app-modal-edit>
                     <app-modal-delete [buildingId]="building.id" [buildingName]="building.buildingName"
                                       (change)="getBuildings()">
                     </app-modal-delete>

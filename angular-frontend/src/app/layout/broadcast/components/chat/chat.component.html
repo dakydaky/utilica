@@ -65,9 +65,9 @@
                 <!--</span>-->
                 <div class="chat-body clearfix">
                     <div class="header">
-                        <strong class="primary-font">{{ b.user.userName }}</strong>
+                        <strong class="primary-font">{{ b.title }}</strong>
                         <small class="pull-right text-muted">
-                            <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
+                            <i class="fa fa-clock-o fa-fw"></i> {{ b.created_at }}
                         </small>
                     </div>
                     <p>
@@ -134,6 +134,8 @@
         <form #f="ngForm" (ngSubmit)="sendBroadcast(f.value)">
             <div *ngIf="userType === 'landlord'" class="input-group">
 
+                <input id="btn-input-title" type="text" class="form-control input-sm" placeholder="Type title"
+                       ngModel name="title">
                 <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..."
                        ngModel name="text">
                 <span class="input-group-btn">

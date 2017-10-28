@@ -13,23 +13,23 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <div class="container form-inline">
-                                    <div class="col-xs-2">Building Name: &nbsp;</div> <input type="text" name="buildingName" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="" >
+                                    <div class="col-xs-2">Building Name: &nbsp;</div> <input type="text" [(ngModel)]="b.buildingName" name="buildingName" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="" >
 								</div>
 							</li>
 							<li class="list-group-item">
                                 <div class="container form-inline">
-                                    <div class="col-xs-2"> Street: &nbsp;</div><input type="text" name="street" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="">
+                                    <div class="col-xs-2"> Street: &nbsp;</div><input type="text" [(ngModel)]="b.street"  name="street" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="">
 							   </div>
 							</li>
                             <li class="list-group-item">
                                 <div class="container form-inline">
-                                    <div class="row"><div class="col-xs-10"> Street number: &nbsp;</div><input type="text" name="streetNo" ngModel class="ml-auto mlC form-control input-underline input-lg text-center" value="1"></div>
+                                    <div class="row"><div class="col-xs-10"> Street number: &nbsp;</div><input [(ngModel)]="b.streetNo" type="text" name="streetNo" ngModel class="ml-auto mlC form-control input-underline input-lg text-center" value="1"></div>
                                 </div>
                             </li>
 
 							<li class="list-group-item">
                                 <div class="container form-inline">
-                                     <div class="col-xs-2"> City: &nbsp;</div><input type="text" name="city" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="">
+                                     <div class="col-xs-2"> City: &nbsp;</div><input type="text" name="city" [(ngModel)]="b.city" class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="">
 								</div>
 							</li>
                         </ul>
