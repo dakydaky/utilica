@@ -92,3 +92,13 @@ Route::delete('/deleteAppointment', [ 'uses' => 'LaundryApi@deleteAppointment'])
 
 
 
+// Broadcast
+
+Route::post('/getBroadCast', [ 'uses' => 'BroadcastApi@listOfBroadcasts']);
+
+Route::post('/postBroadCast', [ 'uses' => 'BroadcastApi@createBroadcast']);
+
+
+
+
+

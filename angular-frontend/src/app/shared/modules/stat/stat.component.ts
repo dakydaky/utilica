@@ -14,14 +14,14 @@ export class StatComponent implements OnInit {
     @Input() label: string;
     @Input() data: number;
     @Input() routerLink: string;
+    @Input() buildingId: string;
     @Output() event: EventEmitter<any> = new EventEmitter();
 
     ngOnInit() {
     }
 
     redirect() {
-        if(this.routerLink === '/broadcast'){
-            this.router.navigate(['/broadcast']);
-        }
+        // alert(this.buildingId);
+            this.router.navigate([this.routerLink]);
     }
 }
