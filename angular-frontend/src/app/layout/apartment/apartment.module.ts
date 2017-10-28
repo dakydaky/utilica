@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BuildingRoutingModule } from './building-routing.module';
-import { BuildingComponent } from './building.component';
+import { ApartmentRoutingModule } from './apartment-routing.module';
+import { ApartmentComponent } from './apartment.component';
 import { ModalComponent } from './components';
 import { ModalEditComponent } from './components';
 import { ModalDeleteComponent } from './components';
@@ -14,13 +14,13 @@ import { ModalDeleteComponent } from './components';
         FormsModule,
         ReactiveFormsModule,
         NgbModule.forRoot(),
-    BuildingRoutingModule
+    ApartmentRoutingModule
   ],
   declarations: [
-    BuildingComponent,
+    ApartmentComponent,
     ModalComponent,
 	ModalEditComponent,
 	ModalDeleteComponent
   ]
 })
-export class BuildingModule { }
+export class ApartmentModule { }

@@ -6,14 +6,14 @@ import { routerTransition } from '../../router.animations';
 
 
 @Component({
-    selector: 'app-building',
-    templateUrl: './building.component.html',
-    styleUrls: ['./building.component.scss'],
+    selector: 'app-apartment',
+    templateUrl: './apartment.component.html',
+    styleUrls: ['./apartment.component.scss'],
 	animations: [routerTransition()]
 })
 
-export class BuildingComponent implements OnInit {
-    buildings: JSON;
+export class ApartmentComponent implements OnInit {
+    apartments: JSON;
     constructor(private service: CommonService) {}
 
     ngOnInit() {
@@ -21,8 +21,8 @@ export class BuildingComponent implements OnInit {
         this.service.post('getListOfBuilding', data)
             .then( resp => {
                 
-                this.buildings = resp;
-                localStorage.setItem('buildings', JSON.stringify(this.buildings));
+                this.apartments = resp;
+                localStorage.setItem('buildings', JSON.stringify(this.apartments));
             }); // error in console : Uncaught TypeError: Cannot read property 'buildings' of undefined
                 // at eval (eval at <anonymous>
 

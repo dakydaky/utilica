@@ -3,8 +3,8 @@
 	<div class="container">
 	<div class ="row">
 	<div class ="col-xs-10">
-		<span class="title1"><i class="mdi mdi-map-marker-plus"></i>
-        <strong>Buildings</strong></span>
+		<span class="title1"><i class="mdi mdi-home-map-marker"></i>
+        <strong>Apartments</strong></span>
 	</div>
 	<div class ="ml-auto col-xs-2">
 		<app-modal></app-modal>
@@ -16,19 +16,19 @@
 
 	<div class="row">
 
-        <div class="col-sm-4 text-xs-center" *ngFor="let building of buildings">
+        <div class="col-sm-3 text-xs-center">
             <div class="card card-default">
                 <img class="mx-auto card-img-top" src="http://clipartix.com/wp-content/uploads/2016/06/Building-clip-art-images-free-clipart-images.png" width="20%" alt="Card image cap">
                 <div class="card-block">
-                    <h4 class="text-center card-title">{{ building.buildingName }}</h4>
+                    <h4 class="text-center card-title"> Name</h4>
+                    <h6 class="text-center"> My street  </h6>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Apartments: {{ building.no }}</li>
+                    <li class="list-group-item">Apartment: </li>
                     <li class="list-group-item">Notifications:</li>
                 </ul>
                 <div class="card-block">
                     <a href="#" class="btn btn-primary">View</a>
-                    <app-modal-edit></app-modal-edit>
                     <app-modal-delete></app-modal-delete>
                 </div>
             </div>
