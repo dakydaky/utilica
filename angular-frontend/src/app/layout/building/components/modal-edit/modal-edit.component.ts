@@ -15,7 +15,7 @@ export class ModalEditComponent implements OnInit {
     }
 
     ngOnInit() {
-        debugger;
+        // debugger;
     }
     open(content) {
         this.modalService.open(content).result.then((result) => {
