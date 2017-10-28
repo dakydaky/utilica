@@ -11,11 +11,11 @@
 		<!-- ngIf - usetype == 0 , else ... -->
         <div class="container collapse navbar-collapse">
 		    <ul class="nav navbar-nav ml-5">
-				 <li class="nav-item"><button routerLink="/building" [routerLinkActive]="['router-link-active']" class = "btn navbar-btn"><i class="fa fa-building-o"></i>&nbsp;Buildings</button></li>
+				 <li class="nav-item"><button [routerLink]="['/building']" [routerLinkActive]="['router-link-active']" class = "btn navbar-btn"><i class="fa fa-building-o"></i>&nbsp;Buildings</button></li>
 				 &nbsp;
-				 <li class="nav-item"><button routerLink="/building-info" [routerLinkActive]="['router-link-active']" class = "btn navbar-btn"><i class="fa fa-question"></i>&nbsp;Help</button></li>
+				 <li class="nav-item"><button [routerLink]="['/building-info']" [routerLinkActive]="['router-link-active']" class = "btn navbar-btn"><i class="fa fa-question"></i>&nbsp;Help</button></li>
 				 &nbsp;
-				 <li class="nav-item"><button routerLink="/grid" [routerLinkActive]="['router-link-active']" class = "btn navbar-btn"><i class="fa fa-rss"></i>&nbsp;Blog</button></li>
+				 <li class="nav-item"><button [routerLink]="['/grid']" [routerLinkActive]="['router-link-active']" class = "btn navbar-btn"><i class="fa fa-rss"></i>&nbsp;Blog</button></li>
 			 </ul>
 		</div>
         <div class="collapse navbar-collapse">
@@ -66,7 +66,7 @@
                 </li>
                 <li class="nav-item dropdown" ngbDropdown>
                     <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
-                        <i class="fa fa-user"></i>  <b class="caret"></b>
+                        <i class="fa fa-user"></i> {{ user.username }}  <b class="caret"></b>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}</a>

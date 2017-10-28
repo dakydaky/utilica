@@ -1,5 +1,5 @@
 <div>
-    <h2 class="text-muted">Norra Allegatan</h2>
+    <h2 class="text-muted" *ngIf="building != null" > {{ building.buildingName }}</h2>
     <hr>
     <div class="row">
       <div class="col-xl-3 col-lg-6">
@@ -32,20 +32,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>/index.html</td>
-                    <td>1265</td>
-                    <td>32.3%</td>
-                </tr>
-                <tr>
-                    <td>/about.html</td>
-                    <td>261</td>
-                    <td>33.3%</td>
-                </tr>
-                <tr>
-                    <td>/sales.html</td>
-                    <td>665</td>
-                    <td>21.3%</td>
+                <tr *ngFor="let apartement of apartments">
+                    <td>{{ apartement.apartmentName }}</td>
+                    <td *ngIf=" apartement.user != null ">{{ apartement.user.firstName + " " + apartement.user.lastName }} </td>
+                    <td *ngIf=" apartement.user == null "> It's free. </td>
+                    <td *ngIf=" apartement.user != null" >{{ apartement.passKey }}</td>
+                    <td *ngIf=" apartement.user == null "> There is no passKey. </td>
                 </tr>
                 </tbody>
             </table>
@@ -54,7 +46,7 @@
             <button type="button" (click)="open(content)" class = "btn btn-primary btn-success navbar-btn" data-toggle="modal" data-target="#addApartment"><i class="fa fa-plus"></i>&nbsp;Add Apartment</button>
         </div>
     </div>
-  
+
     <div class="col-lg-4">
       <div class="card card-default">
             <div class="card-header">
@@ -65,8 +57,8 @@
           <!-- /.card-body -->
       </div>
       <!-- /.card -->
-      
+
     </div>
-    
+
   </div>
 </div>

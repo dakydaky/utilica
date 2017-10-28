@@ -32,7 +32,7 @@ export class ModalComponent {
     }
 
     registar(data) {
-        const send = { 'building' : data, 'jwt' : JSON.parse(localStorage.getItem('user')).jwt }
+        const send = { 'building' : data, 'jwt' : localStorage.getItem('user') }
         this.service.post('createBuilding', send).then( resp => {
             alert(resp.message);
             this.router.navigate(['/building']);
