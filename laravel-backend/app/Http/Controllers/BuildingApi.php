@@ -80,7 +80,7 @@ class BuildingApi extends Controller
             for( $i = 0; $i < $a; $i++) {
                 $apartment = new App\Apartment();
                 $apartment->user_id = $u->id;
-                $apartment->apartmentName = 'Apartement' + $i;
+                $apartment->apartmentName = 'Apartement' . $i;
                 $apartment->building_id = $b->id;
                 $apartment->save();
             }
