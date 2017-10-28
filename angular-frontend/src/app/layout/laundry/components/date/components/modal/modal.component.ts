@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import {CommonService} from "../../../../commonService/common.service";
+import {CommonService} from "../../../../../../commonService/common.service";
 import {arraysAreEqual} from "tslint/lib/utils";
 import {Router} from "@angular/router";
 
@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
     styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
+    array = ['08:00-11:00','11:00-14:00','14:00-17:00','17:00-20:00','20:00-23:00','23:00-2:00'];    
     closeResult: string;
     constructor(private modalService: NgbModal, private service: CommonService, private router: Router) { }
 

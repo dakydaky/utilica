@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BuildingRoutingModule } from './building-routing.module';
-import { BuildingComponent } from './building.component';
+import { DateRoutingModule } from './date-routing.module';
+import { DateComponent } from './date.component';
 import { ModalComponent } from './components';
-import { ModalEditComponent } from './components';
-import { ModalDeleteComponent } from './components';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -14,13 +13,15 @@ import { ModalDeleteComponent } from './components';
         FormsModule,
         ReactiveFormsModule,
         NgbModule.forRoot(),
-    BuildingRoutingModule
+    DateRoutingModule,
+    ModalComponent
   ],
   declarations: [
-    BuildingComponent,
-    ModalComponent,
-	ModalEditComponent,
-	ModalDeleteComponent
+    DateComponent,
+    ModalComponent
+  ],
+  providers: [
+    DatePipe
   ]
 })
-export class BuildingModule { }
+export class DateModule { }

@@ -1,23 +1,27 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ModalComponent } from './modal-delete.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DateComponent } from './date.component';
+import { ModalComponent} from './components';
 
-describe('ModalDeleteComponent', () => {
-  let component: ModalDeleteComponent;
-  let fixture: ComponentFixture<ModalDeleteComponent>;
+describe('DateComponent', () => {
+  let component: DateComponent;
+  let fixture: ComponentFixture<DateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        FormsModule,
+        ReactiveFormsModule,
         NgbModule.forRoot()
       ],
-      declarations: [ ModalDeleteComponent ]
+      declarations: [ DateComponent, ModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalDeleteComponent);
+    fixture = TestBed.createComponent(DateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
