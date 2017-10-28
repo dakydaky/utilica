@@ -75,7 +75,7 @@ class BuildingApi extends Controller
 
             $b->save();
 
-            $a = $d['numApp'];
+            $a = intval($d['numApp']);
 
             for( $i = 0; $i < $a; $i++) {
                 $apartment = new App\Apartment();
