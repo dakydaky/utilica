@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LaundryRoutingModule } from './laundry-routing.module';
-import { LaundryComponent } from './laundry.component';
-import { DateComponent } from './components';
-import { ModalComponent } from './components/date/components';
+import { DateRoutingModule } from './date-routing.module';
+import { DateComponent } from './date.component';
+import { ModalComponent } from './components';
 import { DatePipe } from '@angular/common';
 
 @NgModule({
@@ -14,10 +13,10 @@ import { DatePipe } from '@angular/common';
         FormsModule,
         ReactiveFormsModule,
         NgbModule.forRoot(),
-    LaundryRoutingModule
+    DateRoutingModule,
+    ModalComponent
   ],
   declarations: [
-    LaundryComponent,
     DateComponent,
     ModalComponent
   ],
@@ -25,4 +24,4 @@ import { DatePipe } from '@angular/common';
     DatePipe
   ]
 })
-export class LaundryModule { }
+export class DateModule { }

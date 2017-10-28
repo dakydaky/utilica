@@ -1,0 +1,42 @@
+.title1{
+    font-size: 1.4em;
+  }
+  
+  .container{
+    width: 100%;
+  }
+  
+  .card{
+    border: 1px solid #444;
+    border-radius: 0.25rem;
+  }
+  .card-success{
+   border: 1px solid #444;
+   border-radius: 0.25rem;
+   color: white;
+   font-weight: bold;
+  
+  }
+  
+  .card-danger{
+    border: 1px solid #444;
+   }
+   
+   .card-info {
+      border: 1px solid #444;
+   border-radius: 0.25rem;
+   }
+
+
+   .card:first-child {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+.card:last-child {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}

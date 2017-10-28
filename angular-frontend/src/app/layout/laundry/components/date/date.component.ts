@@ -14,6 +14,7 @@ import {DatePipe } from '@angular/common';
 
 export class DateComponent implements OnInit {
     days: Date; 
+    array = ['08:00-11:00','11:00-14:00','14:00-17:00','17:00-20:00','20:00-23:00','23:00-02:00'];
     counter: Date;
     @Input() day;
     constructor(private datePipe: DatePipe) {}
@@ -21,7 +22,7 @@ export class DateComponent implements OnInit {
     ngOnInit() {
         this.counter = new Date(); 
         this.counter.setDate(this.counter.getDate() + this.day);
-        this.days=this.counter;
+        //this.days=this.counter;
        
     }
 }
