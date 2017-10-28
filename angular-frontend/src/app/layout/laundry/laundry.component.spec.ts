@@ -2,17 +2,16 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { BuildingComponent } from './building.component';
+import { LaundryComponent } from './laundry.component';
 
 import {
     ModalComponent,
-	ModalEditComponent,
-	ModalDeleteComponent
+    DateComponent
 } from './components';
 
-describe('BuildingComponent', () => {
-  let component: BuildingComponent;
-  let fixture: ComponentFixture<BuildingComponent>;
+describe('LaundryComponent', () => {
+  let component: LaundryComponent;
+  let fixture: ComponentFixture<LaundryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -21,14 +20,14 @@ describe('BuildingComponent', () => {
         ReactiveFormsModule,
         NgbModule.forRoot()
 		],
-      declarations: [ BuildingComponent, ModalComponent, ModalEditComponent, ModalDeleteComponent
+      declarations: [ LaundryComponent, ModalComponent, ModalEditComponent, ModalDeleteComponent
 	  ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BuildingComponent);
+    fixture = TestBed.createComponent(LaundryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BuildingRoutingModule } from './building-routing.module';
-import { BuildingComponent } from './building.component';
+import { LaundryRoutingModule } from './laundry-routing.module';
+import { LaundryComponent } from './laundry.component';
 import { ModalComponent } from './components';
-import { ModalEditComponent } from './components';
-import { ModalDeleteComponent } from './components';
+import { DateComponent } from './components';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -14,13 +14,15 @@ import { ModalDeleteComponent } from './components';
         FormsModule,
         ReactiveFormsModule,
         NgbModule.forRoot(),
-    BuildingRoutingModule
+    LaundryRoutingModule
   ],
   declarations: [
-    BuildingComponent,
+    LaundryComponent,
     ModalComponent,
-	ModalEditComponent,
-	ModalDeleteComponent
+    DateComponent
+  ],
+  providers: [
+    DatePipe
   ]
 })
-export class BuildingModule { }
+export class LaundryModule { }
