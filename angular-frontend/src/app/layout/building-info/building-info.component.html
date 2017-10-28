@@ -15,7 +15,7 @@
           <app-stat [buildingId]="building_id" [bgClass]="'card-danger'" [icon]="'fa-users'" [count]="13" [label]="'New Tickets!'" [routerLink]="'/broadcast'"></app-stat>
       </div>
   </div>
-    <hr />
+    
     <!-- Control if the user is landlord or tenant -->
     <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
     <hr />

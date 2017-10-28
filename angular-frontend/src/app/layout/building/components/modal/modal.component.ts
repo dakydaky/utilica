@@ -1,7 +1,7 @@
 import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {CommonService} from '../../../../commonService/common.service';
-import { ModalDirective } from 'ng2-bootstrap'
+import { ModalDirective } from 'ng2-bootstrap';
 
 @Component({
     selector: 'app-modal',
