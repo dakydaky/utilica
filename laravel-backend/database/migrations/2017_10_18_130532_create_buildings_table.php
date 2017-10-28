@@ -21,7 +21,6 @@ class CreateBuildingsTable extends Migration
             $table->string('street');
             $table->string('streetNo');
             $table->timestamps();
-
         });
     }
 

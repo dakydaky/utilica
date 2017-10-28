@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-
+import {CommonService} from '../../../../commonService/common.service';
 @Component({
     selector: 'app-modal-edit',
     templateUrl: './modal-edit.component.html',
@@ -8,7 +8,10 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModalEditComponent {
     closeResult: string;
-    constructor(private modalService: NgbModal) { }
+    @Input() building;
+    @Output() change: EventEmitter<any> = new EventEmitter();
+    reqIsSent = false;
+    constructor(private modalService: NgbModal, private service: CommonService) { }
 
     open(content) {
         this.modalService.open(content).result.then((result) => {
@@ -26,5 +29,24 @@ export class ModalEditComponent {
         } else {
             return  `with: ${reason}`;
         }
+    }
+
+    registar(data, c) {
+        console.log(data);
+        const d = { 'building': data, 'building_id': JSON.stringify(this.building.id),
+            'jwt': JSON.parse(localStorage.getItem('user')).jwt };
+        console.log(d);
+        this.reqIsSent = true;
+        this.service.post('updateBuilding', d).then( resp => {
+            this.reqIsSent = false;
+            if ( resp.message === 'OK') {
+                alert('You have successfully updated building.');
+                this.change.emit(
+                    'refresh');
+                c('Close click');
+            } else {
+                alert ( 'There was some error. You input some wrong data.');
+            }
+        });
     }
 }

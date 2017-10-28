@@ -98,20 +98,25 @@ class BuildingApi extends Controller
 
     public function updateBuilding(Request $r)
     {
-        $jwt = $r->get('jwt');
+        $jwt = $r->post('jwt');
         $u = App\User::where('jwt', $jwt)->first();
         if($u != null) {
-            $b = App\Building::where('id', $r->get('id'));
+
+            $id = $r->post('building_id');
+
+            $b = App\Building::where('id', $id)->first();
 
 
-            $b->buildingName = $r->get('buidlingName');
-            $b->city = $r->get('city');
-            $b->street = $r->get('street');
-            $b->streetNo = $r->get('streetNo');
+            $newB = $r->post('building');
+
+            $b->buildingName = $newB['buildingName'];
+            $b->city = $newB['city'];
+            $b->street = $newB['street'];
+            $b->streetNo = $newB['streetNo'];
 
             $b->save();
 
-            return [ 'message' => 'Building updated.'];
+            return [ 'message' => 'OK'];
         }
 
         return [ 'message' => 'error'];
@@ -120,10 +125,17 @@ class BuildingApi extends Controller
 
     public function deleteBuilding(Request $r)
     {
-        $jwt = $r->get('jwt');
+        $jwt = $r->post('jwt');
         $u = App\User::where('jwt', $jwt)->first();
         if($u != null) {
-            $b = App\Building::where('id', $r->get('id'));
+            $b = App\Building::where('id', $r->post('building_id'))->first();
+
+            if( $b->apartment != null) {
+                foreach( $b->apartment as $el)
+                    $el->delete();
+            }
+
+            // delete whatever more is need...
 
             $b->delete();
 

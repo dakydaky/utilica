@@ -41,10 +41,10 @@ Route::post('/getBuildingInfo', [ 'uses' => 'BuildingApi@getBuilding']);
 Route::post('/createBuilding', [ 'uses' => 'BuildingApi@createBuilding']);
 
 
-Route::put('/updateBuilding', [ 'uses' => 'BuildingApi@updateBuilding']);
+Route::post('/updateBuilding', [ 'uses' => 'BuildingApi@updateBuilding']);
 
 
-Route::delete('/deleteBuilding', [ 'uses' => 'BuildingApi@deleteBuilding']);
+Route::post('/deleteBuilding', [ 'uses' => 'BuildingApi@deleteBuilding']);
 
 
 //Apartment

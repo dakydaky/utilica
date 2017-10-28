@@ -1,40 +1,45 @@
 		&nbsp; <button type="button" (click)="open(content2)" class="btn btn-info">Modify</button>
-                <ng-template #content2 let-c="close" let-d="dismiss">
+
+        <ng-template #content2 let-c="close" let-d="dismiss">
                     <div class="modal-header">
                         <h4 class="modal-title"><i class="mdi mdi-map-marker"></i>&nbsp; Edit Building</h4>
                         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-					<form role="form" #f="ngForm" (ngSubmit)="registar(f.value)" >
+
+            <form role="form" #f="ngForm" (ngSubmit)="registar(f.value, c)" >
                     <div class="modal-body form-content">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                                <div class="container form-inline">								
-                                    <div class="col-xs-2">Building Name: &nbsp;</div> <input type="text" name="buildingName" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="" >                             
+                                <div class="container form-inline">
+                                    <div class="col-xs-2">Building Name: &nbsp;</div> <input type="text" name="buildingName" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="" >
 								</div>
 							</li>
 							<li class="list-group-item">
-                                <div class="container form-inline">  							
-                                    <div class="col-xs-2"> Address: &nbsp;</div><input type="text" name="address" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="">							
-							   </div>							     
-							</li>
-							<li class="list-group-item">
-                                <div class="container form-inline">					
-                                     <div class="col-xs-2"> City: &nbsp;</div><input type="text" name="city" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="">									
-								</div>							     
+                                <div class="container form-inline">
+                                    <div class="col-xs-2"> Street: &nbsp;</div><input type="text" name="street" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="">
+							   </div>
 							</li>
                             <li class="list-group-item">
                                 <div class="container form-inline">
-                                    <div class="row"><div class="col-xs-10"> Number of apartments: &nbsp;</div><input type="text" name="numApp" ngModel class="ml-auto mlC form-control input-underline input-lg text-center" value="1"></div>									
-							    </div>
+                                    <div class="row"><div class="col-xs-10"> Street number: &nbsp;</div><input type="text" name="streetNo" ngModel class="ml-auto mlC form-control input-underline input-lg text-center" value="1"></div>
+                                </div>
+                            </li>
+
+							<li class="list-group-item">
+                                <div class="container form-inline">
+                                     <div class="col-xs-2"> City: &nbsp;</div><input type="text" name="city" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="">
+								</div>
 							</li>
                         </ul>
-					
+
                     </div>
                     <div class="modal-footer">
-					    <button type="submit" class="btn btn-success rounded-btn" (click)="c('Close click')"> Confirm </button>
+                        <p *ngIf="reqIsSent">Wait for update...</p>
+					    <button type="submit" class="btn btn-success rounded-btn"> Confirm </button>
                         <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
                     </div>
 					</form>
+
                 </ng-template>
