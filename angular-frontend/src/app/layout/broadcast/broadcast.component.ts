@@ -12,5 +12,7 @@ import {CommonService} from "../../commonService/common.service";
 
 export class BroadcastComponent implements OnInit {
     constructor() { }
-    ngOnInit() { }
+    ngOnInit() {
+        debugger;
+    }
 }

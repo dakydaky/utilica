@@ -29,13 +29,11 @@
                     <!--<li class="list-group-item">Buliding id: {{ building.id }}</li>-->
                 </ul>
                 <div class="card-block">
-<<<<<<< HEAD
-                    <a class="btn btn-primary" (click)="goToBuldingInfo(building.id)">View</a>
-=======
-                    <button href="#" class="btn btn-primary">View</button>
->>>>>>> d2
-                    <app-modal-edit></app-modal-edit>
-                    <app-modal-delete></app-modal-delete>
+                    <a class="btn btn-primary" (click)="goToBuldingInfo(building.id)" style="color:white">View</a>
+                    <app-modal-edit [b]="building" (change)="getBuildings()"></app-modal-edit>
+                    <app-modal-delete [buildingId]="building.id" [buildingName]="building.buildingName"
+                                      (change)="getBuildings()">
+                    </app-modal-delete>
                 </div>
             </div>
 

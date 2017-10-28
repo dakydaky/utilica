@@ -9,12 +9,13 @@ import {CommonService} from '../../commonService/common.service';
 export class BuildingInfoComponent implements OnInit{
   building = null;
   apartments = null;
+  building_id;
   constructor(private service: CommonService) {
 
   }
 
   ngOnInit() {
-      console.log(localStorage.getItem('building_id'));
+      this.building_id = JSON.parse(localStorage.getItem('building_id'));
       const data = { 'building_id': localStorage.getItem('building_id'),
           'jwt' : JSON.parse(localStorage.getItem('user')).jwt };
       this.service.post('getBuildingInfo', data).then( resp => {
@@ -30,6 +31,6 @@ export class BuildingInfoComponent implements OnInit{
       );
   }
 
-  
+
 
 }

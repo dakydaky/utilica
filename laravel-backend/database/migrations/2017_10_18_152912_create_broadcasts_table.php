@@ -17,7 +17,7 @@ class CreateBroadcastsTable extends Migration
             $table->increments('id');
             $table->integer('building_id');
             $table->longText('text');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->timestamps();
         });
     }
