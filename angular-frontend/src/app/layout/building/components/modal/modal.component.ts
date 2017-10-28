@@ -38,10 +38,11 @@ export class ModalComponent {
     }
 
     registar(data, cB) {
-      // debugger;
+       // debugger;
         this.requestSent = true;
         const send = {'building': data, 'jwt': JSON.parse(localStorage.getItem('user')).jwt}
         this.service.post('createBuilding', send).then(resp => {
+            // debugger;
             alert(resp.message);
             this.change.emit(
                 'refresh');

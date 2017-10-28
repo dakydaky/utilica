@@ -36,10 +36,10 @@ export class ModalEditComponent implements OnInit {
     }
 
     registar(data, c) {
-        console.log(data);
+        // console.log(data);
         const d = { 'building': data, 'building_id': JSON.stringify(this.b.id),
             'jwt': JSON.parse(localStorage.getItem('user')).jwt };
-        console.log(d);
+       // console.log(d);
         this.reqIsSent = true;
         this.service.post('updateBuilding', d).then( resp => {
             this.reqIsSent = false;
