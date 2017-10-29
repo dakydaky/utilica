@@ -1,0 +1,19 @@
+        
+		<button type="button" (click)="open(content)" class = "btn pull-right btn-danger"><i class="fa fa-delete-forever"></i>&nbsp;Remove</button>
+                <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><i class="mdi mdi-map-marker-plus"></i>&nbsp; Remove Building</h4>
+                        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+					<form role="form" #f="ngForm" (ngSubmit)="registar(f.value)" >
+                    <div class="modal-body form-content">
+                       Are you sure you want to remove building ________?
+                    </div>
+                    <div class="modal-footer">
+					    <button type="submit" class="btn btn-success rounded-btn" (click)="c('Close click')"> Confirm </button>
+                        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+                    </div>
+					</form>
+                </ng-template>
