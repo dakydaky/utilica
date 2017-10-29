@@ -74,4 +74,12 @@ export class ModalComponent {
             return false;
         }
     }
+
+    userLandlord() {
+        if ( JSON.parse(localStorage.getItem('user')).type === 'landlord') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

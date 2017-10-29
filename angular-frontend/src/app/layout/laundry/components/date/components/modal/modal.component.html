@@ -1,18 +1,40 @@
 <div class="card-group">
     <div *ngFor="let el of array">
-        <div (click)="open(content)" class="card card-success margins"
-        *ngIf="isFree(el); else elseBranch">
-            <div class="card-block">
-                <h4 class="text-center card-title">{{el}}</h4>
-            </div>
+
+
+        <div *ngIf="userLandlord(); else tanet">
+
+                <div class="card card-success margins"
+                     *ngIf="isFree(el); else elseBranch">
+                    <div class="card-block">
+                        <h4 class="text-center card-title">{{el}}</h4>
+                    </div>
+                </div>
+
+                <ng-template #elseBranch>
+                    <div class="card card-danger margins">
+                        <div class="card-block">
+                            <h4 class="text-center card-title">{{el}}</h4>
+                        </div>
+                    </div>
+                </ng-template>
         </div>
 
-        <ng-template #elseBranch>
-            <div class="card card-danger margins">
+        <ng-template #tanet>
+            <div (click)="open(content)" class="card card-success margins"
+                 *ngIf="isFree(el); else elseBranch">
                 <div class="card-block">
                     <h4 class="text-center card-title">{{el}}</h4>
                 </div>
             </div>
+
+            <ng-template #elseBranch>
+                <div class="card card-danger margins">
+                    <div class="card-block">
+                        <h4 class="text-center card-title">{{el}}</h4>
+                    </div>
+                </div>
+            </ng-template>
         </ng-template>
 
 
