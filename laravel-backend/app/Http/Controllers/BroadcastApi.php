@@ -26,7 +26,7 @@ class BroadcastApi extends Controller
     {
         $jwt = $r->post('jwt');
         $u = App\User::where('jwt', $jwt);
-        if( $u != null ) {
+        if( $u != null && $u->type == 'landlord' ) {
             $b = App\Building::where('id', $r->post('building_id'))->first();
             $broadcast = new App\Broadcast();
             $broadcast->text = $r->post('text');
@@ -43,11 +43,32 @@ class BroadcastApi extends Controller
 
     public function updateBroadcast(Request $r)
     {
-        // update
+        $jwt = $r->post('jwt');
+        $u = App\User::where('jwt', $jwt);
+        if( $u != null && $u->type == 'landlord' ) {
+            $broadcast = App\Broadcast::where('id', $r->post('broadcast_id'))->first();
+            $broadcast->text = $r->post('text');
+            $broadcast->title = $r->post('title');
+            $broadcast->save();
+
+            return [ 'message' => 'Broadcast is updated.'];
+        }
+        else
+            return [ 'message' => 'Some error.'];
     }
 
     public function deleteBroadcast(Request $r)
     {
-        // delete
+        $jwt = $r->post('jwt');
+        $u = App\User::where('jwt', $jwt);
+        if( $u != null && $u->type == 'landlord' ) {
+            $broadcast = App\Broadcast::where('id', $r->post('broadcast_id'))->first();
+
+            $broadcast->delete();
+
+            return [ 'message' => 'Broadcast is updated.'];
+        }
+        else
+            return [ 'message' => 'Some error.'];
     }
 }

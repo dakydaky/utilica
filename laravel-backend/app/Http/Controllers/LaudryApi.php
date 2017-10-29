@@ -34,7 +34,7 @@ class LaudryApi extends Controller
     {
         $jwt = $r->post('jwt');
         $u = App\User::where('jwt', $jwt)->first();
-        if( $u != null)
+        if( $u != null && $u->type == 'tenet')
         {
             $d = new DateTime();
             date_date_set( $d ,$r->post('year'),  $r->post('month') , $r->post('day'));
@@ -76,6 +76,19 @@ class LaudryApi extends Controller
 
     public function deleteAppointment(Request $r)
     {
-        // delete
+        $jwt = $r->post('jwt');
+        $u = App\User::where('jwt', $jwt)->first();
+
+        if( $u != null && $u->type == 'tenet') {
+
+          $l = App\Laundry::where('id', $r->post('id'))->first();
+
+          $l->delete();
+
+          return [ 'message' => 'OK'];
+        }
+        else {
+            return [ 'message' => "error"];
+        }
     }
 }
