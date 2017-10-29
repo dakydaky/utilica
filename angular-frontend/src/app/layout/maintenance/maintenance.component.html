@@ -1,0 +1,64 @@
+	<div [@routerTransition]>
+	<div class="alert alert-info">
+	<div class="container">
+	<div class ="row">
+	<div class ="col-xs-10">
+		<span class="title1"><i class="fa fa-wrench"></i>
+        <strong>Maintenance</strong></span>
+	</div>
+	<div *ngIf="userType==='landlord'" class ="ml-auto col-xs-2">
+        <app-modal-sendmain></app-modal-sendmain>
+    </div>
+    </div>
+    </div>
+    </div>
+	<div class="row">
+            <div class="input-group">
+            <div class="card card-3">
+                    <h5 class="text-center">In progress</h5>
+                    <div class="card-block">
+                        <h3 class="text-center card-title"> Broken lights </h3>
+                        <h6 class="text-center"> My lights are broken dammit </h6>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Apartment: </li>
+                        <li class="list-group-item">Tenant Name:</li>
+                        <li class="list-group-item">Date Received:</li>
+                        <!--<li class="list-group-item">Buliding id: {{ building.id }}</li>-->
+                    </ul>
+
+
+
+            </div>
+           <span class="input-group-btn">
+           <button class="btn confBtn btn-default btn-warning"><i class="fa fa-spinner"></i></button> 
+           <button class="btn confBtn btn-default btn-success"><i class="fa fa-check"></i></button>          
+           
+           </span>
+        </div>
+        <div class="input-group">
+                <div class="card card-3">
+                        <h5 class="text-center">In progress</h5>
+                        <div class="card-block">
+                            <h3 class="text-center card-title"> Broken lights </h3>
+                            <h6 class="text-center"> My lights are broken dammit </h6>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Apartment: </li>
+                            <li class="list-group-item">Tenant Name:</li>
+                            <li class="list-group-item">Date Received:</li>
+                            <!--<li class="list-group-item">Buliding id: {{ building.id }}</li>-->
+                        </ul>
+    
+    
+    
+                </div>
+               <span class="input-group-btn">
+               <button class="btn confBtn btn-default btn-warning"><i class="fa fa-spinner"></i></button> 
+               <button class="btn confBtn btn-default btn-success"><i class="fa fa-check"></i></button>          
+               
+               </span>
+            </div>
+    </div>
+
+    </div>

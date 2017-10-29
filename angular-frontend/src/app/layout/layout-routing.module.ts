@@ -20,7 +20,8 @@ const routes: Routes = [
             { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
             { path: 'help', loadChildren: './help/help.module#HelpModule' },
             { path: 'laundry', loadChildren: './laundry/laundry.module#LaundryModule' },
-            { path: 'apartment', loadChildren: './apartment/apartment.module#ApartmentModule' }
+            { path: 'apartment', loadChildren: './apartment/apartment.module#ApartmentModule' },
+            { path: 'maintenance', loadChildren: './maintenance/maintenance.module#MaintenanceModule' }
         ]
     }
 ];
