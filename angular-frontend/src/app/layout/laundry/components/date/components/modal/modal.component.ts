@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {CommonService} from '../../../../../../commonService/common.service';
 import {Router} from '@angular/router';
@@ -9,8 +9,11 @@ import {Router} from '@angular/router';
     styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
-    array = ['08:00-11:00', '11:00-14:00', '14:00-17:00', '17:00-20:00', '20:00-23:00', '23:00-2:00'];
+    array = ['9:00-12:00', '12:00-15:00', '15:00-18:00', '18:00-21:00', '21:00-00:00'];
     closeResult: string;
+    @Input() appoitmentsArray;
+    @Input() date;
+    @Output() event: EventEmitter<any> = new EventEmitter();
 
     constructor(private modalService: NgbModal, private service: CommonService, private router: Router) {
     }
@@ -33,11 +36,42 @@ export class ModalComponent {
         }
     }
 
-    registar(data) {
-        const send = {'building': data, 'jwt': JSON.parse(localStorage.getItem('user')).jwt}
-        this.service.post('createBuilding', send).then(resp => {
-            alert(resp.message);
-            this.router.navigate(['/building']);
+    registar(data, c) {
+
+        let d = this.date.getMonth() + 1 % 13;
+        if (d === 0) {
+            d = 1;
+        }
+
+        const send = {
+            'day': this.date.getDate(),
+            'month': d,
+            'year': this.date.getFullYear(),
+            'time': data,
+            'building_id': localStorage.getItem('building_id'),
+            'jwt': JSON.parse(localStorage.getItem('user')).jwt
+        };
+        this.service.post('makeAppointment', send).then(resp => {
+            // debugger;
+            if (resp.message === 'OK') {
+                alert('You have successfully reserved a time interval for laundry.');
+                this.event.emit('refresh');
+            } else {
+                alert(resp.message);
+            }
+            c('Close click');
         });
+    }
+
+    isFree(el) {
+        // debugger;
+        const a = this.appoitmentsArray.find(x => x.timeInterval === el);
+        if (a == null) {
+            // console.log('true');
+            return true;
+        } else {
+            // console.log('false');
+            return false;
+        }
     }
 }
