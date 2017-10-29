@@ -19,7 +19,7 @@ export class BuildingInfoComponent implements OnInit{
       const data = { 'building_id': localStorage.getItem('building_id'),
           'jwt' : JSON.parse(localStorage.getItem('user')).jwt };
       this.service.post('getBuildingInfo', data).then( resp => {
-              console.log(resp);
+             // console.log(resp);
               if (resp.building != null) {
                   this.building = JSON.parse(resp.building);
                   this.apartments = JSON.parse(resp.apartments);
