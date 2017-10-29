@@ -1,0 +1,32 @@
+        &nbsp; <button type="button" (click)="open(content)" class = " btn btn-success"><i class="mdi mdi-plus"></i>Send Report</button>
+                <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><i class="fa fa-wrench"></i>&nbsp; Send Maintenance Report</h4>
+                        <button type="button"  class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form role="form" #f="ngForm" (ngSubmit)="registar(f.value, c)" >
+                            <div class="modal-body form-content">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="container form-inline">
+                                            <div class="col-xs-2">Issue Title: &nbsp;</div> <input type="text" name="buildingName" ngModel class="ml-auto col-xs-10 form-control input-underline input-lg text-center" id="">
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="container form-group">
+                                            <div class="col-xs-2"> Describe the Issue: &nbsp;</div><input type="text" name="street" ngModel class="ml-auto col-xs-10 inputLg form-control input-underline input-lg" id="">
+                                       </div>
+                                    </li>
+
+                                </ul>
+        
+                            </div>
+                            <div class="modal-footer">
+                                <p *ngIf="requestSent">Creating...</p>
+                                <button type="submit" class="btn btn-success rounded-btn"> Confirm </button>
+                                <button #closeBtn type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+                            </div>
+                            </form>                   
+                </ng-template>

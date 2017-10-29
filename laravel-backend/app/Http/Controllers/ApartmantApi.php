@@ -13,7 +13,7 @@ class ApartmantApi extends Controller
         $u = App\User::where('jwt', $jwt)->first();
         if($u != null)
         {
-            $b = App\Building::where('id', $r->post('id'));
+            $b = App\Building::where('id', $r->post('id'))->first();
 
             $a = $b->apartment;
 
@@ -25,20 +25,92 @@ class ApartmantApi extends Controller
         }
     }
 
+
+    public function getApartment(Request $r)
+    {
+        $jwt = $r->post('jwt');
+
+        $u = App\User::where('jwt', $jwt)->first();
+        if($u != null)
+        {
+            $a = $u->apartment;
+
+            return [ 'apartment' => $a];
+        }
+        else
+        {
+            return [ 'message' => 'error' ];
+        }
+    }
+
     public function createApartment(Request $r)
     {
-        // insert into
+        $jwt = $r->post('jwt');
+
+        $u = App\User::where('jwt', $jwt)->first();
+        if($u != null && $u->type == 'landlord')
+        {
+
+            $a = new App\Apartment();
+
+            $a->building_id = $r->post('id');
+            $a->user_id = null;
+            $a->apartmentName = $r->post('apartmentName');
+            $a->passKey = $r->post('passKey');
+
+            $a->save();
+
+            return [ 'message' => 'OK'];
+        }
+        else
+        {
+            return [ 'message' => 'error' ];
+        }
     }
 
 
     public function updateApartment(Request $r)
     {
-        // update
+        $jwt = $r->post('jwt');
+
+        $u = App\User::where('jwt', $jwt)->first();
+        if($u != null && $u->type == 'landlord')
+        {
+
+            $a = App\Apartment::where('id', $r->post('id'))->first();
+
+            $a->building_id = $r->post('id');
+            $a->apartmentName = $r->post('apartmentName');
+            $a->passKey = $r->post('passKey');
+
+            $a->save();
+
+            return [ 'message' => 'OK'];
+        }
+        else
+        {
+            return [ 'message' => 'error' ];
+        }
     }
 
     public function deleteApartment(Request $r)
     {
-        // delete
+        $jwt = $r->post('jwt');
+
+        $u = App\User::where('jwt', $jwt)->first();
+        if($u != null && $u->type == 'landlord')
+        {
+
+            $a = App\Apartment::where('id', $r->post('id'))->first();
+
+            $a->delete();
+
+            return [ 'message' => 'OK'];
+        }
+        else
+        {
+            return [ 'message' => 'error' ];
+        }
     }
 
 }

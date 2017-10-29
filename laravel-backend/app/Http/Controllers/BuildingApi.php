@@ -62,20 +62,20 @@ class BuildingApi extends Controller
         $u = App\User::where('jwt', $jwt)->first();
         if($u != null) {
 
-            $d =  $r->post('building');
+             $d =  $r->post('building');
 
-            $b = new App\Building();
-            $b->buildingName = $d['buildingName'];
-            $b->city = $d['city'];
-            $b->street = $d['street'];
+             $b = new App\Building();
+             $b->buildingName = $d['buildingName'];
+             $b->city = $d['city'];
+             $b->street = $d['street'];
             $b->streetNo = $d['streetNo'];
-            $b->user_id = $u->id;
+             $b->user_id = $u->id;
 
-            //return json_encode($b);
+            // //return json_encode($b);
 
-            $b->save();
+             $b->save();
 
-            $a = intval($d['numApp']);
+            $a = $d['numApp'];
 
             for( $i = 0; $i < $a; $i++) {
                 $apartment = new App\Apartment();

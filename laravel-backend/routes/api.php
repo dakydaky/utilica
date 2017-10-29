@@ -82,13 +82,13 @@ Route::delete('/deleteInquiries', [ 'uses' => 'InquiriesApi@deleteInquiries']);
 
 // Laundry
 
-Route::get('/getScheduleLaundry', [ 'uses' => 'LaundryApi@laundrySchedule']);
+Route::post('/getScheduleLaundry', [ 'uses' => 'LaudryApi@laundrySchedule']);
 
-Route::post('/makeAppointment', [ 'uses' => 'LaundryApi@makeAppointment']);
+Route::post('/makeAppointment', [ 'uses' => 'LaudryApi@makeAppointment']);
 
-Route::put('/updateAppointment', [ 'uses' => 'LaundryApi@updateAppointment']);
+Route::put('/updateAppointment', [ 'uses' => 'LaudryApi@updateAppointment']);
 
-Route::delete('/deleteAppointment', [ 'uses' => 'LaundryApi@deleteAppointment']);
+Route::delete('/deleteAppointment', [ 'uses' => 'LaudryApi@deleteAppointment']);
 
 
 

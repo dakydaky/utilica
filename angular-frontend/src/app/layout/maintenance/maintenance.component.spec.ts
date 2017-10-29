@@ -5,8 +5,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaintenanceComponent } from './maintenance.component';
 
 import {
-    ModalComponent,
-  	ModalDeleteComponent
+    ModalMaintenanceComponent,
+    ModalSendMaintenanceComponent
 } from './components';
 
 describe('MaintenanceComponent', () => {
@@ -20,7 +20,7 @@ describe('MaintenanceComponent', () => {
         ReactiveFormsModule,
         NgbModule.forRoot()
 		],
-      declarations: [ MaintenanceComponent, ModalComponent, ModalDeleteComponent
+      declarations: [ MaintenanceComponent, ModalMaintenanceComponent, ModalSendMaintenanceComponent
 	  ]
     })
     .compileComponents();

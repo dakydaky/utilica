@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import {CommonService} from "../../../../commonService/common.service";
 import {arraysAreEqual} from "tslint/lib/utils";

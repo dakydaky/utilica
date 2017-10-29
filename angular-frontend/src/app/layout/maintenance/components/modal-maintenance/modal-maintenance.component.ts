@@ -4,11 +4,11 @@ import {CommonService} from '../../../../commonService/common.service';
 import { ModalDirective } from 'ng2-bootstrap';
 
 @Component({
-    selector: 'app-modal',
-    templateUrl: './modal.component.html',
-    styleUrls: ['./modal.component.scss']
+    selector: 'app-modal-maintenance',
+    templateUrl: './modal-maintenance.component.html',
+    styleUrls: ['./modal-maintenance.component.scss']
 })
-export class ModalComponent {
+export class ModalMaintenanceComponent {
     closeResult: string;
     @Output() change: EventEmitter<any> = new EventEmitter();
     @ViewChild('content') public modal: ModalDirective;
@@ -35,24 +35,5 @@ export class ModalComponent {
         } else {
             return `with: ${reason}`;
         }
-    }
-
-    registar(data, cB) {
-       // debugger;
-        this.requestSent = true;
-        const send = {'building': data, 'jwt': JSON.parse(localStorage.getItem('user')).jwt}
-        this.service.post('createBuilding', send).then(resp => {
-            // debugger;
-            alert(resp.message);
-            this.change.emit(
-                'refresh');
-            this.requestSent = false;
-            cB('Close click');
-
-        });
-    }
-
-    fun() {
-        alert('zatvori');
     }
 }

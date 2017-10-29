@@ -1,8 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {CommonService} from "../../../../commonService/common.service";
-import {arraysAreEqual} from "tslint/lib/utils";
-import {Router} from "@angular/router";
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {CommonService} from '../../../../commonService/common.service';
 import {DatePipe} from '@angular/common';
 
 @Component({
@@ -13,18 +10,41 @@ import {DatePipe} from '@angular/common';
 })
 
 export class DateComponent implements OnInit {
-    days: Date;
-    array = ['08:00-11:00', '11:00-14:00', '14:00-17:00', '17:00-20:00', '20:00-23:00', '23:00-02:00'];
     counter: Date;
     @Input() day;
+    appoitments = [];
+    startRendering = false;
+    @Output() event: EventEmitter<any> = new EventEmitter();
 
-    constructor(private datePipe: DatePipe) {
+    constructor(private datePipe: DatePipe, private service: CommonService) {
     }
 
     ngOnInit() {
         this.counter = new Date();
         this.counter.setDate(this.counter.getDate() + this.day);
-        // this.days=this.counter;
+        this.getAppoimnets();
+    }
 
+    getAppoimnets() {
+        let d = this.counter.getMonth() + 1 % 13;
+        if (d === 0) {
+            d = 1;
+        }
+        const data = {
+            'jwt': JSON.parse(localStorage.getItem('user')).jwt,
+            'day': this.counter.getDate(),
+            'month': d,
+            'year': this.counter.getFullYear(),
+            'building_id' : localStorage.getItem('building_id')
+        };
+
+        this.service.post('getScheduleLaundry', data).then(resp => {
+            this.appoitments = resp.laundry;
+            this.startRendering = true;
+        });
+    }
+
+    refreshFutherAndGetAppartements() {
+        this.event.emit('refresh');
     }
 }

@@ -4,21 +4,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaintenanceRoutingModule } from './maintenance-routing.module';
 import { MaintenanceComponent } from './maintenance.component';
-import { ModalComponent } from './components';
-import { ModalDeleteComponent } from './components';
-
+import { ModalMaintenanceComponent } from './components';
+import { ModalSendMaintenanceComponent } from './components';
 @NgModule({
   imports: [
     CommonModule,
         FormsModule,
         ReactiveFormsModule,
         NgbModule.forRoot(),
-        MaintenanceRoutingModule
+    MaintenanceRoutingModule
   ],
   declarations: [
     MaintenanceComponent,
-    ModalComponent,
-	  ModalDeleteComponent
+  ModalMaintenanceComponent,
+  ModalSendMaintenanceComponent
   ]
 })
 export class MaintenanceModule { }

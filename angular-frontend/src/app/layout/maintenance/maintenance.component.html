@@ -3,42 +3,62 @@
 	<div class="container">
 	<div class ="row">
 	<div class ="col-xs-10">
-		<span class="title1"><i class="mdi mdi-map-marker-plus"></i>
+		<span class="title1"><i class="fa fa-wrench"></i>
         <strong>Maintenance</strong></span>
 	</div>
-	<div class ="ml-auto col-xs-2">
-		<app-modal></app-modal>
-	</div>
-	</div>
+	<div *ngIf="userType==='landlord'" class ="ml-auto col-xs-2">
+        <app-modal-sendmain></app-modal-sendmain>
     </div>
     </div>
-
-
+    </div>
+    </div>
 	<div class="row">
+            <div class="input-group">
+            <div class="card card-3">
+                    <h5 class="text-center">In progress</h5>
+                    <div class="card-block">
+                        <h3 class="text-center card-title"> Broken lights </h3>
+                        <h6 class="text-center"> My lights are broken dammit </h6>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Apartment: </li>
+                        <li class="list-group-item">Tenant Name:</li>
+                        <li class="list-group-item">Date Received:</li>
+                        <!--<li class="list-group-item">Buliding id: {{ building.id }}</li>-->
+                    </ul>
 
-        <div class="col-sm-3 text-xs-center">
-            <div class="card card-default">
-                <img class="mx-auto card-img-top" src="http://clipartix.com/wp-content/uploads/2016/06/Building-clip-art-images-free-clipart-images.png" width="20%" alt="Card image cap">
-                <div class="card-block">
-                    <h4 class="text-center card-title"> Name </h4>
-                    <h6 class="text-center"> Address </h6>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Apartments:</li>
-                    <li class="list-group-item">Notifications:</li>
-                    <!--<li class="list-group-item">Buliding id: {{ building.id }}</li>-->
-                </ul>
-                <div class="card-block">
-                    <button href="#" class="btn btn-primary">View</button>
-                    <app-modal-edit></app-modal-edit>
-                    <app-modal-delete></app-modal-delete>
-                </div>
+
+
             </div>
-
+           <span class="input-group-btn">
+           <button class="btn confBtn btn-default btn-warning"><i class="fa fa-spinner"></i></button> 
+           <button class="btn confBtn btn-default btn-success"><i class="fa fa-check"></i></button>          
+           
+           </span>
         </div>
-
-
-
-
+        <div class="input-group">
+                <div class="card card-3">
+                        <h5 class="text-center">In progress</h5>
+                        <div class="card-block">
+                            <h3 class="text-center card-title"> Broken lights </h3>
+                            <h6 class="text-center"> My lights are broken dammit </h6>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Apartment: </li>
+                            <li class="list-group-item">Tenant Name:</li>
+                            <li class="list-group-item">Date Received:</li>
+                            <!--<li class="list-group-item">Buliding id: {{ building.id }}</li>-->
+                        </ul>
+    
+    
+    
+                </div>
+               <span class="input-group-btn">
+               <button class="btn confBtn btn-default btn-warning"><i class="fa fa-spinner"></i></button> 
+               <button class="btn confBtn btn-default btn-success"><i class="fa fa-check"></i></button>          
+               
+               </span>
+            </div>
     </div>
+
     </div>

@@ -1,2 +1,2 @@
-export * from './modal/modal.component';
-export * from './modal-delete/modal-delete.component';
+export * from './modal-maintenance/modal-maintenance.component';
+export * from './modal-sendmain/modal-sendmain.component';
