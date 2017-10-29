@@ -1,0 +1,18 @@
+<ol class="breadcrumb">
+  <h1 class="page-title">Inquiries - Inbox</h1>
+</ol>
+<div class="row">
+  <div class="col-md-1">
+    <a class="row btn btn-danger btn-block responsive-width" id="compose-btn" (click)="handleComposeBtn()">New</a>
+    <ul class="row nav nav-pills nav-stacked nav-email-folders mt" id="folders-list">
+      <li class="col-xs-12 nav-item"><a class="nav-link" (click)="setFolderName('Inbox')">Inbox</a></li>
+      <li class="col-xs-12 nav-item"><a class="nav-link" (click)="setFolderName('Starred')">Starred</a></li>
+      <li class="col-xs-12 nav-item"><a class="nav-link" (click)="setFolderName('Sent Mail')">Sent Mail</a></li>
+      <li class="col-xs-12 nav-item"><a class="nav-link" (click)="setFolderName('Draft')">Draft</a></li>
+      <li class="col-xs-12 nav-item"><a class="nav-link" (click)="setFolderName('Trash')">Trash</a></li>
+    </ul>
+  </div>
+  <div *ngIf="mailListShow" mail-list [folderName]="currentFolderName" (replyMail)="onReplyMail($event)" class="col-lg-9 col-xl-10 col-xs-12"></div>
+  <div *ngIf="mailFormShow" mail-form (backToMailList)="changeEmailComponents('mailList')" [message]="repliedMessage" class="col-lg-9 col-xl-10 col-xs-12"></div>
+  <div *ngIf="mailDetailShow" mail-detail [mail]="currentMail" (replyMessage)="handleComposeBtn($event)" (backToMailList)="changeEmailComponents('mailList')" class="col-lg-9 col-xl-10 col-xs-12"></div>
+</div>

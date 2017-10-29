@@ -1,20 +1,36 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { InquiriesRoutingModule } from './inquiries-routing.module';
+import { NgModule }      from '@angular/core';
+import { CommonModule }  from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 import { InquiriesComponent } from './inquiries.component';
+import { InquiriesRoutingModule } from './inquiries-routing.module';
+import { MailList } from './mail-list/mail-list.component';
+import { MailForm } from './mail-form/mail-form.component';
+import { MailDetail } from './mail-detail/mail-detail.component';
+
+import { SearchPipe } from './mail-list/pipes/search-pipe';
+import { FoldersPipe } from './mail-list/pipes/folders-pipe';
+
+export const routes = [
+    { path: '', component: InquiriesComponent, pathMatch: 'full' }
+];
 
 @NgModule({
-  imports: [
-    CommonModule,
+    imports: [
+        InquiriesRoutingModule,
         FormsModule,
-        ReactiveFormsModule,
-        NgbModule.forRoot(),
-        InquiriesRoutingModule
-  ],
-  declarations: [
-    InquiriesComponent,
+        CommonModule,
+        RouterModule.forChild(routes) ],
+    declarations: [
+        InquiriesComponent,
+        MailList,
+        MailForm,
+        MailDetail,
+        FoldersPipe,
+        SearchPipe
     ]
 })
-export class InquiriesModule { }
+export class InquiriesModule {
+    static routes = routes;
+}
