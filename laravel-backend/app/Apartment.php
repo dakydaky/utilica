@@ -16,6 +16,10 @@ class Apartment extends Model
         return $this->belongsTo('App\Apartment');
     }
 
+    public function maintenance() {
+        return $this->hasMany('App\Maintenance');
+    }
+
 
 
 }

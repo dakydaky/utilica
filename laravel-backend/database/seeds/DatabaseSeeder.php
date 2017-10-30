@@ -55,8 +55,10 @@ class DatabaseSeeder extends Seeder
             $a->building_id = $building->id;
 
             echo $i;
-            if( $i == 0) {
+            if( $i == 0 || $i == 1) {
                 $a->passKey = '11';
+                if( $i == 1)
+                    $a->passKey = '12';
                 $a->user_id = $tenet->id;
             }
 

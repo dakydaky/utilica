@@ -31,7 +31,7 @@ class ApartmantApi extends Controller
         $jwt = $r->post('jwt');
 
         $u = App\User::where('jwt', $jwt)->first();
-        if($u != null)
+        if($u != null && $u->type ='tenet')
         {
             $a = $u->apartment;
 

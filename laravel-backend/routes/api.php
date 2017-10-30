@@ -49,21 +49,23 @@ Route::post('/deleteBuilding', [ 'uses' => 'BuildingApi@deleteBuilding']);
 
 //Apartment
 
-Route::get('/getListOfApartment', [ 'uses' => 'ApartmentApi@listOfApartments']);
+Route::post('/getListOfApartment', [ 'uses' => 'ApartmantApi@listOfApartments']);
 
-Route::post('/createApartment', [ 'uses' => 'ApartmentApi@createApartment']);
+Route::post('/getApartment', [ 'uses' => 'ApartmantApi@getApartment']);
 
-Route::put('/updateApartment', [ 'uses' => 'ApartmentApi@updateApartment']);
+Route::post('/createApartment', [ 'uses' => 'ApartmantApi@createApartment']);
 
-Route::delete('/deleteApartment', [ 'uses' => 'ApartmentApi@deleteApartment']);
+Route::put('/updateApartment', [ 'uses' => 'ApartmantApi@updateApartment']);
+
+Route::delete('/deleteApartment', [ 'uses' => 'ApartmantApi@deleteApartment']);
 
 
 //Maintenance
 
 
-Route::get('/getListOfMaintenance', [ 'uses' => 'MaintenanceApi@listOfMaintenance']);
+Route::post('/getListOfMaintenance', [ 'uses' => 'MaintenanceApi@listOfMaintenance']);
 
-Route::post('/createMaintenance', [ 'uses' => 'MaintenanceApi@reportMaintenance']);
+Route::post('/postMain', [ 'uses' => 'MaintenanceApi@reportMaintenance']);
 
 Route::put('/updateMaintenance', [ 'uses' => 'MaintenanceApi@updateMaintenance']);
 

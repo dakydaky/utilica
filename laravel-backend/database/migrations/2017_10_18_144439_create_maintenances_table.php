@@ -17,7 +17,9 @@ class CreateMaintenancesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('building_id');
+            $table->integer('apartment_id');
             $table->longText('text');
+            $table->string('title');
             $table->enum('progress', ['new', 'in progress', 'finished']);
             $table->timestamps();
         });
