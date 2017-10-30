@@ -69,8 +69,13 @@ $topnav-background-color: #222;
 }
 .header .navbar {
     background: $topnav-background-color !important;
+    max-height: 65%;
+    min-height: 65%;
 }
 
+.header {
+    height: 5em;
+}
 
 
 .btn {
@@ -84,5 +89,7 @@ $topnav-background-color: #222;
 @media screen and (max-width: 992px) {
     .oi1 {
        display: none;
+       max-height: 5%;
+       min-height: 5%;
     }
 }
