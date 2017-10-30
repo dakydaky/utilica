@@ -14,7 +14,9 @@ import {
     ChatComponent
 } from './components';
 import { StatModule } from '../../shared';
-
+import { CalendarModule } from 'angular-calendar';
+import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widget';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 @NgModule({
     imports: [
         CommonModule,
@@ -22,6 +24,13 @@ import { StatModule } from '../../shared';
         NgbAlertModule.forRoot(),
         DashboardRoutingModule,
         StatModule,
+        CalendarModule.forRoot(),
+        AngularWeatherWidgetModule.forRoot({
+          key: 'f111f353b91a5595b85a1d596de150de',
+          name: WeatherApiName.OPEN_WEATHER_MAP,
+          baseUrl: 'http://api.openweathermap.org/data/2.5'
+        }),
+        LeafletModule.forRoot()
     ],
     declarations: [
         DashboardComponent,
