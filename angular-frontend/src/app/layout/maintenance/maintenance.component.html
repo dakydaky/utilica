@@ -31,6 +31,7 @@
                 <div class="card-block">
                     <h3 class="text-center card-title">  {{ m.title }} </h3>
                     <h6 class="text-center"> {{ m.text }} </h6>
+                    <h6 class="text-center"> Stage: {{ ' ' + m.progress }} </h6>
                 </div>
                 <ul *ngIf="userType === 'landlord'" class="list-group list-group-flush">
                     <li class="list-group-item">Apartment: {{ m.apartmantName }}</li>
@@ -42,8 +43,8 @@
 
             </div>
             <span class="input-group-btn">
-           <button *ngIf="userType === 'landlord'" class="btn confBtn btn-default btn-warning"><i class="fa fa-spinner"></i></button>
-           <button *ngIf="userType === 'landlord'" class="btn confBtn btn-default btn-success"><i class="fa fa-check"></i></button>
+           <button *ngIf="userType === 'landlord'" (click)="changeProgres('in progress', m.id)" class="btn confBtn btn-default btn-warning"><i class="fa fa-spinner"></i></button>
+           <button *ngIf="userType === 'landlord'" (click)="changeProgres('finished', m.id)" class="btn confBtn btn-default btn-success"><i class="fa fa-check"></i></button>
 
            </span>
         </div>

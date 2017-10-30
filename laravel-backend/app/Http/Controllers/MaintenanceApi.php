@@ -10,12 +10,18 @@ class MaintenanceApi extends Controller
     {
         $u = App\User::where('jwt', $r->post('jwt'))->first();
         if( $u != null) {
+
+            if( $u->type == 'tenet') {
             $a = App\Apartment::find($r->post('ap_id'));
             $m = $a->maintenance;
+            } else {
+                $b = App\Building::find($r->post('b_id'));
+                $m = $b->maintenance;
+            }
 
             foreach ($m as $el) {
                 $el->username = $el->user->username;
-                $el->apartmantName = $a-> apartmentName;
+                $el->apartmantName = $el->apartment-> apartmentName;
                 unset($el->user);
             }
 
@@ -65,13 +71,13 @@ class MaintenanceApi extends Controller
     }
 
 
-    public function updateMaintenance(Request $r)
+    public function updateMaintenanceProgress(Request $r)
     {
         $u = App\User::where('jwt', $r->post('jwt'))->first();
         if( $u != null && $u->type == 'landlord') {
-            $m = App\Maintenance::where('id', $r->post('main_id'))->first();
+            $m = App\Maintenance::where('id', $r->post('m_id'))->first();
 
-            $m->text = $r->post('text');
+            // $m->text = $r->post('text');
             $m->progress = $r->post('progress');
 
             $m->save();

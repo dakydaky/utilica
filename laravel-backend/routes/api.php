@@ -69,7 +69,7 @@ Route::post('/getListOfMaintenance', [ 'uses' => 'MaintenanceApi@listOfMaintenan
 
 Route::post('/postMain', [ 'uses' => 'MaintenanceApi@reportMaintenance']);
 
-Route::put('/updateMaintenance', [ 'uses' => 'MaintenanceApi@updateMaintenance']);
+Route::post('/updateMaintenance', [ 'uses' => 'MaintenanceApi@updateMaintenanceProgress']);
 
 Route::delete('/deleteMaintenance', [ 'uses' => 'MaintenanceApi@deleteMaintenance']);
 
