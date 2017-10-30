@@ -12,10 +12,12 @@ export class SidebarComponent implements OnInit{
 	test = 1;
     isActive = false;
     showMenu = '';
+    user;
     
     ngOnInit(){
         const data = JSON.parse(localStorage.getItem('user'));
         this.userType = data.type;
+        this.user = JSON.parse(localStorage.getItem('user'));        
 
     }
 
