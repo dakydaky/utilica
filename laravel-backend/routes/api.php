@@ -55,6 +55,8 @@ Route::post('/getApartment', [ 'uses' => 'ApartmantApi@getApartment']);
 
 Route::post('/createApartment', [ 'uses' => 'ApartmantApi@createApartment']);
 
+Route::post('/takeApartment', [ 'uses' => 'ApartmantApi@takeApartment']);
+
 Route::put('/updateApartment', [ 'uses' => 'ApartmantApi@updateApartment']);
 
 Route::delete('/deleteApartment', [ 'uses' => 'ApartmantApi@deleteApartment']);
@@ -67,7 +69,7 @@ Route::post('/getListOfMaintenance', [ 'uses' => 'MaintenanceApi@listOfMaintenan
 
 Route::post('/postMain', [ 'uses' => 'MaintenanceApi@reportMaintenance']);
 
-Route::put('/updateMaintenance', [ 'uses' => 'MaintenanceApi@updateMaintenance']);
+Route::post('/updateMaintenance', [ 'uses' => 'MaintenanceApi@updateMaintenanceProgress']);
 
 Route::delete('/deleteMaintenance', [ 'uses' => 'MaintenanceApi@deleteMaintenance']);
 

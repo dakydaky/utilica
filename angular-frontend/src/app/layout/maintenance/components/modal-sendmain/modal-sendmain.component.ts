@@ -40,14 +40,14 @@ export class ModalSendMaintenanceComponent {
     }
 
     registar(val, c) {
-        debugger;
+      //  debugger;
         const data = { 'title': val.title, 'text': val.text, 'jwt':
             JSON.parse(localStorage.getItem('user')).jwt,
             'app_id' : this.apartment
         };
 
         this.service.post('postMain', data).then( resp => {
-             debugger;
+           //  debugger;
            // console.log(resp);
             if (resp.message === 'OK') {
                 alert('You have successfully post maintenance.');

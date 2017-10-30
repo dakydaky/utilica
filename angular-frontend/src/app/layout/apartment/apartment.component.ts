@@ -19,10 +19,13 @@ export class ApartmentComponent implements OnInit {
 
     ngOnInit() {
         // debugger;
+        this.getApartments();
+    }
+    getApartments() {
         const data = { 'jwt' : JSON.parse(localStorage.getItem('user')).jwt  };
         this.service.post('getApartment', data)
             .then( resp => {
-               // debugger;
+                // debugger;
                 this.apartment = resp.apartment;
                 localStorage.setItem('apartments', JSON.stringify(this.apartment));
             });
