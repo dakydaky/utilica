@@ -16,6 +16,7 @@ import {
 import { StatModule } from '../../shared';
 import { CalendarModule } from 'angular-calendar';
 import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widget';
+import { ngxLeafletModule } from 'ngx.leaflet.components/ngx.leaflet.module';
 
 @NgModule({
     imports: [
@@ -29,7 +30,8 @@ import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widg
           key: 'f111f353b91a5595b85a1d596de150de',
           name: WeatherApiName.OPEN_WEATHER_MAP,
           baseUrl: 'http://api.openweathermap.org/data/2.5'
-        })
+        }),
+        ngxLeafletModule
     ],
     declarations: [
         DashboardComponent,

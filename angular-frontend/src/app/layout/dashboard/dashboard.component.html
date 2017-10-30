@@ -98,17 +98,15 @@
                   </mwl-calendar-month-view>
             </div>
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-5 widgetWeather">
                 <weather-widget [settings]="settings">
                 </weather-widget>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-6">
-            3
-        </div>
-        <div class="col-lg-6">
-            4
+        <div class="col-lg-12">
+            <leaf-element [lat]=40 [lon]=-72 [zoom]=10 [minZoom]=2 [maxZoom]=25>
+            </leaf-element>
         </div>
     </div>
 </div>
