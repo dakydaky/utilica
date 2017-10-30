@@ -24,6 +24,7 @@
                 "../node_modules/mdi/css/materialdesignicons.css",
                 "../node_modules/bootstrap/dist/css/bootstrap.min.css",
                 "../node_modules/angular-calendar/dist/css/angular-calendar.css",
+                "../node_modules/leaflet/dist/leaflet.css",
                 "styles/app.scss"
             ],
             "scripts": [
