@@ -142,6 +142,9 @@ $topnav-background-color: #222;
         top: 30pt;
         left: 0px;
     }
+    .dropdown-toggle::after{
+        display: none;
+    }
 }
 
 a{

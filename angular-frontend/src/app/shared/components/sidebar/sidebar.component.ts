@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-sidebar',
@@ -13,12 +15,24 @@ export class SidebarComponent implements OnInit{
     isActive = false;
     showMenu = '';
     user;
+    route: string;
+    
+    constructor(location: Location, router: Router) {
+        router.events.subscribe((val) => {
+          if(location.path() != ''){
+            this.route = location.path();
+          } else {
+            this.route = 'Home'
+          }
+        });
+      }
     
     ngOnInit(){
+        console.log(this.route);
         const data = JSON.parse(localStorage.getItem('user'));
         this.userType = data.type;
-        this.user = JSON.parse(localStorage.getItem('user'));        
-
+        this.user = JSON.parse(localStorage.getItem('user'));    
+        
     }
 
     eventCalled() {
