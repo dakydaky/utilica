@@ -7,7 +7,7 @@
         <strong>Apartments</strong></span>
                 </div>
                 <div class="ml-auto col-xs-2">
-                    <app-modal></app-modal>
+                    <app-modal (change)="getApartments()"></app-modal>
                 </div>
             </div>
         </div>
@@ -33,9 +33,10 @@
                 <!--</ul>-->
 
 
-                <div class="card-block">
-                    <a href="#" class="btn btn-primary">View</a>
+                <div class="card-block card-block-padding">
+                    <button class="btn btn-primary">Inquiries</button>
                     <button class="btn btn-success" (click)="goToMaintance(a.id)">Maintenance</button>
+                    <button class="btn btn-danger">Laundry</button>
                     <!--<app-modal-delete></app-modal-delete>-->
                 </div>
             </div>

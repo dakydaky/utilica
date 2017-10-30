@@ -17,6 +17,7 @@ export class MaintenanceComponent implements OnInit {
     mainList;
     zeroMain = 'loading';
     apart;
+    build;
 
     constructor(private service: CommonService, private router: Router) {
     }
@@ -25,7 +26,11 @@ export class MaintenanceComponent implements OnInit {
         // debugger;
         const data = JSON.parse(localStorage.getItem('user'));
         this.userType = data.type;
-        this.apart = JSON.parse(localStorage.getItem('app_id'));
+        if ( this.userType === 'tenet') {
+            this.apart = JSON.parse(localStorage.getItem('app_id'));
+        } else {
+            this.build = JSON.parse(localStorage.getItem('building_id'));
+        }
         this.refresh();
     }
 
@@ -33,7 +38,8 @@ export class MaintenanceComponent implements OnInit {
         debugger;
         const d = {
             'jwt': JSON.parse(localStorage.getItem('user')).jwt,
-            'ap_id': this.apart
+            'ap_id': this.apart,
+            'b_id' : this.build
         };
         this.service.post('getListOfMaintenance', d).then(resp => {
             debugger;
@@ -45,5 +51,20 @@ export class MaintenanceComponent implements OnInit {
             }
         });
 
+    }
+
+    changeProgres(s, id) {
+        debugger;
+        const data = { 'progress': s, 'm_id': id,
+            'jwt' : JSON.parse(localStorage.getItem('user')).jwt };
+        this.service.post('updateMaintenance', data).then( resp => {
+            debugger;
+            if (resp.message === 'OK') {
+                alert('You have successfully update stage of maintenance.');
+                this.refresh();
+            } else {
+                alert('Error.');
+            }
+        });
     }
 }
