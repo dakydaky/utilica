@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+import { WeatherSettings, TemperatureScale, ForecastMode, WeatherLayout } from 'angular-weather-widget';
 
 @Component({
     selector: 'app-dashboard',
@@ -10,6 +11,24 @@ import { routerTransition } from '../../router.animations';
 export class DashboardComponent implements OnInit {
     public alerts: Array<any> = [];
     public sliders: Array<any> = [];
+    view: string = 'month';
+    viewDate: Date = new Date();
+    settings: WeatherSettings = {
+        location: {
+          cityName: 'Vasteras'
+        },
+        backgroundColor: '#347c57',
+        color: '#ffffff',
+        width: '300px',
+        height: 'auto',
+        showWind: false,
+        scale: TemperatureScale.CELCIUS,
+        forecastMode: ForecastMode.DETAILED,
+        showDetails: false,
+        showForecast: true,
+        layout: WeatherLayout.WIDE,
+        language: 'en'
+      };
 
     constructor() {
         this.sliders.push({

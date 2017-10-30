@@ -1,5 +1,5 @@
 <div [@routerTransition]>
-    <h2 class="text-muted">Dashboard <small>Overview</small></h2>
+    <h2 class="text-muted">Dashboard</h2>
 <!--     <div class="row">
         <div class="col-md-12">
             <ngb-carousel>
@@ -16,37 +16,99 @@
     <hr>
     <div class="row">
         <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'card-primary'" [icon]="'fa-comments'" [count]="26" [label]="'New Comments!'" ></app-stat>
+            <div class="card">
+                <div class="card-block">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="h4 mb-0">60</div>
+                    <small class="text-muted text-uppercase font-weight-bold">Tenants</small>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="h1 text-muted text-right mb-3">
+                            <i class="fa fa-users"></i>
+                        </div>
+                    </div>      
+                </div>
+                  <div class="progress progress-xs mt-1 mb-0">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+            </div>
         </div>
         <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'card-info'" [icon]="'fa-tasks'" [count]="12" [label]="'New task!'" ></app-stat>
+            <div class="card">
+                <div class="card-block">
+                  <div class="h1 text-muted text-right mb-2">
+                    <i class="icon-user-follow"></i>
+                  </div>
+                  <div class="h4 mb-0">385</div>
+                  <small class="text-muted text-uppercase font-weight-bold">New Clients</small>
+                  <div class="progress progress-xs mt-1 mb-0">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
         </div>
         <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'card-success'" [icon]="'fa-shopping-cart'" [count]="124" [label]="'New Orders!'" ></app-stat>
+            <div class="card">
+                <div class="card-block">
+                  <div class="h1 text-muted text-right mb-2">
+                    <i class="icon-basket-loaded"></i>
+                  </div>
+                  <div class="h4 mb-0">1238</div>
+                  <small class="text-muted text-uppercase font-weight-bold">Products sold</small>
+                  <div class="progress progress-xs mt-1 mb-0">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
         </div>
         <div class="col-xl-3 col-lg-6">
-            <app-stat [bgClass]="'card-danger'" [icon]="'fa-support'" [count]="13" [label]="'New Tickets!'"></app-stat>
+            <div class="card">
+                <div class="card-block">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="h4 mb-0">972</div>
+                    <small class="text-muted text-uppercase font-weight-bold">Comments</small>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="h1 text-muted text-right mb-3">
+                            <i class="fa fa-comment-o"></i>
+                        </div>
+                    </div>      
+                </div>
+                  <div class="progress progress-xs mt-1 mb-0">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+            </div>
         </div>
     </div>
     <hr />
-    <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
-    <hr />
     <div class="row">
-
-        <!-- /.col-lg-8 -->
-        <div class="col-lg-12">
-            <div class="card card-default">
-                <div class="card-header">
-                    <i class="fa fa-bell fa-fw"></i> Notifications card
+        <div class="col-lg-7">
+            <div class="row">
+                <div class="offset-md-4 col-md-4">
+                    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
                 </div>
-                <!-- /.card-header -->
-                <app-notification></app-notification>
-                <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-
-            <!-- /.card .chat-card -->
+            <div class="cal-moth-view"> 
+                    <mwl-calendar-month-view
+                    [viewDate]="viewDate">
+                  </mwl-calendar-month-view>
+            </div>
         </div>
-        <!-- /.col-lg-4 -->
+        <div class="col-lg-5">
+                <weather-widget [settings]="settings">
+                </weather-widget>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            3
+        </div>
+        <div class="col-lg-6">
+            4
+        </div>
     </div>
 </div>
