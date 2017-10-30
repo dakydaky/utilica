@@ -139,7 +139,7 @@ $topnav-background-color: #222;
 }
 @media screen and (max-width: 992px) {
     .sidebar {
-        top: 52px;
+        top: 59px;
         left: 0px;
     }
 }
@@ -169,4 +169,9 @@ i.fa.fa-user {
 li:last-child{
     border-top: 1px solid #000;
     margin-top: 0.7rem;
+}
+@media screen and (min-width: 992px) {
+    .olF {
+       display: none;
+    }
 }

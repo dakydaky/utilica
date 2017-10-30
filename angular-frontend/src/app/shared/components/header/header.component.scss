@@ -76,3 +76,12 @@ $topnav-background-color: #222;
 .btn {
  width: 100%;
 }
+.navbar-nav .dropdown-menu {
+    position: absolute;
+}
+
+@media screen and (max-width: 992px) {
+    .oi1 {
+       display: none;
+    }
+}
