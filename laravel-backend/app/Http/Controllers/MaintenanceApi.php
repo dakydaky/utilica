@@ -10,8 +10,22 @@ class MaintenanceApi extends Controller
     {
         $u = App\User::where('jwt', $r->post('jwt'))->first();
         if( $u != null) {
-            $b = App\Building::where('id', $r->post('building_id'))->get();
-            return ['main' => $b->maintenance ];
+
+            if( $u->type == 'tenet') {
+            $a = App\Apartment::find($r->post('ap_id'));
+            $m = $a->maintenance;
+            } else {
+                $b = App\Building::find($r->post('b_id'));
+                $m = $b->maintenance;
+            }
+
+            foreach ($m as $el) {
+                $el->username = $el->user->username;
+                $el->apartmantName = $el->apartment-> apartmentName;
+                unset($el->user);
+            }
+
+            return ['main' => $m ];
         }
         else {
             return [ 'message' => 'error'];
@@ -20,22 +34,36 @@ class MaintenanceApi extends Controller
 
     public function reportMaintenance(Request $r)
     {
+
         $u = App\User::where('jwt', $r->post('jwt'))->first();
-        if( $u != null && $u->type == 'tenet') {
-            $m = new App\Maintenance();
+        if( $u != null && $u->type  == 'tenet') {
+            $a = App\Apartment::where('id', $r->post('app_id'))->first();
+            if( $a != null){
 
-            $m->buidling_id = App\Building::where('id', $r->post('building_id'))->first()->id;
+                $m = new App\Maintenance();
 
-            $m->user_id = $u->id;
+                $m->building_id = $a->building_id;
 
-            $m->text = $r->post('text');
+                $m->apartment_id = $a->id;
 
-            $m->progress = 'new';
+                $m->user_id = $u->id;
 
-            $m->save();
+                $m->text = $r->post('text');
+
+                $m->title = $r->post('title');
+
+                $m->progress = 'new';
 
 
-            return [ 'message' => 'OK' ];
+                $m->save();
+
+
+                return [ 'message' => 'OK' ];
+            }
+            else {
+                return [ 'message' => 'error'];
+            }
+
         }
         else {
             return [ 'message' => 'error'];
@@ -43,13 +71,13 @@ class MaintenanceApi extends Controller
     }
 
 
-    public function updateMaintenance(Request $r)
+    public function updateMaintenanceProgress(Request $r)
     {
         $u = App\User::where('jwt', $r->post('jwt'))->first();
         if( $u != null && $u->type == 'landlord') {
-            $m = App\Maintenance::where('id', $r->post('main_id'))->first();
+            $m = App\Maintenance::where('id', $r->post('m_id'))->first();
 
-            $m->text = $r->post('text');
+            // $m->text = $r->post('text');
             $m->progress = $r->post('progress');
 
             $m->save();

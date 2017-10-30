@@ -69,12 +69,12 @@ $topnav-background-color: #222;
 }
 .header .navbar {
     background: $topnav-background-color !important;
-    max-height: 65%;
-    min-height: 65%;
+    max-height: 100%;
+    min-height: 100%;
 }
 
 .header {
-    height: 5em;
+    height: 3.3em;
 }
 
 
@@ -92,4 +92,5 @@ $topnav-background-color: #222;
        max-height: 5%;
        min-height: 5%;
     }
+
 }

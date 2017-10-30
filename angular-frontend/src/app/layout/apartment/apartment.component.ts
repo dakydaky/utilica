@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {CommonService} from "../../commonService/common.service";
+import {CommonService} from '../../commonService/common.service';
 import { routerTransition } from '../../router.animations';
+import {Router} from "@angular/router";
 
 
 
@@ -9,22 +10,29 @@ import { routerTransition } from '../../router.animations';
     selector: 'app-apartment',
     templateUrl: './apartment.component.html',
     styleUrls: ['./apartment.component.scss'],
-	animations: [routerTransition()]
+    animations: [routerTransition()]
 })
 
 export class ApartmentComponent implements OnInit {
-    apartments: JSON;
-    constructor(private service: CommonService) {}
+    apartment: JSON;
+    constructor(private service: CommonService, private router: Router) {}
 
     ngOnInit() {
-        const data = { 'jwt' : localStorage.getItem('user')  };
-        this.service.post('getListOfBuilding', data)
+        // debugger;
+        this.getApartments();
+    }
+    getApartments() {
+        const data = { 'jwt' : JSON.parse(localStorage.getItem('user')).jwt  };
+        this.service.post('getApartment', data)
             .then( resp => {
-                
-                this.apartments = resp;
-                localStorage.setItem('buildings', JSON.stringify(this.apartments));
-            }); // error in console : Uncaught TypeError: Cannot read property 'buildings' of undefined
-                // at eval (eval at <anonymous>
+                // debugger;
+                this.apartment = resp.apartment;
+                localStorage.setItem('apartments', JSON.stringify(this.apartment));
+            });
+    }
 
+    goToMaintance(aid) {
+        localStorage.setItem('app_id', aid);
+        this.router.navigateByUrl('/maintenance');
     }
 }

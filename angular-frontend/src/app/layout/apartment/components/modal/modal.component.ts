@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 })
 export class ModalComponent {
     closeResult: string;
+    @Output() change: EventEmitter<any> = new EventEmitter();
     constructor(private modalService: NgbModal, private service: CommonService, private router: Router) { }
 
     open(content) {
@@ -31,11 +32,17 @@ export class ModalComponent {
         }
     }
 
-    registar(data) {
-        const send = { 'building' : data, 'jwt' : JSON.parse(localStorage.getItem('user')).jwt }
-        this.service.post('createBuilding', send).then( resp => {
-            alert(resp.message);
-            this.router.navigate(['/building']);
+    registar(data, c) {
+        debugger;
+        const send = { 'passKey' : data.passKey , 'jwt' : JSON.parse(localStorage.getItem('user')).jwt }
+        this.service.post('takeApartment', send).then( resp => {
+            if (resp.message === 'OK') {
+                alert('You successfully add apartment to your list of apartments.');
+                this.change.emit('refresh');
+                c('Close click');
+            } else {
+                alert('Something went wrong. Check your passkey.');
+            }
         });
     }
 }
