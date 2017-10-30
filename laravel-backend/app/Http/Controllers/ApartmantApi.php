@@ -43,6 +43,27 @@ class ApartmantApi extends Controller
         }
     }
 
+    public function takeApartment(Request $r) {
+        $jwt = $r->post('jwt');
+
+        $u = App\User::where('jwt', $jwt)->first();
+        if($u != null && $u->type ='tenet') {
+            $a = App\Apartment::where('passKey',$r->post('passKey'))->first();
+            if( $a != null && $a->user_id == null) {
+                $a->user_id = $u->id;
+                $a->save();
+                return [ 'message' => 'OK'];
+            }
+
+            return [ 'message' => 'Error'];
+
+        } else {
+
+            return [ 'message' => 'Error'];
+        }
+
+    }
+
     public function createApartment(Request $r)
     {
         $jwt = $r->post('jwt');

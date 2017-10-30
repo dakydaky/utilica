@@ -55,6 +55,8 @@ Route::post('/getApartment', [ 'uses' => 'ApartmantApi@getApartment']);
 
 Route::post('/createApartment', [ 'uses' => 'ApartmantApi@createApartment']);
 
+Route::post('/takeApartment', [ 'uses' => 'ApartmantApi@takeApartment']);
+
 Route::put('/updateApartment', [ 'uses' => 'ApartmantApi@updateApartment']);
 
 Route::delete('/deleteApartment', [ 'uses' => 'ApartmantApi@deleteApartment']);
