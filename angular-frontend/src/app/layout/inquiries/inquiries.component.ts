@@ -1,85 +1,88 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
+
 declare var jQuery: any;
 
 @Component({
-  selector: 'inquiries',
-  templateUrl: './inquiries.template.html',
-  styleUrls: ['./inquiries.style.scss']
+    selector: 'inquiries',
+    templateUrl: './inquiries.template.html',
+    styleUrls: ['./inquiries.style.scss']
 })
 
 export class InquiriesComponent implements OnInit {
-  mailListShow: boolean = true;
-  mailFormShow: boolean = false;
-  mailDetailShow: boolean = false;
-  currentMail: any;
-  currentFolderName: string = 'Inbox';
-  $el: any;
-  repliedMessage: any;
+    mailListShow = true;
+    mailFormShow = false;
+    mailDetailShow = false;
+    currentMail: any;
+    currentFolderName = 'Inbox';
+    $el: any;
+    repliedMessage: any;
 
-  constructor(el: ElementRef) {
-    this.$el = jQuery(el.nativeElement);
+    constructor(el: ElementRef) {
+        this.$el = jQuery(el.nativeElement);
 
-    this.initMailboxAppDemo(this.$el);
-  }
-
-  handleComposeBtn(event): void {
-    this.repliedMessage = event || undefined;
-    this.changeEmailComponents('mailForm');
-  }
-
-  onReplyMail(mail: any): void {
-    this.currentMail = mail;
-    this.changeEmailComponents('mailDetail');
-  }
-
-  changeEmailComponents(componentName: string): void {
-    let mailState = {
-      'mailList': (that): void => {
-        that.mailFormShow = that.mailDetailShow = false;
-        that.mailListShow = true;
-      },
-
-      'mailForm': (that): void => {
-        that.mailListShow = that.mailDetailShow = false;
-        that.mailFormShow = true;
-      },
-
-      'mailDetail': (that): void => {
-        that.mailListShow = that.mailFormShow = false;
-        that.mailDetailShow = true;
-      },
-    };
-
-    mailState[componentName](this);
-  }
-
-  setFolderName(folderName: string): void {
-    this.currentFolderName = folderName;
-    if (!this.mailListShow) {
-      this.changeEmailComponents('mailList');
+        this.initMailboxAppDemo(this.$el);
     }
-  }
-  /* tslint:disable */
-  initMailboxAppDemo($el: any): void {
-    let showAlert = function(): void {
-      $el.find('#app-alert')
-        .removeClass('hide')
-        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(): void {
-          jQuery(this).removeClass('animated bounceInLeft');
+
+    handleComposeBtn(event): void {
+        this.repliedMessage = event || undefined;
+        this.changeEmailComponents('mailForm');
+    }
+
+    onReplyMail(mail: any): void {
+        this.currentMail = mail;
+        this.changeEmailComponents('mailDetail');
+    }
+
+    changeEmailComponents(componentName: string): void {
+        const mailState = {
+            'mailList': (that): void => {
+                that.mailFormShow = that.mailDetailShow = false;
+                that.mailListShow = true;
+            },
+
+            'mailForm': (that): void => {
+                that.mailListShow = that.mailDetailShow = false;
+                that.mailFormShow = true;
+            },
+
+            'mailDetail': (that): void => {
+                that.mailListShow = that.mailFormShow = false;
+                that.mailDetailShow = true;
+            },
+        };
+
+        mailState[componentName](this);
+    }
+
+    setFolderName(folderName: string): void {
+        this.currentFolderName = folderName;
+        if (!this.mailListShow) {
+            this.changeEmailComponents('mailList');
+        }
+    }
+
+    /* tslint:disable */
+    initMailboxAppDemo($el: any): void {
+        let showAlert = function (): void {
+            $el.find('#app-alert')
+                .removeClass('hide')
+                .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function (): void {
+                    jQuery(this).removeClass('animated bounceInLeft');
+                });
+        };
+
+        setTimeout(() => showAlert(), 3000);
+    }
+
+    /* tslint:enable */
+    changeActiveItem(): void {
+        this.$el.find('.nav a').on('click', function (): void {
+            jQuery('.nav').find('.active').removeClass('active');
+            jQuery(this).parent().addClass('active');
         });
-    };
+    }
 
-    setTimeout(() => showAlert(), 3000);
-  }
-  /* tslint:enable */
-  changeActiveItem(): void {
-    this.$el.find('.nav a').on('click', function(): void {
-      jQuery('.nav').find('.active').removeClass('active');
-      jQuery(this).parent().addClass('active');
-    });
-  }
-
-  ngOnInit(): void {
-    this.changeActiveItem();
-  }
+    ngOnInit(): void {
+        this.changeActiveItem();
+    }
 }

@@ -20,6 +20,10 @@ class Apartment extends Model
         return $this->hasMany('App\Maintenance');
     }
 
+    public function inquiries() {
+        return $this->hasMany('App\Inquiries');
+    }
+
 
 
 }

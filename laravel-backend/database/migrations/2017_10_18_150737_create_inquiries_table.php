@@ -13,11 +13,22 @@ class CreateInquiriesTable extends Migration
      */
     public function up()
     {
+        // sender, senderMail
         Schema::create('inquiries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id'); // tenet
-            $table->integer('building_id');
-            $table->longText('text');
+            $table->integer('building_id'); // to find landlord
+            $table->integer('apartment_id');
+
+            $table->string('subject'); // title
+            $table->longText('body'); // text
+
+            $table->boolean('unread');
+            $table->boolean('starred');
+
+            // $table->integer('folderId'); // 1 - inbox, 2 - sent, 3 - draft, 4 - trash ...
+            $table->enum('sender', ['tenet', 'landlord']);
+
             $table->timestamps();
         });
     }

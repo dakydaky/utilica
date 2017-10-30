@@ -16,4 +16,8 @@ class Inquiries extends Model
         return $this->belongsTo('App\Building');
     }
 
+    public function apartment() {
+        return $this->belongsTo('App\Apartment');
+    }
+
 }

@@ -51,7 +51,7 @@
     </div>
   </header>
   <div class="widget-body" id="mailbox-content">
-    <table class="table table-striped table-emails table-hover" id="folder-view" >
+    <table *ngIf="readyMails" class="table table-striped table-emails table-hover" id="folder-view" >
       <thead>
       <tr>
         <th colspan="3" id="folder-actions">

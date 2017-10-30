@@ -67,6 +67,23 @@ class DatabaseSeeder extends Seeder
 
         }
 
+        $i = new App\Inquiries();
+
+        $i->id;
+        $i->user_id = $tenet->id; // tenet
+        $i->building_id = $building->id; // to find landlord
+        $i->apartment_id = 1;
+
+        $i->subject = 'Example'; // title
+        $i->body = 'Some text.'; // text
+
+        $i->paperclip;
+        $i->unread = true;
+        $i->starred = true;
+        $i->sender = 'tenet';
+
+        $i->save();
+
 
 
 

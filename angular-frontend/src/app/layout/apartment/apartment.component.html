@@ -34,9 +34,9 @@
 
 
                 <div class="card-block card-block-padding">
-                    <button class="btn btn-primary">Inquiries</button>
-                    <button class="btn btn-success" (click)="goToMaintance(a.id)">Maintenance</button>
-                    <button class="btn btn-danger">Laundry</button>
+                    <button class="btn btn-primary" (click)="goTo(a.id, 'inquiries')">Inquiries</button>
+                    <button class="btn btn-success" (click)="goTo(a.id, 'maintenance')">Maintenance</button>
+                    <button class="btn btn-danger" (click)="goTo(a.id, 'laundry')">Laundry</button>
                     <!--<app-modal-delete></app-modal-delete>-->
                 </div>
             </div>

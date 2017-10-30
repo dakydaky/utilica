@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Output, Input } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import {CommonService} from "../../../commonService/common.service";
 
 @Component({
   selector: '[mail-form]',
@@ -15,6 +16,8 @@ export class MailForm {
   subject: string = '';
   body: string = '';
 
+  constructor(private service: CommonService) {
+  }
   onToBack(): void {
     console.log('qwerty');
     this.backToMailList.emit('');
@@ -29,6 +32,24 @@ export class MailForm {
       span.innerHTML = this.message.body;
       this.body = span.innerText;
     }
+  }
+
+  sendInquiries(val) {
+      debugger;
+
+      const data = { 'subject' : val.subject, 'body' : val.body,
+          'jwt' : JSON.parse(localStorage.getItem('user')).jwt,
+          'apartment_id': JSON.parse(localStorage.getItem('app_id'))};
+      this.service.post('createInquiries', data).then(resp => {
+          debugger;
+          if (resp.message === 'OK') {
+              alert('You have successfully send inquiry.');
+          } else {
+              alert('Error.')
+          }
+      });
+
+      debugger;
   }
 }
 

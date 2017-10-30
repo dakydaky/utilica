@@ -1,5 +1,5 @@
 <ol class="breadcrumb">
-  <h1 class="page-title">Inquiries - Inbox</h1>
+  <h1 class="page-title">Inquiries</h1>
 </ol>
 <div class="row">
   <div class="col-md-1">
@@ -8,8 +8,8 @@
       <li class="col-xs-12 nav-item"><a class="nav-link" (click)="setFolderName('Inbox')">Inbox</a></li>
       <li class="col-xs-12 nav-item"><a class="nav-link" (click)="setFolderName('Starred')">Starred</a></li>
       <li class="col-xs-12 nav-item"><a class="nav-link" (click)="setFolderName('Sent Mail')">Sent Mail</a></li>
-      <li class="col-xs-12 nav-item"><a class="nav-link" (click)="setFolderName('Draft')">Draft</a></li>
-      <li class="col-xs-12 nav-item"><a class="nav-link" (click)="setFolderName('Trash')">Trash</a></li>
+      <!--<li class="col-xs-12 nav-item"><a class="nav-link" (click)="setFolderName('Draft')">Draft</a></li>-->
+      <!--<li class="col-xs-12 nav-item"><a class="nav-link" (click)="setFolderName('Trash')">Trash</a></li>-->
     </ul>
   </div>
   <div *ngIf="mailListShow" mail-list [folderName]="currentFolderName" (replyMail)="onReplyMail($event)" class="col-lg-9 col-xl-10 col-xs-12"></div>

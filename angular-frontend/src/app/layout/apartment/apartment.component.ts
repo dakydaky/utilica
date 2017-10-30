@@ -31,8 +31,8 @@ export class ApartmentComponent implements OnInit {
             });
     }
 
-    goToMaintance(aid) {
+    goTo(aid, url) {
         localStorage.setItem('app_id', aid);
-        this.router.navigateByUrl('/maintenance');
+        this.router.navigateByUrl('/' + url);
     }
 }

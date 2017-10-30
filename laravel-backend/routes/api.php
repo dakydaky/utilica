@@ -75,7 +75,7 @@ Route::delete('/deleteMaintenance', [ 'uses' => 'MaintenanceApi@deleteMaintenanc
 
 // Inquiries
 
-Route::get('/getListOfInquiries', [ 'uses' => 'InquiriesApi@listOfInquiries']);
+Route::post('/getListOfInquiries', [ 'uses' => 'InquiriesApi@listOfInquiries']);
 
 Route::post('/createInquiries', [ 'uses' => 'InquiriesApi@createInquiries']);
 
