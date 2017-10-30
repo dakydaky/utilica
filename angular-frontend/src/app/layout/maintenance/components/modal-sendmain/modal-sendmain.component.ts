@@ -1,7 +1,8 @@
-import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {CommonService} from '../../../../commonService/common.service';
-import { ModalDirective } from 'ng2-bootstrap';
+import {ModalDirective} from 'ng2-bootstrap';
+import {denodeify} from "q";
 
 @Component({
     selector: 'app-modal-sendmain',
@@ -14,6 +15,7 @@ export class ModalSendMaintenanceComponent {
     @ViewChild('content') public modal: ModalDirective;
     @ViewChild('closeBtn') closeBtn: ElementRef;
     requestSent = false;
+    @Input() apartment;
 
     constructor(private modalService: NgbModal, private service: CommonService) {
     }
@@ -36,4 +38,27 @@ export class ModalSendMaintenanceComponent {
             return `with: ${reason}`;
         }
     }
+
+    registar(val, c) {
+        debugger;
+        const data = { 'title': val.title, 'text': val.text, 'jwt':
+            JSON.parse(localStorage.getItem('user')).jwt,
+            'app_id' : this.apartment
+        };
+
+        this.service.post('postMain', data).then( resp => {
+             debugger;
+           // console.log(resp);
+            if (resp.message === 'OK') {
+                alert('You have successfully post maintenance.');
+                this.change.emit('refresh');
+                c('Close click');
+            } else {
+                alert('Error.');
+            }
+        })
+
+    }
+
+
 }

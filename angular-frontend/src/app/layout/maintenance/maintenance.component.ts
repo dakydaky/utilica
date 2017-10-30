@@ -14,11 +14,36 @@ import {Router} from '@angular/router';
 
 export class MaintenanceComponent implements OnInit {
     userType: string;
+    mainList;
+    zeroMain = 'loading';
+    apart;
+
     constructor(private service: CommonService, private router: Router) {
     }
-    
-    ngOnInit(){
+
+    ngOnInit() {
+        // debugger;
         const data = JSON.parse(localStorage.getItem('user'));
         this.userType = data.type;
+        this.apart = JSON.parse(localStorage.getItem('app_id'));
+        this.refresh();
+    }
+
+    refresh() {
+        debugger;
+        const d = {
+            'jwt': JSON.parse(localStorage.getItem('user')).jwt,
+            'ap_id': this.apart
+        };
+        this.service.post('getListOfMaintenance', d).then(resp => {
+            debugger;
+            this.mainList = resp.main;
+            if (this.mainList.length === 0) {
+                this.zeroMain = 'true';
+            } else {
+                this.zeroMain = 'false';
+            }
+        });
+
     }
 }
