@@ -73,7 +73,7 @@ $topnav-background-color: #222;
 
 .navbar-collapse {
 display: block;
-object-fit: contain;
+object-fit: fill;
 }
 
 .navbar-collapse .btn {
@@ -83,4 +83,9 @@ width: 100%;
 
 .btn {
  width: 100%;
+}
+
+.navbar-brand{
+   width:25%;
+
 }

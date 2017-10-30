@@ -21,7 +21,8 @@ const routes: Routes = [
             { path: 'help', loadChildren: './help/help.module#HelpModule' },
             { path: 'laundry', loadChildren: './laundry/laundry.module#LaundryModule' },
             { path: 'apartment', loadChildren: './apartment/apartment.module#ApartmentModule' },
-            { path: 'maintenance', loadChildren: './maintenance/maintenance.module#MaintenanceModule' }
+            { path: 'maintenance', loadChildren: './maintenance/maintenance.module#MaintenanceModule' },
+            { path: 'inquiries', loadChildren: './inquiries/inquiries.module#InquiriesModule' }
         ]
     }
 ];

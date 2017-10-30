@@ -1,27 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DateComponent } from './date.component';
-import { ModalComponent} from './components';
 
-describe('DateComponent', () => {
-  let component: DateComponent;
-  let fixture: ComponentFixture<DateComponent>;
+import { MailDetail } from './mail-detail.component';
+
+describe('MailDetail', () => {
+  let component: MailDetail;
+  let fixture: ComponentFixture<MailDetail>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        FormsModule,
-        ReactiveFormsModule,
         NgbModule.forRoot()
       ],
-      declarations: [ DateComponent, ModalComponent ]
+      declarations: [ MailDetail ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DateComponent);
+    fixture = TestBed.createComponent(MailDetail);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

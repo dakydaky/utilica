@@ -9,7 +9,7 @@
           <app-stat [bgClass]="'card-info'" [icon]="'fa-wrench'" [count]="12" [label]="'New task!'" [routerLink]="'/maintenance'"></app-stat>
       </div>
       <div class="col-xl-3 col-lg-6">
-          <app-stat [bgClass]="'card-success'" [icon]="'fa-exclamation'" [count]="124" [label]="'New Inquiries!'" [routerLink]="'/'"></app-stat>
+          <app-stat [bgClass]="'card-success'" [icon]="'fa-exclamation'" [count]="124" [label]="'New Inquiries!'" [routerLink]="'/inquiries'"></app-stat>
       </div>
       <div class="col-xl-3 col-lg-6">
           <app-stat [buildingId]="building_id" [bgClass]="'card-danger'" [icon]="'fa-users'" [count]="13" [label]="'New Tickets!'" [routerLink]="'/broadcast'"></app-stat>
@@ -22,7 +22,7 @@
     <div class="row">
       <div class="col-lg-12 card">
         <div class="card-header">
-            Tenants
+            Apartments
             <div class="row offset-lg-8 float-right">
                 <button type="button" (click)="open(content)" class = "btn btn-primary btn-success navbar-btn" data-toggle="modal" data-target="#addApartment"><i class="fa fa-plus"></i>&nbsp;Add Apartment</button>
             </div>
