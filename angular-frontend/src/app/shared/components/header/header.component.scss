@@ -78,6 +78,7 @@ $topnav-background-color: #222;
 }
 .navbar-nav .dropdown-menu {
     position: absolute;
+    min-width: 10rem;
 }
 
 @media screen and (max-width: 992px) {
