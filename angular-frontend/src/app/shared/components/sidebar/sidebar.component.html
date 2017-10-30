@@ -1,25 +1,40 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
-	<ul class="list-group">
+
+	<ul class="list-group list-group-flush">
+
         <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-dashboard"></i>&nbsp;{{ 'Dashboard' | translate }}
+            <i class="fa fa-dashboard"></i>&nbsp;Dashboard
         </a>
         <div *ngIf="userType==='landlord'">
         <a routerLink="/building" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-building"></i>&nbsp;{{ 'Building' | translate }}
+            <i class="fa fa-building"></i>&nbsp;Building
         </a>
         </div>
         <div *ngIf="userType==='tenet'">
         <a routerLink="/apartment" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="mdi mdi-home"></i>&nbsp;{{ 'Apartment' | translate }}
+            <i class="mdi mdi-home"></i>&nbsp;Apartment
         </a>
         </div>
         <a [routerLink]="['/help']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-question"></i>&nbsp;{{ 'Help' | translate }}
+            <i class="fa fa-question"></i>&nbsp;Help
         </a>
         <a [routerLink]="['/blog']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-rss"></i>&nbsp;{{ 'Blog' }}
+            <i class="fa fa-rss"></i>&nbsp;Blog
         </a>
-
+        <li class="olF nav-item dropdown" ngbDropdown>
+                <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                    <i class="fa fa-user"></i> <span class="unm">{{ user.username }}</span> <b class="caret"></b>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-fw fa-user"></i> Profile</a>
+                    <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-fw fa-envelope"></i> {{
+                        'Inbox' | translate }}</a>
+                    <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-fw fa-gear"></i> {{
+                        'Settings' | translate }}</a>
+                    <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()"><i
+                        class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }} </a>
+                </div>
+            </li>
     </ul>
     
     <div *ngIf="navigationController===1">

@@ -2,7 +2,7 @@ $topnav-background-color: #222;
 .topnav {
     border-radius: 0;
     background-color: $topnav-background-color;
-    padding : 6px;
+    padding : 8px;
     z-index:2;
     .text-center{
         text-align: center;
@@ -71,21 +71,18 @@ $topnav-background-color: #222;
     background: $topnav-background-color !important;
 }
 
-.navbar-collapse {
-display: block;
-object-fit: fill;
-}
 
-.navbar-collapse .btn {
-display: inline-block;
-width: 100%;
-}
 
 .btn {
  width: 100%;
 }
+.navbar-nav .dropdown-menu {
+    position: absolute;
+    min-width: 10rem;
+}
 
-.navbar-brand{
-   width:25%;
-
+@media screen and (max-width: 992px) {
+    .oi1 {
+       display: none;
+    }
 }
