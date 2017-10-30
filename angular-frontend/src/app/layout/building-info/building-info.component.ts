@@ -9,6 +9,7 @@ import {CommonService} from '../../commonService/common.service';
 export class BuildingInfoComponent implements OnInit{
   building = null;
   apartments = null;
+
   building_id;
   constructor(private service: CommonService) {
 

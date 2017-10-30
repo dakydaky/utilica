@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-sidebar',
@@ -6,11 +6,19 @@ import { Component } from '@angular/core';
     styleUrls: ['./sidebar.component.scss']
 })
 
-export class SidebarComponent {
+export class SidebarComponent implements OnInit{
+    userType: string;
+    navigationController: string;
 	test = 1;
     isActive = false;
     showMenu = '';
-	
+    
+    ngOnInit(){
+        const data = JSON.parse(localStorage.getItem('user'));
+        this.userType = data.type;
+
+    }
+
     eventCalled() {
         this.isActive = !this.isActive;
     }
