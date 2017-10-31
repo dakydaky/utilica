@@ -36,19 +36,21 @@
                     <th>Pass key</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody >
                 <tr *ngFor="let apartement of apartments">
-                    <td>{{ apartement.apartmentName }}</td>
-                    <td *ngIf=" apartement.user != null ">{{ apartement.user.firstName + " " + apartement.user.lastName }} </td>
-                    <td *ngIf=" apartement.user == null "> It's free. </td>
-                    <td *ngIf=" apartement.user != null" >{{ apartement.passKey }}</td>
-                    <td *ngIf=" apartement.user == null "> There is no passKey. </td>
+                    <td class="aya">   <app-inline-edit [(ngModel)]="name"  [required]="true" type="text">
+                    </app-inline-edit></td>               
+                    <td class="col-4" *ngIf=" apartement.user != null ">{{ apartement.user.firstName + " " + apartement.user.lastName }} </td>
+                    <td class="col-4" *ngIf=" apartement.user == null "> It's free. </td>
+                    <td class="col-4" *ngIf=" apartement.user != null" >taken</td>
+                    <td class="col-4" *ngIf=" apartement.user == null ">{{ apartement.passKey }}</td>
                 </tr>
                 </tbody>
             </table>
         </div>
 
     </div>
+
 
     <!--<div class="col-lg-4">-->
       <!--<div class="card card-default">-->
