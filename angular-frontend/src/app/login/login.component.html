@@ -57,12 +57,27 @@
             <button type="button" class="btn btn-default">ABOUT</button>
             </div> -->
 
+       
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let slider of sliders">
+                    <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
+                    <div class="carousel-caption">
+                        <h3>{{slider.label}}</h3>
+                        <p>{{slider.text}}</p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
 
-            <div class="contentBox">About</div>
 
-
-            <div class="pull-right">
-                2017.
+            <div class="textbox">
+                <p><span class="first-word">Utilica</span> is a centralized system that provides both the landlords and tenants easy access to different <br> utilities and information regarding their living space.</p>
+                <ul>
+                        <li class="tick">&nbsp;&nbsp;Lightweight, easy to use</li>
+                        <li class="tick">&nbsp;&nbsp;Quick registration</li>
+                        <li class="tick">&nbsp;&nbsp;Easy administration</li>
+                        <li class="tick">&nbsp;&nbsp;Easy access to information</li>
+                        <li class="tick">&nbsp;&nbsp;Mobile version</li>
+                </ul>
             </div>
         </div>
 

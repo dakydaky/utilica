@@ -1,2 +1,181 @@
-// shared css for the login and signup page
-@import "../login/login.component.scss";
+$topnav-background-color: #222;
+:host {
+    display: block;
+}
+
+.da1 {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+
+
+
+.tabL {
+    padding: 2em;
+    background-color:  rgba(255,255,255, 0.9);
+    height: 170%;
+    padding-bottom: 70px;
+}
+
+.login-page  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    background-size:cover;
+    background: url("../../assets/images/login-image.jpg");
+    background-size: 100% auto;
+    text-align: center;
+    color: #fff;
+
+
+    .col-lg-4{
+        padding :0;
+    }
+    .input-lg {
+        height: 46px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 0;
+        color:#222;
+    }
+    .input-underline {
+        background: 0 0;
+        border: none;
+        box-shadow: none;
+        border-bottom: 2px solid rgba(56, 55, 55, 0.678);
+        color: #222;
+        border-radius: 0;
+        padding: 20px;
+    }
+    
+    .input-underline:focus {
+        border-bottom: 2px solid rgb(56, 55, 55);
+        box-shadow: none;
+    }
+    .rounded-btn{
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        color: rgba(255,255,255,0.8);
+        background: #222;
+        border: 2px solid rgb(255,255,255);
+        font-size: 20px;
+        line-height: 40px;
+        padding: 0 25px;
+
+    }
+    .rounded-btn:hover,.rounded-btn:focus,.rounded-btn:active,.rounded-btn:visited{
+        color: rgba(255,255,255,3);
+        border: 2px solid rgba(255,255,255,1);
+        box-shadow: 0px 0px 8px rgba(255,255,255,0.8);
+        outline: none;
+    }
+
+    h1 {
+
+
+        font-weight: 300;
+        margin-top: 55px;
+        
+        font-size: 35px;
+        color: #222;
+        
+    }
+    h5{
+        margin-top: 30px;
+        margin-bottom: 15px;
+        display: inline-block;
+        font-weight: 150;
+        color: #222;
+    }
+
+    .form-group {
+        padding: 8px 0;
+        input::-webkit-input-placeholder {
+            color: 	rgb(59, 58, 58);
+        }
+
+        input:-moz-placeholder { /* Firefox 18- */
+            color: 	rgb(59, 58, 58);
+        }
+
+        input::-moz-placeholder {  /* Firefox 19+ */
+            color: 	rgb(59, 58, 58);
+        }
+
+        input:-ms-input-placeholder {
+            color: 	rgb(59, 58, 58);
+        }
+    }
+    .form-content {
+        padding: 50px 0;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .user-avatar {
+
+
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border: 2px solid rgba(255,255,255, 0.7);
+
+    }
+    .vbottom  {
+        position: relative;
+        display: inline-block;
+        top: 100%;
+        color: black;
+        border-left:  1px solid gray;
+        border-right:  1px solid gray;
+        padding-left: 20px;
+        padding-right: 20px;
+
+
+
+
+
+    }
+    
+    .btn.outline {
+        background: #222;
+        padding: 8px; 
+        border: none;
+        margin-bottom: 0px;
+    }
+    .btn-primary.outline {
+        border: 2px solid white;
+        color: rgba(255,255,255,0.8);
+    }
+    
+    .btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+        color: white;
+        border-color: none;
+    }
+    .opt1
+    {
+        background: #222;
+        padding: 12px 22px;
+        border: none;
+    }
+    
+    
+    // .btn-primary.outline:active, .btn-primary.outline.active {
+    //     border-color: #007299;
+    //     color: #007299;
+    //     box-shadow: none;
+    // }
+    .godown{
+        margin-top: 20px;
+        margin-bottom: 40px;
+
+}
+.both{
+    margin-top: 20px;
+}
+
+}

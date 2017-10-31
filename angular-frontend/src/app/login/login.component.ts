@@ -11,7 +11,23 @@ import {CommonService} from '../commonService/common.service';
 })
 export class LoginComponent implements OnInit {
 
+    public sliders: Array<any> = [];
+
     constructor(public router: Router, private service: CommonService) {
+        this.sliders.push({
+            imagePath: 'assets/images/condo1.jpg',
+            label: '',
+            text: ''
+        }, {
+            imagePath: 'assets/images/key1.jpg',
+            label: '',
+            text: '',
+            color: ''
+        }, {
+            imagePath: 'assets/images/laundry4.jpg',
+            label: '',
+            text: ''
+        });
     }
 
     ngOnInit() {

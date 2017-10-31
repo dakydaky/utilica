@@ -3,7 +3,11 @@ import { routerTransition } from '../router.animations';
 import {CommonService} from '../commonService/common.service';
 import { Router} from '@angular/router';
 
+
+
 @Component({
+    
+
     selector: 'app-signup',
     templateUrl: './signup.component.html',
     styleUrls: ['./signup.component.scss'],
