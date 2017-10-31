@@ -28,13 +28,14 @@
                     <li class="list-group-item">Notifications:</li>
                     <!--<li class="list-group-item">Buliding id: {{ building.id }}</li>-->
                 </ul>
-                <div class="card-block">
-                    <a class="btn btn-primary" (click)="goToBuldingInfo(building.id)" style="color:white">View</a>
-                    <app-modal-edit [b]="building" (change)="getBuildings()"></app-modal-edit>
-                    <app-modal-delete [buildingId]="building.id" [buildingName]="building.buildingName"
+                <div class="col-xs-12 card-block">
+
+<a class="split btn btn-primary" (click)="goToBuldingInfo(building.id)" style="color:white">View</a>
+<app-modal-edit [b]="building" (change)="getBuildings()"></app-modal-edit>
+<app-modal-delete [buildingId]="building.id" [buildingName]="building.buildingName"
                                       (change)="getBuildings()">
                     </app-modal-delete>
-                </div>
+
             </div>
 
         </div>
@@ -44,3 +45,4 @@
 
     </div>
     </div>
+</div>
