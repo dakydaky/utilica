@@ -26,6 +26,7 @@ export class DateComponent implements OnInit {
     }
 
     getAppoimnets() {
+        debugger;
         let d = this.counter.getMonth() + 1 % 13;
         if (d === 0) {
             d = 1;

@@ -13,7 +13,7 @@ export class ModalComponent {
     closeResult: string;
     @Input() appoitmentsArray;
     @Input() date;
-    @Output() event: EventEmitter<any> = new EventEmitter();
+    @Output('change') event: EventEmitter<any> = new EventEmitter();
 
     constructor(private modalService: NgbModal, private service: CommonService, private router: Router) {
     }

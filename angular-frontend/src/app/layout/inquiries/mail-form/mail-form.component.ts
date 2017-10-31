@@ -44,6 +44,7 @@ export class MailForm {
           debugger;
           if (resp.message === 'OK') {
               alert('You have successfully send inquiry.');
+              this.backToMailList.emit('refresh');
           } else {
               alert('Error.')
           }
