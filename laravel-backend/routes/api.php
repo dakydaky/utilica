@@ -79,6 +79,13 @@ Route::post('/getListOfInquiries', [ 'uses' => 'InquiriesApi@listOfInquiries']);
 
 Route::post('/createInquiries', [ 'uses' => 'InquiriesApi@createInquiries']);
 
+Route::post('/replayInquiries', [ 'uses' => 'InquiriesApi@replyOnInquiries']);
+
+Route::post('/readen', [ 'uses' => 'InquiriesApi@readen']);
+
+Route::post('/changeStarStatus', [ 'uses' => 'InquiriesApi@changeStarStatus'] );
+
+
 Route::put('/updateInquiries', [ 'uses' => 'InquiriesApi@updateInquiries']);
 
 Route::delete('/deleteInquiries', [ 'uses' => 'InquiriesApi@deleteInquiries']);

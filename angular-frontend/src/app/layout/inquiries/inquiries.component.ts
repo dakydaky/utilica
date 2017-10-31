@@ -20,18 +20,19 @@ export class InquiriesComponent implements OnInit {
     $el: any;
     repliedMessage: any;
 
-    message: any;
-    subscription: Subscription;
+    // message: any;
+    // subscription: Subscription;
 
-    constructor(el: ElementRef, private messageService: MessageServiceService) {
+    constructor(el: ElementRef /*, private messageService: MessageServiceService*/) {
         this.$el = jQuery(el.nativeElement);
 
         this.initMailboxAppDemo(this.$el);
 
-        this.subscription = this.messageService.getMessage().subscribe( message => {
-            debugger;
-
-        })
+        // this.subscription = this.messageService.getMessage().subscribe( message => {
+        // this.subscription = this.messageService.getMessage().subscribe( message => {
+        //     debugger;
+        //
+        // })
     }
 
     handleComposeBtn(event): void {
@@ -40,13 +41,13 @@ export class InquiriesComponent implements OnInit {
     }
 
     onReplyMail(mail: any): void {
-        debugger;
+       // debugger;
         this.currentMail = mail;
         this.changeEmailComponents('mailDetail');
     }
 
     changeEmailComponents(componentName: string): void {
-        debugger;
+     //   debugger;
         const mailState = {
             'mailList': (that): void => {
                 that.mailFormShow = that.mailDetailShow = false;

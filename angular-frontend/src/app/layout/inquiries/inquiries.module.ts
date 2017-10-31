@@ -11,6 +11,7 @@ import {MailDetail} from './mail-detail/mail-detail.component';
 
 import {SearchPipe} from './mail-list/pipes/search-pipe';
 import {FoldersPipe} from './mail-list/pipes/folders-pipe';
+import {MessageServiceService} from './messageBroker/message-service.service';
 
 export const routes = [
     {path: '', component: InquiriesComponent, pathMatch: 'full'}
@@ -29,6 +30,9 @@ export const routes = [
         MailDetail,
         FoldersPipe,
         SearchPipe
+    ],
+    providers: [
+        MessageServiceService
     ]
 })
 export class InquiriesModule {

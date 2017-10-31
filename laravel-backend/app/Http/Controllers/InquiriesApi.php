@@ -35,11 +35,17 @@ class InquiriesApi extends Controller
                     else {
 
                         $i->folderId = 2;
-                        // i am not sure
-                        $i->sender = $i->user->email;
-                        $i->senderMail = $i->user->username;
 
-                        unset($i->user);
+//                        $i->sender = $i->user->email;
+//                        $i->senderMail = $i->user->username;
+//
+//                        unset($i->user);
+
+                        $i->sender = $i->building->user->email;
+                        $i->senderMail = $i->building->user->username;
+
+
+                        unset($i->building);
                     }
 
                 }
@@ -67,11 +73,16 @@ class InquiriesApi extends Controller
                     else {
 
                         $i->folderId = 2;
+//
+//                        $i->sender = $i->building->user->email;
+//                        $i->senderMail = $i->user->username;
+//
+//                        unset($i->building);
 
-                        $i->sender = $i->building->user->email;
+                        $i->sender = $i->user->email;
                         $i->senderMail = $i->user->username;
 
-                        unset($i->building);
+                        unset($i->user);
 
                     }
 
@@ -125,10 +136,12 @@ class InquiriesApi extends Controller
 
 
         $u = App\User::where('jwt', $r->post('jwt'))->first();
+
         if( $u != null) {
 
             // $b = App\Building::find($r->post('b_id'))->first();
             $m = App\Inquiries::find($r->post('message_id'))->first();
+
 
             if($m != null) {
 
@@ -151,6 +164,49 @@ class InquiriesApi extends Controller
 
         } else {
 
+            return ['message' => 'error'];
+        }
+    }
+
+    public function readen(Request $r) {
+        $u = App\User::where('jwt', $r->post('jwt'))->first();
+
+        if( $u != null) {
+            $m = App\Inquiries::where('id', $r->post('m_id'))->first();
+            if($m != null) {
+                $m->unread = 0;
+                $m->save();
+                return [ 'message' => 'OK'];
+            } else {
+
+                return [ 'message' => 'error'];
+            }
+        } else {
+
+            return [ 'message' => 'error'];
+        }
+
+    }
+
+    public function changeStarStatus(Request $r) {
+        $u = App\User::where('jwt', $r->post('jwt'))->first();
+
+        if( $u != null) {
+            $m = App\Inquiries::where('id',$r->post('m_id'))->first();
+            if($m != null) {
+
+                if($m->starred)
+                    $m->starred = 0;
+                else
+                    $m->starred = 1;
+
+                $m->save();
+
+                return [ 'message' => 'OK'];
+            } else {
+                return [ 'message' => 'error'];
+            }
+        } else {
             return ['message' => 'error'];
         }
     }

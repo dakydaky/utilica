@@ -18,7 +18,19 @@ export class MailForm {
     body: string = '';
     reciverBool = false;
 
-    constructor(private service: CommonService, private messageService : MessageServiceService) {
+    constructor(private service: CommonService, private messageService: MessageServiceService) {
+    }
+
+    // for sending messagers
+
+    sendMessage(): void {
+        // send message to subscribers via observable subject
+        this.messageService.sendMessage('refresh');
+    }
+
+    clearMessage(): void {
+        // clear message
+        this.messageService.clearMessage();
     }
 
     onToBack(): void {
@@ -40,38 +52,50 @@ export class MailForm {
 
     sendInquiries(val) {
         debugger;
+        let data;
 
-        const data = {
-            'subject': val.subject, 'body': val.body,
-            'jwt': JSON.parse(localStorage.getItem('user')).jwt,
-            'apartment_id': JSON.parse(localStorage.getItem('app_id')),
-            'message_id' : this.message.id,
+        if (this.message) {
+            data = {
+                'subject': val.subject, 'body': val.body,
+                'jwt': JSON.parse(localStorage.getItem('user')).jwt,
+                'apartment_id': JSON.parse(localStorage.getItem('app_id')),
+                'message_id' : this.message.id,
 
-        };
-        if (this.message){
+            };
+        } else {
+             data = {
+                'subject': val.subject, 'body': val.body,
+                'jwt': JSON.parse(localStorage.getItem('user')).jwt,
+                'apartment_id': JSON.parse(localStorage.getItem('app_id'))
+            };
+        }
+
+        if (this.message) {
             // replay
-            this.service.post('createInquiries', data).then(resp => {
-                debugger;
+            this.service.post('replayInquiries', data).then(resp => {
+                //debugger;
                 if (resp.message === 'OK') {
                     alert('You have successfully send inquiry.');
                     this.backToMailList.emit('refresh');
+                    this.sendMessage();
                 } else {
                     alert('Error.')
                 }
             });
         } else {
             this.service.post('createInquiries', data).then(resp => {
-                debugger;
+               // debugger;
                 if (resp.message === 'OK') {
                     alert('You have successfully send inquiry.');
                     this.backToMailList.emit('refresh');
                 } else {
-                    alert('Error.')
+                    alert('Error.');
+                    this.sendMessage();
                 }
             });
         }
 
-        debugger;
+       // debugger;
     }
 }
 
