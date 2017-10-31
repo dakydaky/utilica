@@ -1,4 +1,7 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
+import {MessageServiceService} from './messageBroker/message-service.service';
+
+import { Subscription } from 'rxjs/Subscription';
 
 declare var jQuery: any;
 
@@ -17,10 +20,18 @@ export class InquiriesComponent implements OnInit {
     $el: any;
     repliedMessage: any;
 
-    constructor(el: ElementRef) {
+    message: any;
+    subscription: Subscription;
+
+    constructor(el: ElementRef, private messageService: MessageServiceService) {
         this.$el = jQuery(el.nativeElement);
 
         this.initMailboxAppDemo(this.$el);
+
+        this.subscription = this.messageService.getMessage().subscribe( message => {
+            debugger;
+
+        })
     }
 
     handleComposeBtn(event): void {
@@ -29,11 +40,13 @@ export class InquiriesComponent implements OnInit {
     }
 
     onReplyMail(mail: any): void {
+        debugger;
         this.currentMail = mail;
         this.changeEmailComponents('mailDetail');
     }
 
     changeEmailComponents(componentName: string): void {
+        debugger;
         const mailState = {
             'mailList': (that): void => {
                 that.mailFormShow = that.mailDetailShow = false;

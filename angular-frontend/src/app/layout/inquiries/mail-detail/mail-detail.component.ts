@@ -15,6 +15,7 @@ export class MailDetail {
   }
 
   goToReply(mail): void {
+      debugger;
     this.replyMessage.emit(mail);
   }
 

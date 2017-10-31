@@ -26,7 +26,7 @@ class InquiriesApi extends Controller
 
                         $i->folderId = 1;
 
-                        $i->sender = $i->building->user->firstName . " "  .$i->building->user->lastName;
+                        $i->sender = $i->building->user->email;
                         $i->senderMail = $i->building->user->username;
 
 
@@ -36,7 +36,7 @@ class InquiriesApi extends Controller
 
                         $i->folderId = 2;
                         // i am not sure
-                        $i->sender = $i->user->firstName . " "  .$i->user->lastName;
+                        $i->sender = $i->user->email;
                         $i->senderMail = $i->user->username;
 
                         unset($i->user);
@@ -56,7 +56,7 @@ class InquiriesApi extends Controller
                     if( $i->sender == 'tenet') {
                         $i->folderId = 1;
 
-                        $i->sender = $i->user->firstName . " "  .$i->user->lastName;
+                        $i->sender = $i->user->email;
                         $i->senderMail = $i->user->username;
 
                         unset($i->user);
@@ -68,7 +68,7 @@ class InquiriesApi extends Controller
 
                         $i->folderId = 2;
 
-                        $i->sender = $i->building->user->firstName . " "  .$i->building->user->lastName;
+                        $i->sender = $i->building->user->email;
                         $i->senderMail = $i->user->username;
 
                         unset($i->building);
@@ -95,7 +95,7 @@ class InquiriesApi extends Controller
     public function createInquiries(Request $r)
     {
         $u = App\User::where('jwt', $r->post('jwt'))->first();
-        if( $u != null) {
+        if( $u != null ) {
             $a = App\Apartment::find($r->post('apartment_id'))->first();
             if($u->type == 'tenet' && $a != null) {
 
@@ -112,11 +112,46 @@ class InquiriesApi extends Controller
 
                 return ['message' => 'OK'];
             } else {
-                    return [ 'message' => 'error'];
+              return [ 'message' => 'error'];
             }
         }
         else {
             return [ 'message' => 'error'];
+        }
+    }
+
+
+    public function replyOnInquiries(Request $r) {
+
+
+        $u = App\User::where('jwt', $r->post('jwt'))->first();
+        if( $u != null) {
+
+            // $b = App\Building::find($r->post('b_id'))->first();
+            $m = App\Inquiries::find($r->post('message_id'))->first();
+
+            if($m != null) {
+
+                $in = new App\Inquiries();
+                $in->apartment_id = $m->apartment_id;
+                $in->building_id = $m->building_id;
+                $in->user_id = $m->user->id;
+                $in->subject = $r->post('subject');
+                $in->body = $r->post('body');
+                $in->sender = $u->type;
+                $in->starred = false;
+                $in->unread = true;
+                $in->save();
+
+                return ['message' => 'OK'];
+            }
+            else {
+                return ['message' => 'error'];
+            }
+
+        } else {
+
+            return ['message' => 'error'];
         }
     }
 
