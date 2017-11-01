@@ -1,0 +1,63 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+
+        <div *ngIf="route != '/building-info' && route != '/laundry' && route != '/maintenance'&& route != '/broadcast' && route != '/inquiries'">            
+	<ul class="list-group list-group-flush">
+
+        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <div class="container"><div class ="row"><span class ="col-2"><i class="fa fa-dashboard"></i></span><span class = "col-10">&nbsp;Dashboard</span></div></div>
+        </a>
+        <div *ngIf="userType==='landlord'">
+        <a routerLink="/building" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <div class="container"><div class ="row"><span class ="col-2"><i class="fa fa-building"></i></span><span class = "col-10">&nbsp;Buildings</span></div></div>
+        </a>
+        </div>
+        <div *ngIf="userType==='tenet'">
+        <a routerLink="/apartment" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <div class="container"><div class ="row"><span class ="col-2"><i class="mdi mdi-home"></i></span><span class = "col-10">&nbsp;Apartments</span></div></div>        </a>
+        </div>
+        <a [routerLink]="['/help']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <div class="container"><div class ="row"><span class ="col-2"><i class="fa fa-question"></i></span><span class = "col-10">&nbsp;Help</span></div></div>
+        </a>
+        <a [routerLink]="['/blog']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <div class="container"><div class ="row"><span class ="col-2"><i class="fa fa-rss"></i></span><span class = "col-10">&nbsp;Blog</span></div></div>
+        </a>
+
+    </ul>
+   </div>
+
+    <div *ngIf="route === '/building-info' || route=== '/laundry'|| route=== '/maintenance'|| route=== '/broadcast'|| route=== '/inquiries'">
+	<ul class="list-group">
+        <div *ngIf="userType==='landlord'">   
+        <a [routerLink]="['/building-info']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+              <div class="container"><div class ="row"><span class ="col-2"><i class="fa fa-building"></i></span><span class = "col-10">&nbsp;Building Home</span></div></div>
+            </a>
+        </div>
+            <a [routerLink]="['/laundry']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <div class="container"><div class ="row"><span class ="col-2"><i class="mdi mdi-washing-machine"></i></span><span class = "col-10">&nbsp;Laundry</span></div></div>
+            </a>
+            <a [routerLink]="['/maintenance']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <div class="container"><div class ="row"><span class ="col-2"><i class="fa fa-wrench"></i></span><span class = "col-10">&nbsp;Maintenance</span></div></div>
+            </a>
+            <a [routerLink]="['/inquiries']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <div class="container"><div class ="row"><span class ="col-2"><i class="fa fa-exclamation"></i></span><span class = "col-10">&nbsp;Inquiries</span></div></div>
+            </a>
+            <a [routerLink]="['/broadcast']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <div class="container"><div class ="row"><span class ="col-2"><i class="fa fa-users"></i></span><span class = "col-10">&nbsp;Broadcast</span></div></div>
+            </a>
+   
+    </ul>
+    </div>
+
+    <ul class="olF list-group" ngbDropdown>
+                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                       <div class="container"><div class ="row"><span class ="col-2"><i class="fa fa-user"></i></span><span class = "col-10"><span class="unm">{{ user.username }} <i class="fa fa-caret-down"></i></span></span></div></div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-fw fa-gear"></i> {{
+                            'Settings' | translate }}</a>
+                        <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()"><i
+                            class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }} </a>
+                    </div>
+    </ul>
+</nav>

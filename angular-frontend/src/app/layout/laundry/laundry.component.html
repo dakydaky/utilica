@@ -1,0 +1,19 @@
+<div [@routerTransition]>
+    <div class="alert alert-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-10">
+                <span class="title1"><i class="mdi mdi-washing-machine"></i>
+                <strong>Laundry</strong></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div *ngFor="let i of nextSevenDays">
+            <app-date [day]=i></app-date>
+        </div>
+
+    </div>

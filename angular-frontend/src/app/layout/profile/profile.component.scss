@@ -1,0 +1,93 @@
+.title1{
+  font-size: 1.4em;
+}
+
+
+.container{
+  width: 100%;
+}
+input.hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+#profile-image1 {
+  cursor: pointer;
+
+   width: 170px;
+  height: 170px;
+  border:5px solid #03b1ce ;
+  border-radius: 70%;
+  background-color: white;
+  
+}
+.pic{
+  margin-top: 50px;
+  padding-left: 20px;
+}
+
+ .bot-border{ border-bottom:1px #eee9e9 solid;  margin:5px 0  5px 0}	
+
+ .box-body {
+  border: 1px solid #999;
+  border-radius: 25px;
+  padding: 40px;
+  width: 520px;
+ }
+
+ .color1{
+   margin-top: 10px;
+   color: #999;
+ }
+ .cow {
+   margin-bottom: 20px;
+ }
+ .row.cow{
+   padding-top: 30px;
+   border: 1px solid white;
+   border-radius: 25px;
+   background-size:cover;
+   background-image: url('../../../assets/images/buildingbg.png');
+   background-size: 100% auto;
+ }
+ 
+
+//  https://cdn.pixabay.com/photo/2016/08/02/17/58/silhouette-1564343_960_720.png
+
+ .caption{
+  margin-top: 80px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-right: 20px;
+  border-radius: 30px;
+  background-color: rgba(255,255,255, 0.9)
+ }
+ .color2{
+   color: #03b1ce;
+ }
+ .btn-secondary:hover
+ {
+   background: red ;
+   color: #999;
+   box-shadow: 0px 0px 8px 
+ }
+ 
+ button.btn.btn-secondary.col-2{
+   margin-top: 15px;
+   background: white;
+   color: #999;
+   padding-left:10px;
+   padding-right:10px;
+   border: 1.5px solid #03b1ce;
+   font-weight: bold;
+ }
+ .butt{
+   padding-right: 7.5px;
+ }
+ .form-group.row{
+
+  margin-top: 16px;
+ }
+ 
+
+ 

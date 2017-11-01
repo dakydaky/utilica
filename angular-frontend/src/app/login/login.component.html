@@ -1,0 +1,88 @@
+<!--<div class="login-page" [@routerTransition]>-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-4 push-md-4">-->
+            <!--<img src="assets/images/logo.png" width="150px" class="user-avatar" />-->
+            <!--<h1>SB Admin BS4 Angular4</h1>-->
+
+            <!--<form #f="ngForm" (ngSubmit)="onLoggedin(f.value)">-->
+                <!--<div class="form-content">-->
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" id="email" name="email" ngModel class="form-control input-underline input-lg" placeholder="Email">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="password" id="password" ngModel name="password" class="form-control input-underline input-lg" placeholder="Password">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<button type="submit" class="btn rounded-btn"> Log in </button>-->
+                <!--&nbsp;-->
+                <!--<a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
+
+<div class="login-page" [@routerTransition]>
+    <div class="da1 row background">
+        <div class="tabL col-md-8">
+            <div class ="container-fluid">
+                <div class="heart pull-left">
+                    <img src="assets/images/logo.png" width="170px" class="user-avatar" />
+                    <h1>Welcome to Utilica</h1>
+
+                    <form #f="ngForm" (ngSubmit)="onLoggedin(f.value)">
+                        <div class="form-content">
+                            <div class="form-group">
+                                <input type="text" id="email" name="email" ngModel class="form-control input-underline input-lg" placeholder="Email">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" id="password" ngModel name="password" class="form-control input-underline input-lg" placeholder="Password">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn rounded-btn"> Log in </button>
+                        &nbsp;
+                        <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="tabR col-md-4">
+            <!-- <div class="con">
+            <button type="button" class="btn btn-default">ABOUT</button>
+            </div> -->
+
+       
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let slider of sliders">
+                    <img class="restrict img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
+                    <div class="carousel-caption">
+                        <h3>{{slider.label}}</h3>
+                        <p>{{slider.text}}</p>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+
+
+            <div class="textbox">
+                <p><span class="first-word">Utilica</span> is a centralized system that provides both the landlords and tenants easy access to different <br> utilities and information regarding their living space.</p>
+                <ul>
+                        <li class="tick">&nbsp;&nbsp;Lightweight, easy to use</li>
+                        <li class="tick">&nbsp;&nbsp;Quick registration</li>
+                        <li class="tick">&nbsp;&nbsp;Easy administration</li>
+                        <li class="tick">&nbsp;&nbsp;Easy access to information</li>
+                        <li class="tick">&nbsp;&nbsp;Mobile version</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>

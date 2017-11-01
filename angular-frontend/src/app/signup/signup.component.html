@@ -1,0 +1,144 @@
+<!--<div class="login-page" [@routerTransition]>-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-4 push-md-4">-->
+            <!--<img class="user-avatar" src="assets/images/logo.png" width="150px" />-->
+            <!--<h1>Register</h1>-->
+            <!--<form role="form" #f="ngForm" (ngSubmit)="registar(f.value)" >-->
+                <!--<div class="form-content">-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" name="username" ngModel class="form-control input-underline input-lg" id="" placeholder="username">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" name="email" ngModel class="form-control input-underline input-lg" id="" placeholder="Email">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="password" name="password" ngModel class="form-control input-underline input-lg" id="" placeholder="Password">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<input type="password" name="repassword" ngModel class="form-control input-underline input-lg" id="" placeholder="Repeat Password">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" ngModel name="firstName" class="form-control input-underline input-lg" id="" placeholder="firstname">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" ngModel name="lastName" class="form-control input-underline input-lg" id="" placeholder="lastname">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" ngModel name="personalNumber" class="form-control input-underline input-lg" id="" placeholder="personal number">-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<select name="type" ngModel id="">-->
+                            <!--<option value="tenet">Tenet</option>-->
+                            <!--<option value="landlord">Landlord</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<button type="submit" class="btn rounded-btn"> Register </button>-->
+                <!--<a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
+<div class="login-page" [@routerTransition]>
+
+
+    <div class="da1 row background">
+        <div class="col-sm-4"></div>
+        <div class="tabL col-sm-4">
+            <div class ="container-fluid">
+                <div class="pull-left">
+                    <img class="user-avatar" src="assets/images/logo.png" width="200px" />
+                    <h1>Create a new account</h1>
+                    
+                    
+                    <form role="form" #f="ngForm" (ngSubmit)="registar(f.value)" >
+                        
+
+                        <div class="form-content">
+                            <div class="both">
+                                <h5>You are the:</h5> &nbsp;&nbsp;
+                            
+
+                                 <div class="form-group" class="d-inline-block"> 
+                                             
+                                        <select class="btn btn-primary outline" name="type" ngModel id=""> 
+                                            <option class="opt1" value="tenet">Tenant</option>
+                                            <option class="opt2" value="landlord">Landlord</option>
+                                         </select>
+                                    </div> 
+
+                             </div>       
+                                        
+                                       <!--    <div ngbDropdown class="d-inline-block">
+                                            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle ngModel id="HI">{{id}}</button>
+                                            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                              <button class="dropdown-item">Tenant</button>
+                                              <button class="dropdown-item">Landlord</button>
+                                              
+                                            </div>
+                                            </div>
+                                          -->
+                                        
+
+
+
+
+
+
+                            <div class="godown">
+
+
+                            <div class="form-group">
+                                    <input type="text" ngModel name="firstName" class="form-control input-underline input-lg cat" id="" placeholder="First Name">
+                                </div>
+    
+                            <div class="form-group">
+                                    <input type="text" ngModel name="lastName" class="form-control input-underline input-lg" id="" placeholder="Last Name">
+                            </div>
+
+                            <div class="form-group">
+                                    <input type="text" ngModel name="personalNumber" class="form-control input-underline input-lg" id="" placeholder="Personal Number">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="username" ngModel class="form-control input-underline input-lg" id="" placeholder="Username">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="email" ngModel class="form-control input-underline input-lg" id="" placeholder="Email">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" name="password" ngModel class="form-control input-underline input-lg" id="" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="repassword" ngModel class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+                            </div>
+
+                            
+
+                            
+                        </div>
+                        <button type="submit" class="btn rounded-btn"> Register </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-4">
+
+        </div>
+    </div>
+</div>

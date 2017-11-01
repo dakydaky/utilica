@@ -1,0 +1,48 @@
+<div class="clearfix mb-xs">
+  <a class="btn btn-default btn-sm width-50 pull-xs-left" id="back-btn" (click)="onToBack()">
+    <i class="fa fa-angle-left fa-lg"></i>
+  </a>
+</div>
+<section class="widget widget-email">
+  <header>
+    <h4>{{mail.subject}}</h4>
+  </header>
+  <div class="widget-body">
+    <div id="email-view" class="email-view">
+      <div class="email-details clearfix">
+        <div class="email-details-content">
+          <div class="pull-xs-left">
+            <strong>Sender: {{mail.sender}}</strong>
+            <span *ngIf="mail.senderMail" class="email">&lt;{{mail.senderMail}}&gt;</span>
+            <!--<span class="receiver">to Name of the user</span>-->
+          </div>
+          <div class="email-actions pull-xs-right">
+            <div class="btn-group">
+              <button id="email-opened-reply" class="btn btn-sm btn-gray" (click)="goToReply(mail)">
+                <i class="fa fa-reply"></i> Reply
+              </button>
+              <button class="btn btn-sm btn-gray dropdown-toggle" data-toggle="dropdown"></button>
+              <ul class="dropdown-menu pull-xs-right">
+                <li><a class="dropdown-item" href="#"><i class="fa fa-reply reply-btn"></i> Reply</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fa fa-arrow-right reply-btn"></i> Forward</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fa fa-print"></i> Print</a></li>
+                <li class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#"><i class="fa fa-ban"></i> Spam</a></li>
+                <li><a class="dropdown-item" href="#"><i class="glyphicon glyphicon-trash"></i> Delete</a></li>
+              </ul>
+            </div>
+          </div>
+          <time class="email-date pull-xs-right">
+            0:30
+          </time>
+        </div>
+      </div>
+      <div class="email-body">
+        <div class="email-body" [innerHTML]="mail.body"></div>
+      </div>
+      <div *ngIf="!mail.body" class="email-body">
+        {{mail.subject}}
+      </div>
+    </div>
+  </div>
+</section>

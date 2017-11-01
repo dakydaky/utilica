@@ -1,0 +1,15 @@
+<div class="row addMargin">
+    <div class="col-sm-2">
+        <div class="card card-info card-2 dateHeight">
+            <div ng-app="" class="card-block">
+                <h4 class="text-center card-title">{{ counter | date }} </h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-10">
+
+        <app-modal (change)="getAppoimnets()" *ngIf="startRendering" [appoitmentsArray]=appoitments [date]=counter></app-modal>
+
+    </div>
+
+</div>

@@ -1,0 +1,80 @@
+<div>
+    <h2 class="text-muted" *ngIf="building != null"> {{ building.buildingName }}</h2>
+    <hr>
+    <div class="row">
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'card-primary'" [icon]="'mdi mdi-washing-machine'" [count]="26"
+                      [label]="'Reservations this week!'" [routerLink]="'/laundry'"></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'card-info'" [icon]="'fa-wrench'" [count]="12" [label]="'New reports!'"
+                      [routerLink]="'/maintenance'"></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'card-success'" [icon]="'fa-exclamation'" [count]="124" [label]="'New Inquiries!'"
+                      [routerLink]="'/inquiries'"></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [buildingId]="building_id" [bgClass]="'card-danger'" [icon]="'fa-users'" [count]="13"
+                      [label]="'Broadcasts sent!'" [routerLink]="'/broadcast'"></app-stat>
+        </div>
+    </div>
+
+    <!-- Control if the user is landlord or tenant -->
+    <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}
+    </ngb-alert>
+    <hr/>
+    <div class="row">
+        <div class="col-lg-12 card">
+            <div class="card-header">
+                Apartments
+                <div class="row offset-lg-8 float-right">
+                    <button type="button" (click)="open(content)" class="btn btn-primary btn-success navbar-btn"
+                            data-toggle="modal" data-target="#addApartment"><i class="fa fa-plus"></i>&nbsp;Add
+                        Apartment
+                    </button>
+                </div>
+            </div>
+            <div class="card-block table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th>Room</th>
+                        <th>Tenant</th>
+                        <th>Pass key</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let apartement of apartments">
+                        <td class="aya">
+                            <app-inline-edit (event)="getApartments()" [apart]="apartement" [required]="true" type="text"></app-inline-edit>
+                        </td>
+                        <td class="col-4" *ngIf=" apartement.user != null ">{{ apartement.user.firstName + " " +
+                            apartement.user.lastName }}
+                        </td>
+                        <td class="col-4" *ngIf=" apartement.user == null "> It's free.</td>
+                        <td class="col-4" *ngIf=" apartement.user != null">taken</td>
+                        <td class="col-4" *ngIf=" apartement.user == null ">{{ apartement.passKey }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+        <!--<div class="col-lg-4">-->
+        <!--<div class="card card-default">-->
+        <!--<div class="card-header">-->
+        <!--<i class="fa fa-bell fa-fw"></i> Notifications-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.card-header &ndash;&gt;-->
+        <!--<app-notification></app-notification>-->
+        <!--&lt;!&ndash; /.card-body &ndash;&gt;-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.card &ndash;&gt;-->
+
+        <!--</div>-->
+
+    </div>
+</div>
