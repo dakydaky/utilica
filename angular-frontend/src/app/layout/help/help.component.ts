@@ -8,9 +8,14 @@ import {routerTransition} from '../../router.animations';
     animations: [routerTransition()]    
 })
 export class HelpComponent implements OnInit {
+    userType:string;
+    user;
     constructor() {
     }
 
     ngOnInit() {
+        const data = JSON.parse(localStorage.getItem('user'));
+        this.userType = data.type;
+        this.user = JSON.parse(localStorage.getItem('user')); 
     }
 }
