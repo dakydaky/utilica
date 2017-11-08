@@ -27,6 +27,33 @@ class BuildingApi extends Controller
         }
     }
 
+    public function getBuildingAddress(Request $r)
+    {   
+        $jwt = $r->get('jwt');
+        $u = App\User::where('jwt', $jwt)->first();
+        if($u != null) {
+            $data = array();
+            $b = $u->buildings;
+            foreach ($b as $el)
+            {   
+                $o = new \stdClass;
+                $o->id = $el->id;              
+                $address = $el->street.' '.$el->streetNo.' '.$el->city;
+                $o->address = $el->street.'+'.$el->streetNo.'+'.$el->city;
+                $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".$address."&key=AIzaSyA2_TK1z8w4BnTk2c1n7kWQIEgHgZ9vWU0";
+                $response = file_get_contents($url);
+                $jsonData = json_decode(file_get_contents($url));
+                $o->API = $jsonData;
+                array_push($data, $o);             
+            }
+            return json_encode($data);
+        }
+        else
+        {
+            return [ 'message' => 'error'];
+        }
+    }
+
     public function getBuilding(Request $r) {
         $jwt = $r->get('jwt');
         $u = App\User::where('jwt', $jwt)->first();

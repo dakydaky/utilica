@@ -2,7 +2,7 @@
 Project for DVA231.
 ## Getting Started
 ### Prerequisites:
-You need to install: npm, angular-cli and composer. 
+You need to install: npm, angular-cli and composer. \n
 Go to laravel-backend and type:
 ```
 composer update
